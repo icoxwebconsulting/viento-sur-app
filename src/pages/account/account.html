@@ -1,0 +1,77 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="no-shadow">
+
+  <ion-navbar class="no-border" color="blue">
+    <ion-title>Account</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class=" common-bg">
+  <!--top information-->
+  <div class="top-info" padding>
+    <div class="border-bottom" padding-top padding-bottom>
+      <h5 ion-text color="white">Duy Thanh Dao</h5>
+      <span ion-text color="white">successdt@hotmail.com</span>
+    </div>
+    <ion-grid no-padding>
+      <ion-row>
+        <ion-col>
+          <span ion-text color="white">Available points</span>
+          <br/>
+          <span ion-text color="white" class="text-2x">0</span>
+        </ion-col>
+        <ion-col>
+          <span ion-text color="white">Country</span>
+          <br/>
+          <span ion-text color="white" class="text-2x">VIETNAM</span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <!--user settings-->
+  <div padding>
+    <span class="bold" ion-text color="dark">App Settings</span>
+    <div class="card round" padding>
+      <span class="bold">Country</span>
+      <br/>
+      <span>Vietnam</span>
+    </div>
+
+    <span class="bold" ion-text color="dark">Support</span>
+    <ion-list class="card round list-full-border">
+      <ion-item>
+        <span>Booking support</span>
+      </ion-item>
+      <ion-item>
+        <span>App support</span>
+      </ion-item>
+    </ion-list>
+
+    <span class="bold" ion-text color="dark">Legal information</span>
+    <ion-list class="card round list-full-border">
+      <ion-item>
+        <span>Clear Private Data</span>
+      </ion-item>
+      <ion-item>
+        <span>Term and Conditions</span>
+      </ion-item>
+      <ion-item>
+        <span>Privacy Policy</span>
+      </ion-item>
+      <ion-item>
+        <span>Open Source Software Licenses</span>
+      </ion-item>
+    </ion-list>
+
+    <!--sign out button-->
+    <button ion-button class="round" color="orange" full (click)="logout()">SIGN OUT</button>
+  </div>
+</ion-content>
