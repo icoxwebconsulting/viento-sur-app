@@ -1,9 +1,12 @@
 import {NgModule} from "@angular/core";
-import {IonicApp, IonicModule} from "ionic-angular";
-import {MyApp} from "./app.component";
 import {BrowserModule} from '@angular/platform-browser';
+import {HttpModule} from '@angular/http';
+import {IonicApp, IonicModule} from "ionic-angular";
+
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
+
+import {MyApp} from "./app.component";
 import {HotelService} from "../services/hotel-service";
 import {PlaceService} from "../services/place-service";
 import {ActivityService} from "../services/activity-service";
@@ -37,6 +40,7 @@ import {TabReviewsPage} from "../pages/tab-reviews/tab-reviews";
 import {TabsPage} from "../pages/tabs/tabs";
 import {TripDetailPage} from "../pages/trip-detail/trip-detail";
 import {TripsPage} from "../pages/trips/trips";
+import {AutocompleteService} from '../services/autocomplete-service';
 
 // import services
 // end import services
@@ -46,84 +50,86 @@ import {TripsPage} from "../pages/trips/trips";
 // end import pages
 
 @NgModule({
-  declarations: [
-    MyApp,
-    AboutPage,
-    AccountPage,
-    CarDetailPage,
-    CarsPage,
-    CheckoutCarPage,
-    CheckoutFlightPage,
-    CheckoutHotelPage,
-    CheckoutTripPage,
-    ContactPage,
-    FilterDatePage,
-    FilterGuestPage,
-    FlightsPage,
-    HomePage,
-    HotelPage,
-    HotelDetailPage,
-    LoginPage,
-    RegisterPage,
-    ReviewsPage,
-    SearchCarsPage,
-    SearchFlightPage,
-    SearchHotelPage,
-    SearchLocationPage,
-    SearchTripsPage,
-    TabReviewsPage,
-    TabsPage,
-    TripDetailPage,
-    TripsPage
-  ],
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(MyApp)
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    AboutPage,
-    AccountPage,
-    CarDetailPage,
-    CarsPage,
-    CheckoutCarPage,
-    CheckoutFlightPage,
-    CheckoutHotelPage,
-    CheckoutTripPage,
-    ContactPage,
-    FilterDatePage,
-    FilterGuestPage,
-    FlightsPage,
-    HomePage,
-    HotelPage,
-    HotelDetailPage,
-    LoginPage,
-    RegisterPage,
-    ReviewsPage,
-    SearchCarsPage,
-    SearchFlightPage,
-    SearchHotelPage,
-    SearchLocationPage,
-    SearchTripsPage,
-    TabReviewsPage,
-    TabsPage,
-    TripDetailPage,
-    TripsPage
-  ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    HotelService,
-    PlaceService,
-    ActivityService,
-    FlightService,
-    CarService,
-    TripService,
-    CarService,
-    TripService
-    /* import services */
-  ]
+    declarations: [
+        MyApp,
+        AboutPage,
+        AccountPage,
+        CarDetailPage,
+        CarsPage,
+        CheckoutCarPage,
+        CheckoutFlightPage,
+        CheckoutHotelPage,
+        CheckoutTripPage,
+        ContactPage,
+        FilterDatePage,
+        FilterGuestPage,
+        FlightsPage,
+        HomePage,
+        HotelPage,
+        HotelDetailPage,
+        LoginPage,
+        RegisterPage,
+        ReviewsPage,
+        SearchCarsPage,
+        SearchFlightPage,
+        SearchHotelPage,
+        SearchLocationPage,
+        SearchTripsPage,
+        TabReviewsPage,
+        TabsPage,
+        TripDetailPage,
+        TripsPage
+    ],
+    imports: [
+        BrowserModule,
+        HttpModule,
+        IonicModule.forRoot(MyApp)
+    ],
+    bootstrap: [IonicApp],
+    entryComponents: [
+        MyApp,
+        AboutPage,
+        AccountPage,
+        CarDetailPage,
+        CarsPage,
+        CheckoutCarPage,
+        CheckoutFlightPage,
+        CheckoutHotelPage,
+        CheckoutTripPage,
+        ContactPage,
+        FilterDatePage,
+        FilterGuestPage,
+        FlightsPage,
+        HomePage,
+        HotelPage,
+        HotelDetailPage,
+        LoginPage,
+        RegisterPage,
+        ReviewsPage,
+        SearchCarsPage,
+        SearchFlightPage,
+        SearchHotelPage,
+        SearchLocationPage,
+        SearchTripsPage,
+        TabReviewsPage,
+        TabsPage,
+        TripDetailPage,
+        TripsPage
+    ],
+    providers: [
+        StatusBar,
+        SplashScreen,
+        HotelService,
+        PlaceService,
+        ActivityService,
+        FlightService,
+        CarService,
+        TripService,
+        CarService,
+        TripService,
+        AutocompleteService
+        /* import services */
+    ]
 })
 export class AppModule {
 }

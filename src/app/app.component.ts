@@ -3,6 +3,7 @@ import {Platform} from "ionic-angular";
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {LoginPage} from "../pages/login/login";
+import {SearchHotelPage} from  '../pages/search-hotel/search-hotel';
 
 // import pages
 // end import pages
@@ -20,7 +21,7 @@ export class MyApp {
   public nav: any;
 
   constructor(public platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-    this.rootPage = LoginPage;
+    this.rootPage = SearchHotelPage;
 
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
