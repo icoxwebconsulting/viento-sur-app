@@ -3,7 +3,7 @@ import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
-import {GLOBAL} from './global';
+import {GLOBAL} from '../providers/config';
 
 @Injectable()
 export class AutocompleteService {

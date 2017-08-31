@@ -2,6 +2,7 @@ import {NgModule} from "@angular/core";
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpModule} from '@angular/http';
 import {IonicApp, IonicModule} from "ionic-angular";
+import { IonicStorageModule } from '@ionic/storage';
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
@@ -41,6 +42,7 @@ import {TabsPage} from "../pages/tabs/tabs";
 import {TripDetailPage} from "../pages/trip-detail/trip-detail";
 import {TripsPage} from "../pages/trips/trips";
 import {AutocompleteService} from '../services/autocomplete-service';
+import {ParamsHotelService} from '../providers/params-hotel.service'
 
 // import services
 // end import services
@@ -83,7 +85,8 @@ import {AutocompleteService} from '../services/autocomplete-service';
     imports: [
         BrowserModule,
         HttpModule,
-        IonicModule.forRoot(MyApp)
+        IonicModule.forRoot(MyApp),
+        IonicStorageModule.forRoot()
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -127,7 +130,8 @@ import {AutocompleteService} from '../services/autocomplete-service';
         TripService,
         CarService,
         TripService,
-        AutocompleteService
+        AutocompleteService,
+        ParamsHotelService
         /* import services */
     ]
 })

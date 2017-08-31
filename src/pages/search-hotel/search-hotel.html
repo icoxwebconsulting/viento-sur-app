@@ -29,11 +29,21 @@
         </ion-list>
         <ion-item>
             <ion-icon name="md-calendar" item-left></ion-icon>
-            <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" [(ngModel)]="search.from"></ion-datetime>
+            <ion-datetime displayFormat="YYYY-MM-DD"
+                          pickerFormat="YYYY-MM-DD"
+                          [(ngModel)]="search.from"
+                          min="{{search.from}}" max="{{maxDate}}"
+                          (ngModelChange)="changeFromDate(search.from)"
+            ></ion-datetime>
         </ion-item>
         <ion-item>
             <ion-icon name="md-calendar" item-left></ion-icon>
-            <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" [(ngModel)]="search.to"></ion-datetime>
+            <ion-datetime displayFormat="YYYY-MM-DD"
+                          pickerFormat="YYYY-MM-DD"
+                          [(ngModel)]="search.to"
+                          min="{{minDate}}" max="{{maxDate}}"
+                          (ngModelChange)="changeToDate(search.to)"
+            ></ion-datetime>
         </ion-item>
         <ion-item (click)="chooseGuest()">
             <ion-icon name="md-people" item-left></ion-icon>
