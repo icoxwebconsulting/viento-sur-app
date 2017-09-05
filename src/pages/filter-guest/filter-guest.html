@@ -6,40 +6,54 @@
 -->
 <ion-header>
 
-  <ion-navbar color="primary">
-    <ion-title>Guests</ion-title>
-  </ion-navbar>
+    <ion-navbar color="primary">
+        <ion-title>Habitación</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding class="filter-guest">
-  <ion-grid class="filters">
-    <ion-row>
-      <ion-col width-25>
-        <ion-icon name="ios-remove-circle-outline" (click)="minusAdult()" [hidden]="adults < 2"></ion-icon>
-      </ion-col>
-      <ion-col class="adult" col-6 text-center>{{ adults }} Adults</ion-col>
-      <ion-col width-25 text-right>
-        <ion-icon name="ios-add-circle-outline" (click)="plusAdult()"></ion-icon>
-      </ion-col>
-    </ion-row>
-    <ion-row margin-top>
-      <ion-col width-25>
-        <ion-icon name="ios-remove-circle-outline" (click)="minusChildren()" [hidden]="children < 1"></ion-icon>
-      </ion-col>
-      <ion-col col-6 text-center>
-        <div>{{ children }} Children</div>
-        <div class="text-sm">(0-17 years old)</div>
-      </ion-col>
-      <ion-col width-25 text-right>
-        <ion-icon name="ios-add-circle-outline" (click)="plusChildren()"></ion-icon>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <h3> Habitación #{{room.room}}</h3>
+    <ion-grid class="filters">
+        <ion-row>
+            <ion-col width-25>
+                <ion-icon name="ios-remove-circle-outline" (click)="minusAdult()" [hidden]="room.adults < 2"></ion-icon>
+            </ion-col>
+            <ion-col class="adult" col-6 text-center>{{ room.adults }} Adultos</ion-col>
+            <ion-col width-25 text-right>
+                <ion-icon name="ios-add-circle-outline" (click)="plusAdult()"></ion-icon>
+            </ion-col>
+        </ion-row>
+        <ion-row margin-top>
+            <ion-col width-25>
+                <ion-icon name="ios-remove-circle-outline" (click)="minusChildren()"
+                          [hidden]="room.children < 1"></ion-icon>
+            </ion-col>
+            <ion-col col-6 text-center>
+                <div>{{ room.children }} Niños / Bebes</div>
+                <div class="text-sm">(0-17 años)</div>
+            </ion-col>
+            <ion-col width-25 text-right>
+                <ion-icon name="ios-add-circle-outline" (click)="plusChildren()" [hidden]="room.children > 6"></ion-icon>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-list class="list-no-border">
+        <!--<ion-item-divider color="light" [hidden]="minors.length < 1">Menores</ion-item-divider>-->
+
+        <ion-item *ngFor="let minor of minors; let i = index" text-center>
+            <ion-icon name="ios-remove-circle-outline" (click)="minusAge(minor)" item-start [hidden]="minor.age < 1"></ion-icon>
+            <span>Menor {{i + 1}} - Edad {{ minor.age }} </span>
+            <ion-icon name="ios-add-circle-outline" (click)="plusAge(minor)" item-end [hidden]="minor.age > 16"></ion-icon>
+        </ion-item>
+
+    </ion-list>
+
 </ion-content>
 
 <ion-footer>
-  <!-- submit button -->
-  <button ion-button class="no-round" block no-margin color="primary" (click)="setGuests()">Done</button>
+    <!-- submit button -->
+    <button ion-button class="no-round" block no-margin color="primary" (click)="setGuests()">Listo</button>
 </ion-footer>

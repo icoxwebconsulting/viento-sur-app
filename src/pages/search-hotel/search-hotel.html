@@ -1,13 +1,7 @@
-<!--
-  Generated template for the ProfilePage page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
     <ion-navbar color="primary">
-        <ion-title>Hotels</ion-title>
+        <ion-title>Hoteles</ion-title>
     </ion-navbar>
 
 </ion-header>
@@ -15,12 +9,20 @@
 
 <ion-content padding class="search-hotel common-bg">
     <ion-list class="list-no-border">
-        <!--<ion-item (click)="choosePlace()">-->
-        <!--<ion-icon name="search" item-left></ion-icon>-->
-        <!--<span>{{ search.name }}</span>-->
-        <!--</ion-item>-->
+
         <ion-item>
-            <ion-input [(ngModel)]="destination" (ngModelChange)="autocomplete(destination)" placeholder="Enter Destination" padding-left autofocus></ion-input>
+            <!--<ion-input [(ngModel)]="querySearch"
+                       (ngModelChange)="autocomplete(querySearch)"
+                       placeholder="Buscar Destino"
+                       padding-left autofocus>
+            </ion-input>-->
+            <ion-searchbar
+                    [(ngModel)]="querySearch"
+                    (ngModelChange)="autocomplete(querySearch)"
+                    [showCancelButton]="shouldShowCancel"
+                    (ionInput)="onSearchInput($event)"
+                    placeholder="Buscar Destino">
+            </ion-searchbar>
         </ion-item>
         <ion-list no-lines>
             <button ion-item *ngFor="let item of items" (click)="itemSelected(item.id, item.description)">
@@ -45,14 +47,42 @@
                           (ngModelChange)="changeToDate(search.to)"
             ></ion-datetime>
         </ion-item>
-        <ion-item (click)="chooseGuest()">
-            <ion-icon name="md-people" item-left></ion-icon>
-            <span>Habitacion 1 - Huéspedes {{ search.persons }} </span>
+
+        <button ion-button
+                class="no-round add-room"
+                block no-margin
+                color="primary"
+                (click)="addRoom()"
+                [hidden]="roomsArray.length > 3"
+        >
+            Nueva Habitación
+        </button>
+
+        <ion-item-sliding *ngFor="let room of roomsArray; let i = index" >
+            <ion-item (click)="goRoom(room.room)">
+                <ion-icon name="md-people" item-left></ion-icon>
+                <span>Habitacion {{room.room}} - Huéspedes {{ room.persons }} </span>
+            </ion-item>
+
+            <ion-item-options side="right" [hidden]="room.room < 2">
+                <button ion-button color="danger">
+                    <ion-icon ios="ios-trash" md="md-trash" (click)="removeRoom(room.room)"></ion-icon>
+                    Borrar
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+
+        <ion-item>
+            <ion-label>Moneda</ion-label>
+            <ion-select [(ngModel)]="currency">
+                <ion-option value="ARS">ARS</ion-option>
+                <ion-option value="USD">USD</ion-option>
+            </ion-select>
         </ion-item>
     </ion-list>
 </ion-content>
 
 <ion-footer>
     <!-- search button -->
-    <button ion-button class="no-round" block no-margin color="primary" (click)="doSearch()">Search</button>
+    <button ion-button class="no-round" block no-margin color="primary" (click)="doSearch()">Buscar</button>
 </ion-footer>

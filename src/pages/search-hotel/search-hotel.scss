@@ -4,12 +4,30 @@ page-search-hotel,
   ion-list {
     background: none;
 
+    ion-item-sliding {
+      background: none;
+    }
+    ion-item-options{
+      height: 75%;
+    }
+
+
+
     ion-item {
       margin-bottom: 1.6rem;
 
       ion-datetime {
         padding-left: 0;
       }
+
+      ion-label{
+        color: #000000!important;
+      }
     }
+  }
+
+  .add-room{
+    margin-bottom: 15px;
+    margin-top: 15px;
   }
 }

@@ -41,8 +41,10 @@ import {TabReviewsPage} from "../pages/tab-reviews/tab-reviews";
 import {TabsPage} from "../pages/tabs/tabs";
 import {TripDetailPage} from "../pages/trip-detail/trip-detail";
 import {TripsPage} from "../pages/trips/trips";
+import {WelcomePage} from '../pages/welcome/welcome';
 import {AutocompleteService} from '../services/autocomplete-service';
-import {ParamsHotelService} from '../providers/params-hotel.service'
+import {DataSearchHotelService} from '../providers/data-search-hotel.service'
+import {SearchHotelService} from '../services/search-hotel.service';
 
 // import services
 // end import services
@@ -80,7 +82,8 @@ import {ParamsHotelService} from '../providers/params-hotel.service'
         TabReviewsPage,
         TabsPage,
         TripDetailPage,
-        TripsPage
+        TripsPage,
+        WelcomePage
     ],
     imports: [
         BrowserModule,
@@ -117,7 +120,8 @@ import {ParamsHotelService} from '../providers/params-hotel.service'
         TabReviewsPage,
         TabsPage,
         TripDetailPage,
-        TripsPage
+        TripsPage,
+        WelcomePage
     ],
     providers: [
         StatusBar,
@@ -131,7 +135,8 @@ import {ParamsHotelService} from '../providers/params-hotel.service'
         CarService,
         TripService,
         AutocompleteService,
-        ParamsHotelService
+        DataSearchHotelService,
+        SearchHotelService
         /* import services */
     ]
 })

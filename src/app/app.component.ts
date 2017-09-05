@@ -5,6 +5,7 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 import {LoginPage} from "../pages/login/login";
 import {HomePage} from "../pages/home/home";
 import {SearchHotelPage} from  '../pages/search-hotel/search-hotel';
+import {WelcomePage} from  '../pages/welcome/welcome';
 
 // import pages
 // end import pages
@@ -22,7 +23,7 @@ export class MyApp {
   public nav: any;
 
   constructor(public platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-    this.rootPage = SearchHotelPage;
+    this.rootPage = WelcomePage;
 
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
