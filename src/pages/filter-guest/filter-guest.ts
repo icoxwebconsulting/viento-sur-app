@@ -31,7 +31,7 @@ export class FilterGuestPage {
 
     public age = 0;
 
-    constructor(public nav: NavController,
+    constructor(public navCtrl: NavController,
                 public navParams: NavParams,
                 private dataSearch: DataSearchHotelService) {
     }
@@ -88,7 +88,7 @@ export class FilterGuestPage {
 
     // go to search hotel page
     goToSearch() {
-        this.nav.pop();
+        this.navCtrl.pop();
     }
 
     initPage(roomNum) {
@@ -153,11 +153,18 @@ export class FilterGuestPage {
         this.dataSearch.setRooms(this.roomsArray);
 
 
-        this.nav.push(SearchHotelPage);
+        this.navCtrl.push(SearchHotelPage).then(() => {
+            const index = this.navCtrl.getActive().index;
+            this.navCtrl.remove(0, index);
+        })
     }
 
-    getRoom(id) {
-
+    navBack(){
+        this.navCtrl.push(SearchHotelPage)
+            .then(() => {
+                const index = this.navCtrl.getActive().index;
+                this.navCtrl.remove(0, index);
+            })
     }
 
 }

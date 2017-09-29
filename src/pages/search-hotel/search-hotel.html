@@ -1,7 +1,7 @@
 <ion-header>
 
-    <ion-navbar color="primary">
-        <ion-title>Hoteles</ion-title>
+    <ion-navbar color="primary" [hideBackButton]="true">
+        <ion-title>Buscar Hoteles</ion-title>
     </ion-navbar>
 
 </ion-header>
@@ -10,24 +10,30 @@
 <ion-content padding class="search-hotel common-bg">
     <ion-list class="list-no-border">
 
-        <ion-item>
-            <!--<ion-input [(ngModel)]="querySearch"
-                       (ngModelChange)="autocomplete(querySearch)"
-                       placeholder="Buscar Destino"
-                       padding-left autofocus>
-            </ion-input>-->
-            <ion-searchbar
-                    [(ngModel)]="querySearch"
-                    (ngModelChange)="autocomplete(querySearch)"
-                    [showCancelButton]="shouldShowCancel"
-                    (ionInput)="onSearchInput($event)"
-                    placeholder="Buscar Destino">
-            </ion-searchbar>
-        </ion-item>
+        <ion-searchbar
+            no-margin
+            no-padding
+            [(ngModel)]="querySearch"
+            (ngModelChange)="autocomplete(querySearch)"
+            [showCancelButton]="shouldShowCancel"
+            (ionInput)="onSearchInput($event)"
+            (ionInput)="onSearch()"
+            placeholder="Buscar Destino">
+        </ion-searchbar>
+
         <ion-list no-lines>
-            <button ion-item *ngFor="let item of items" (click)="itemSelected(item.id, item.description)">
-                {{ item.description }}
-            </button>
+
+            <ion-row *ngIf="searching">
+                <ion-col text-center="">
+                    <ion-spinner></ion-spinner>
+                </ion-col>
+            </ion-row>
+
+            <div *ngIf="querySearch?.length > 0">
+                <button ion-item *ngFor="let item of items" (click)="itemSelected(item.id, item.description)">
+                    {{ item.description }}
+                </button>
+            </div>
         </ion-list>
         <ion-item>
             <ion-icon name="md-calendar" item-left></ion-icon>
@@ -48,19 +54,13 @@
             ></ion-datetime>
         </ion-item>
 
-        <button ion-button
-                class="no-round add-room"
-                block no-margin
-                color="primary"
-                (click)="addRoom()"
-                [hidden]="roomsArray.length > 3"
-        >
+        <button ion-button class="no-round add-room" full color="primary" (click)="addRoom()" [hidden]="roomsArray.length > 3">
             Nueva Habitación
         </button>
 
         <ion-item-sliding *ngFor="let room of roomsArray; let i = index" >
             <ion-item (click)="goRoom(room.room)">
-                <ion-icon name="md-people" item-left></ion-icon>
+                <ion-icon name="people" item-left></ion-icon>
                 <span>Habitacion {{room.room}} - Huéspedes {{ room.persons }} </span>
             </ion-item>
 
@@ -83,6 +83,12 @@
 </ion-content>
 
 <ion-footer>
-    <!-- search button -->
-    <button ion-button class="no-round" block no-margin color="primary" (click)="doSearch()">Buscar</button>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-12>
+                <button ion-button class="no-round" block no-margin color="primary" (click)="doSearch()">Buscar</button>
+            </ion-col>
+
+        </ion-row>
+    </ion-grid>
 </ion-footer>

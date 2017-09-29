@@ -29,7 +29,7 @@ import {FlightsPage} from "../pages/flights/flights";
 import {HomePage} from "../pages/home/home";
 import {HotelPage} from "../pages/hotel/hotel";
 import {HotelDetailPage} from "../pages/hotel-detail/hotel-detail";
-import {LoginPage} from "../pages/login/login";
+// import {LoginPage} from "../pages/login/login";
 import {RegisterPage} from "../pages/register/register";
 import {ReviewsPage} from "../pages/reviews/reviews";
 import {SearchCarsPage} from "../pages/search-cars/search-cars";
@@ -45,6 +45,9 @@ import {WelcomePage} from '../pages/welcome/welcome';
 import {AutocompleteService} from '../services/autocomplete-service';
 import {DataSearchHotelService} from '../providers/data-search-hotel.service'
 import {SearchHotelService} from '../services/search-hotel.service';
+import {FilterHotelPage} from '../pages/filter-hotel/filter-hotel';
+import {SortingHotel} from "../pages/sorting-hotel/sorting-hotel";
+
 
 // import services
 // end import services
@@ -71,7 +74,7 @@ import {SearchHotelService} from '../services/search-hotel.service';
         HomePage,
         HotelPage,
         HotelDetailPage,
-        LoginPage,
+        // LoginPage,
         RegisterPage,
         ReviewsPage,
         SearchCarsPage,
@@ -83,7 +86,9 @@ import {SearchHotelService} from '../services/search-hotel.service';
         TabsPage,
         TripDetailPage,
         TripsPage,
-        WelcomePage
+        WelcomePage,
+        FilterHotelPage,
+        SortingHotel
     ],
     imports: [
         BrowserModule,
@@ -109,7 +114,7 @@ import {SearchHotelService} from '../services/search-hotel.service';
         HomePage,
         HotelPage,
         HotelDetailPage,
-        LoginPage,
+        // LoginPage,
         RegisterPage,
         ReviewsPage,
         SearchCarsPage,
@@ -121,7 +126,9 @@ import {SearchHotelService} from '../services/search-hotel.service';
         TabsPage,
         TripDetailPage,
         TripsPage,
-        WelcomePage
+        WelcomePage,
+        FilterHotelPage,
+        SortingHotel
     ],
     providers: [
         StatusBar,

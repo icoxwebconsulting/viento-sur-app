@@ -9,16 +9,26 @@ import {GLOBAL} from '../providers/config';
 export class SearchHotelService {
     public url: string;
 
-    constructor(public _http: Http) {
+    constructor(public http: Http) {
         this.url = GLOBAL.url
     }
 
     getHotels(query: string) {
         console.log('query', query);
 
-        return this._http.get(this.url + 'hotel/availabilities/?.json&'+ query)
+        return this.http.get(this.url + 'hotels/?.json&'+ query)
             .map(res => res.json())
             .toPromise();
+    }
+
+    getHotelsAvailabilities(query){
+        return this.http.get(this.url + 'hotel/availabilities/?.json&'+ query)
+            .map(res => res.json())
+            .toPromise();
+
+        /*return this.http.get('assets/hotel-availabilities.json')
+            .map(res => res.json())
+            .toPromise();*/
     }
 
 }

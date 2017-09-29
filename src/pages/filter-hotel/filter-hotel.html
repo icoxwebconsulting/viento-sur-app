@@ -1,0 +1,209 @@
+<!--
+  Generated template for the FilterHotelPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+
+    <ion-navbar color="primary" [hideBackButton]="true">
+        <ion-buttons left>
+            <button ion-button icon-only (click)="navBack()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+
+        <ion-title>Filtros</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="common-bg">
+
+    <!--<ion-item-group>
+        <ion-item-divider color="light">
+            Ordenar
+        </ion-item-divider>
+        <ion-list>
+            <ion-item>
+                <ion-label>Precio</ion-label>
+                <ion-select [(ngModel)]="sortingPrice" (ngModelChange)="getSorting($event, 'sortingPrice')"
+                            interface="popover">
+                    <ion-option value="best_selling_descending">Más elegidos</ion-option>
+                    <ion-option value="subtotal_price_ascending">Menor a Mayor</ion-option>
+                    <ion-option value="subtotal_price_descending">Mayor a Menor</ion-option>
+                </ion-select>
+            </ion-item>
+        </ion-list>
+
+        <ion-list>
+            <ion-item>
+                <ion-label>Estrellas</ion-label>
+                <ion-select [(ngModel)]="sortingStars" (ngModelChange)="getSorting($event, 'sortingStars')"
+                            interface="popover">
+                    <ion-option value="stars_ascending">Menor a Mayor</ion-option>
+                    <ion-option value="stars_descending">Mayor a Menor</ion-option>
+                </ion-select>
+            </ion-item>
+        </ion-list>
+
+        <ion-list>
+            <ion-item>
+                <ion-label>Mejor</ion-label>
+                <ion-select [(ngModel)]="sortingBest" (ngModelChange)="getSorting($event, 'sortingBest')"
+                            interface="popover">
+                    <ion-option value="rate_descending">Puntuación</ion-option>
+                    <ion-option value="location_descending">Ubicación</ion-option>
+                    <ion-option value="quality_price_descending">Calidad / Precio</ion-option>
+                </ion-select>
+            </ion-item>
+        </ion-list>
+
+        <ion-list>
+            <ion-item>
+                <ion-label>Otros</ion-label>
+                <ion-select [(ngModel)]="sortingOthers" (ngModelChange)="getSorting($event, 'sortingOthers')"
+                            interface="popover">
+                    <ion-option value="logged_user_descending">Descuentos exclusivos</ion-option>
+                    <ion-option value="cross_selling_descending">Nuevos descuentos</ion-option>
+                </ion-select>
+            </ion-item>
+        </ion-list>
+
+    </ion-item-group>-->
+
+    <ion-item-group>
+        <!--<ion-item-divider color="light">
+            Filtro
+        </ion-item-divider>-->
+
+        <!--<ion-list *ngFor="let facet of facetsArray" [hidden]="isEmpty(facet.label) || !facet.values || facet.criteria == 'tags' " >
+            <ion-item>
+                <ion-label >
+                    {{facet.label}}
+                </ion-label>
+                <ion-select multiple="true" >
+                    <ion-option *ngFor="let filter of facet.values" value="{{filter.value}}">{{filter.label}}</ion-option>
+                </ion-select>
+            </ion-item>
+        </ion-list>-->
+
+        <ion-list *ngFor="let facet of facetsArray">
+            <ion-item *ngIf="facet.criteria == 'amenities'">
+                <ion-label>
+                    Servicios
+                </ion-label>
+                <ion-select multiple="true" (ionChange)="getFacets($event, facet.criteria)">
+                    <ion-option *ngFor="let filter of facet.values" value="{{filter.value}}">
+                        ({{filter.count}}) {{filter.label}}
+                    </ion-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item *ngIf="facet.criteria == 'hotel_type'">
+                <ion-label>
+                    Tipo de alojamiento
+                </ion-label>
+                <ion-select multiple="true" (ionChange)="getFacets($event, facet.criteria)">
+                    <ion-option *ngFor="let filter of facet.values" value="{{filter.value}}">
+                        ({{filter.count}}) {{filter.label}}
+                    </ion-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item *ngIf="facet.criteria == 'payment_type'">
+                <ion-label>
+                    Alternativas de pago
+                </ion-label>
+                <ion-select multiple="true" (ionChange)="getFacets($event, facet.criteria)">
+                    <ion-option *ngFor="let filter of facet.values" value="{{filter.value}}">
+                        ({{filter.count}}) {{filter.label}}
+                    </ion-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item *ngIf="facet.criteria == 'meal_plans'">
+                <ion-label>
+                    Régimen
+                </ion-label>
+                <ion-select multiple="true" (ionChange)="getFacets($event, facet.criteria)">
+                    <ion-option *ngFor="let filter of facet.values" value="{{filter.value}}">
+                        <span *ngIf="filter.value == 'B'">({{filter.count}}) Desayuno</span>
+                        <span *ngIf="filter.value == 'H'">({{filter.count}}) Sólo hospedaje</span>
+                    </ion-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item *ngIf="facet.criteria == 'stars'">
+                <ion-label>
+                    Categoría
+                </ion-label>
+                <ion-select multiple="true" (ionChange)="getFacets($event, facet.criteria)">
+                    <ion-option *ngFor="let filter of facet.values" value="{{filter.value}}">
+                        <span *ngIf="filter.value == 0">({{filter.count}}) Otros</span>
+                        <span *ngIf="filter.value != 0">({{filter.count}}) {{filter.label}}</span>
+                    </ion-option>
+                    <!--<ion-option *ngFor="let filter of facet.values" value="{{filter.value}}">{{filter.label}}</ion-option>-->
+                </ion-select>
+            </ion-item>
+
+            <ion-item *ngIf="facet.criteria == 'zones'">
+                <ion-label>
+                    Zonas
+                </ion-label>
+                <ion-select multiple="true" (ionChange)="getFacets($event, facet.criteria)">
+                    <ion-option *ngFor="let filter of facet.values" value="{{filter.value}}">
+                        ({{filter.count}}) {{filter.label}}
+                    </ion-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item *ngIf="facet.criteria == 'profiles'">
+                <ion-label>
+                    Perfil de viaje
+                </ion-label>
+                <ion-select multiple="true" (ionChange)="getFacets($event, facet.criteria)">
+                    <ion-option *ngFor="let filter of facet.values" value="{{filter.value}}">
+                        ({{filter.count}}) {{filter.label}}
+                    </ion-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item *ngIf="facet.criteria == 'hotel_chains'">
+                <ion-label>
+                    Cadena Hotelera
+                </ion-label>
+                <ion-select multiple="true" (ionChange)="getFacets($event, facet.criteria)">
+                    <ion-option *ngFor="let filter of facet.values" value="{{filter.value}}">
+                        ({{filter.count}}) {{filter.label}}
+                    </ion-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item *ngIf="facet.criteria == 'total_price_range'">
+
+
+            </ion-item>
+
+        </ion-list>
+
+    </ion-item-group>
+</ion-content>
+
+<ion-footer>
+    <ion-grid>
+        <ion-row>
+
+            <ion-col col-6>
+                <button ion-button class="no-round" block no-margin color="light" (click)="popView()">Cancelar</button>
+            </ion-col>
+
+            <ion-col col-6>
+                <button ion-button class="no-round" block no-margin color="primary" (click)="applyFilters()">Aplicar</button>
+            </ion-col>
+
+        </ion-row>
+    </ion-grid>
+</ion-footer>

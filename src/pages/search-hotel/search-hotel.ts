@@ -1,6 +1,6 @@
 import {Component, ViewChild} from "@angular/core";
-import {NavController, AlertController} from "ionic-angular";
-import {SearchLocationPage} from "../search-location/search-location";
+import {NavController, AlertController, LoadingController} from "ionic-angular";
+// import {SearchLocationPage} from "../search-location/search-location";
 import {FilterGuestPage} from "../filter-guest/filter-guest";
 import {HotelPage} from "../hotel/hotel";
 import {AutocompleteService} from '../../services/autocomplete-service';
@@ -16,6 +16,7 @@ import * as moment from "moment";
 export class SearchHotelPage {
     @ViewChild('myNav') nav: NavController;
     // search condition
+    public searching: any = false;
     public rooms: any;
     public date = moment();
     public minDate = this.date.format('YYYY-MM');
@@ -30,6 +31,7 @@ export class SearchHotelPage {
 
     public querySearch: string;
     public destination: string;
+    public distribution: string;
     public items: any[] = [];
     public params: any[] = [];
     public roomsArray: any[] = [];
@@ -41,11 +43,12 @@ export class SearchHotelPage {
                 public autocompleteService: AutocompleteService,
                 private dataSearch: DataSearchHotelService,
                 public searchHotel: SearchHotelService,
-                private alertCtrl: AlertController) {
-
+                private alertCtrl: AlertController,
+                ) {
     }
 
     ionViewDidLoad() {
+        console.log('SearchHotelPage');
         this.initPage();
     }
 
@@ -53,31 +56,14 @@ export class SearchHotelPage {
         // this.initPage();
     }
 
-    // choose place
-    choosePlace() {
-        this.navCtrl.push(SearchLocationPage);
-    }
-
-    // choose number of guest
-    goRoom(roomNum) {
-        this.dataSearch.setRooms(this.roomsArray);
-        this.navCtrl.push(FilterGuestPage, {roomNum: roomNum});
-    }
-
-    removeRoom(roomNum) {
-        for(let i = 0; this.roomsArray.length > i; i++){
-            if (this.roomsArray[i].room == roomNum) {
-                this.roomsArray.splice(i, 1);
-            }
-        }
-    }
-
     autocomplete(querySearch: string) {
         if (this.querySearch.length > 2) {
             this.autocompleteService.getItems(querySearch)
                 .then(data => {
-                    this.items = data;
-                    console.info(this.items);
+                    if (data.code == 200) {
+                        this.searching = false;
+                        this.items = data.data;
+                    }
                 })
                 .catch(error => {
                     console.error(error);
@@ -114,7 +100,31 @@ export class SearchHotelPage {
     changeToDate(date) {
         if (date <= this.search.from) {
             this.search.to = moment(this.date).add(1, 'days').format(GLOBAL.dateFormat);
-            alert('error');
+            this.validDate();
+        }
+    }
+
+    addRoom() {
+        if (this.roomsArray.length < 4) {
+            let rooms = {room: this.roomsArray.length + 1, persons: 1, adults: 1, children: 0};
+            this.roomsArray.push(rooms);
+        }
+    }
+
+    goRoom(roomNum) {
+        this.dataSearch.setRooms(this.roomsArray);
+        this.navCtrl.push(FilterGuestPage, {roomNum: roomNum})
+            .then(() => {
+                const index = this.navCtrl.getActive().index;
+                this.navCtrl.remove(0, index);
+            })
+    }
+
+    removeRoom(roomNum) {
+        for (let i = 0; this.roomsArray.length > i; i++) {
+            if (this.roomsArray[i].room == roomNum) {
+                this.roomsArray.splice(i, 1);
+            }
         }
     }
 
@@ -141,19 +151,36 @@ export class SearchHotelPage {
             });
     }
 
-    addRoom() {
-        if (this.roomsArray.length < 4) {
-            let rooms = {room: this.roomsArray.length + 1, persons: 1, adults: 1, children: 0};
-            this.roomsArray.push(rooms);
-        } else {
-            alert('maximo 4 habitaciones');
+    onSearchInput($event) {
+        if ($event.type == 'mousedown') {
+            this.querySearch = null;
+            this.destination = null;
+            this.dataSearch.removeDestination();
+        }
+
+    }
+
+    onSearch() {
+        if (this.querySearch != null) {
+            if (this.querySearch.length < 3) {
+                this.searching = false;
+            } else {
+                this.searching = true;
+            }
         }
     }
 
     validDestination() {
         let alert = this.alertCtrl.create({
-            // title: 'Low battery',
             subTitle: 'Debe ingresar un destiono',
+            buttons: ['Cerrar']
+        });
+        alert.present();
+    }
+
+    validDate() {
+        let alert = this.alertCtrl.create({
+            subTitle: 'Debe ingresar un fecha superior a la de Checkin',
             buttons: ['Cerrar']
         });
         alert.present();
@@ -161,10 +188,8 @@ export class SearchHotelPage {
 
     // go to result page
     doSearch() {
-
         if (this.destination != null) {
             let guests = [];
-            let distribution;
 
             this.dataSearch.setRooms(this.roomsArray);
 
@@ -178,39 +203,32 @@ export class SearchHotelPage {
                 }
             }
 
-            distribution = guests.join("!");
+            this.distribution = guests.join("!");
 
-            let query = 'country_code=AR&checkin_date=' + this.search.from +
-                '&checkout_date=' + this.search.to +
-                '&destination=' + this.destination +
-                '&distribution=' + distribution +
-                '&language=' + this.language +
-                '&currency=' + this.currency;
-            console.log(query);
+            let query = [
+                {
+                    country_code: 'AR',
+                    checkin_date: this.search.from,
+                    checkout_date: this.search.to,
+                    destination: this.destination,
+                    distribution: this.distribution,
+                    language: this.language,
+                    currency: this.currency,
+                    filter: false
+                }
+            ];
 
-            this.searchHotel.getHotels(query)
-                .then(data => {
-                    console.info('data', data);
-                })
-                .catch(error => {
-                    console.error(error);
+            this.dataSearch.setSearchHotels(query);
+
+            this.navCtrl.push(HotelPage)
+                .then(() => {
+                    const index = this.navCtrl.getActive().index;
+                    this.navCtrl.remove(0, index);
                 })
         } else {
             this.validDestination();
 
         }
     }
-
-    onSearchInput($event) {
-        if($event.type == 'mousedown'){
-            this.querySearch = null;
-            this.destination = null;
-            this.dataSearch.removeDestination();
-        }
-
-    }
-
-
-
 
 }

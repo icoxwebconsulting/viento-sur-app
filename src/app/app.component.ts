@@ -2,9 +2,11 @@ import {Component, ViewChild} from "@angular/core";
 import {Platform} from "ionic-angular";
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
-import {LoginPage} from "../pages/login/login";
+// import {LoginPage} from "../pages/login/login";
 import {HomePage} from "../pages/home/home";
 import {SearchHotelPage} from  '../pages/search-hotel/search-hotel';
+import {HotelPage} from "../pages/hotel/hotel";
+// import {FilterHotelPage} from '../pages/filter-hotel/filter-hotel'
 import {WelcomePage} from  '../pages/welcome/welcome';
 
 // import pages

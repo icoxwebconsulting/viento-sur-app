@@ -1,9 +1,15 @@
 import {Component} from "@angular/core";
-import {NavController, Platform} from "ionic-angular";
+import {NavController, Platform, LoadingController, AlertController} from "ionic-angular";
+import {SearchHotelService} from '../../services/search-hotel.service';
+import {DataSearchHotelService} from "../../providers/data-search-hotel.service";
 import {HotelService} from "../../services/hotel-service";
-import {HotelDetailPage} from "../hotel-detail/hotel-detail";
+import {SearchHotelPage} from "../search-hotel/search-hotel";
+import {FilterHotelPage} from "../filter-hotel/filter-hotel";
+import {SortingHotel} from "../sorting-hotel/sorting-hotel";
+// import {HotelDetailPage} from "../hotel-detail/hotel-detail";
 
-declare var google: any;
+// declare var google: any;
+
 /*
  Generated class for the LoginPage page.
 
@@ -11,62 +17,202 @@ declare var google: any;
  Ionic pages and navigation.
  */
 @Component({
-  selector: 'page-hotel',
-  templateUrl: 'hotel.html'
+    selector: 'page-hotel',
+    templateUrl: 'hotel.html'
 })
 export class HotelPage {
-  // list of hotels
-  public hotels: any;
-  // Map
-  public map: any;
+    // list of hotels
+    public hotels: any[] = [];
+    // Map
+    public map: any;
 
-  constructor(public nav: NavController, public hotelService: HotelService, public platform: Platform) {
-    // set sample data
-    this.hotels = hotelService.getAll();
-  }
+    public arraySearch: any[] = [];
+    public hotelAvailabilities: any[] = [];
+    public hotelDetail: any[] = [];
+    public hotelArray: any[] = [];
+    public facetsArray: any[] = [];
+    public hotelIds: any[] = [];
 
-  ionViewDidLoad() {
-    // init map
-    this.initializeMap();
-  }
-
-  // view hotel detail
-  viewHotel(hotelId) {
-    this.nav.push(HotelDetailPage, {id: hotelId});
-  }
-
-  initializeMap() {
-    let latLng = new google.maps.LatLng(this.hotels[0].location.lat, this.hotels[0].location.lon);
-
-    let mapOptions = {
-      center: latLng,
-      zoom: 13,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-      mapTypeControl: false,
-      zoomControl: false,
-      streetViewControl: false
+    constructor(public navCtrl: NavController,
+                public hotelService: HotelService,
+                public platform: Platform,
+                private dataSearch: DataSearchHotelService,
+                public searchHotel: SearchHotelService,
+                public loadingCtrl: LoadingController,
+                private alertCtrl: AlertController,
+                // private popoverCtrl: PopoverController
+    ) {
+        // set sample data
+        // this.hotels = hotelService.getAll();
     }
 
-    this.map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    ionViewDidLoad() {
+        // init map
+        // this.initializeMap();
 
-    // add markers to map by hotel
-    for (let i = 0; i < this.hotels.length; i++) {
-      let hotel = this.hotels[i];
-      new google.maps.Marker({
-        map: this.map,
-        animation: google.maps.Animation.DROP,
-        position: new google.maps.LatLng(hotel.location.lat, hotel.location.lon)
-      });
+        // console.log('this.arraySearch', this.arraySearch);
+
     }
 
-    // refresh map
-    setTimeout(() => {
-      google.maps.event.trigger(this.map, 'resize');
-    }, 300);
-  }
+    ionViewWillEnter() {
+        console.log('HotelPage');
+        this.initPage();
+    }
 
-  // view all hotels
-  viewHotels() {
-    this.nav.push(HotelPage);
-  }
+    // view hotel detail
+    viewHotel(hotelId) {
+        // this.navCtrl.push(HotelDetailPage, {id: hotelId});
+    }
+
+    /*presentPopover(ev) {
+        let popover = this.popoverCtrl.create(PopoverPage, {
+        });
+        popover.present({
+            ev: ev
+        });
+    }*/
+
+    initPage() {
+        let loading = this.loadingCtrl.create({
+            content: 'Espere...'
+        });
+
+        loading.present().then(() => {
+            this.dataSearch.getSearchHotels()
+                .then((val) => {
+                    this.arraySearch = JSON.parse(val);
+
+                    let query = 'country_code=AR' +
+                        '&checkin_date=' + this.arraySearch[0].checkin_date +
+                        '&checkout_date=' + this.arraySearch[0].checkout_date +
+                        '&destination=' + this.arraySearch[0].destination +
+                        '&distribution=' + this.arraySearch[0].distribution +
+                        '&language=' + this.arraySearch[0].language +
+                        '&currency=' + this.arraySearch[0].currency;
+
+                    if (this.arraySearch[0].filter === true) {
+
+                        if (typeof this.arraySearch[0].sorting != 'undefined') {
+                            query+= '&sorting=' + this.arraySearch[0].sorting;
+                        }
+
+                        if (typeof this.arraySearch[0].amenities != 'undefined') {
+                            query+= '&amenities=' + this.arraySearch[0].amenities;
+                        }
+
+                        if (typeof this.arraySearch[0].hotel_type != 'undefined') {
+                            query+= '&hotel_type=' + this.arraySearch[0].hotel_type;
+                        }
+
+                        if (typeof this.arraySearch[0].payment_type != 'undefined') {
+                            query+= '&payment_type=' + this.arraySearch[0].payment_type;
+                        }
+
+                        if (typeof this.arraySearch[0].meal_plans != 'undefined') {
+                            query+= '&meal_plans=' + this.arraySearch[0].meal_plans;
+                        }
+
+                        if (typeof this.arraySearch[0].stars != 'undefined') {
+                            query+= '&stars=' + this.arraySearch[0].stars;
+                        }
+
+                        if (typeof this.arraySearch[0].zones != 'undefined') {
+                            query+= '&zones=' + this.arraySearch[0].zones;
+                        }
+
+                        if (typeof this.arraySearch[0].profiles != 'undefined') {
+                            query+= '&profiles=' + this.arraySearch[0].profiles;
+                        }
+
+                        if (typeof this.arraySearch[0].hotel_chains != 'undefined') {
+                            query+= '&hotel_chains=' + this.arraySearch[0].hotel_chains;
+                        }
+
+                        console.log('query modificado', query)
+
+                    }
+
+                    this.searchHotel.getHotelsAvailabilities(query)
+                        .then(data => {
+
+                            this.hotelArray = data.data.items;
+
+                            this.facetsArray = data.data.facets;
+
+                            this.dataSearch.setFacets(this.facetsArray);
+
+                            // console.log('data.data.items', data.data.items);
+
+                            if(data.data.items.length == 0){
+                                this.notFoundHotel();
+                            }
+
+                            for (let i = 0; this.hotelArray.length > i; i++) {
+                                this.hotelIds.push(this.hotelArray[i].id);
+                            }
+
+                            let hotelIdsStr = this.hotelIds.join(',');
+
+                            let hotelsQuery = 'ids=' + hotelIdsStr + '&language=es'
+
+                            this.searchHotel.getHotels(hotelsQuery)
+                                .then(detail => {
+
+                                    for (let j = 0; this.hotelIds.length > j; j++) {
+                                        this.hotels.push(detail.data[this.hotelIds[j]]);
+                                    }
+
+                                    loading.dismiss();
+                                })
+                                .catch(error => {
+                                    console.error(error);
+                                    loading.dismiss();
+                                })
+                        })
+                        .catch(error => {
+                            console.error(error);
+                            loading.dismiss();
+                        })
+                })
+                .catch(error => {
+                    console.error(error);
+                    loading.dismiss();
+                })
+
+        })
+
+    }
+
+    goFilters(){
+        this.navCtrl.push(FilterHotelPage)
+        /*.then(() => {
+                const index = this.navCtrl.getActive().index;
+                this.navCtrl.remove(0, index);
+            })*/
+    }
+
+    goSorting(){
+        this.navCtrl.push(SortingHotel)
+        /*.then(() => {
+                const index = this.navCtrl.getActive().index;
+                this.navCtrl.remove(0, index);
+            })*/
+    }
+
+    navBack(){
+        this.navCtrl.push(SearchHotelPage)
+            .then(() => {
+                const index = this.navCtrl.getActive().index;
+                this.navCtrl.remove(0, index);
+            })
+    }
+
+    notFoundHotel() {
+        let alert = this.alertCtrl.create({
+            subTitle: 'No existen resultados para esta búsqueda',
+            buttons: ['Cerrar']
+        });
+        alert.present();
+        this.navBack();
+    }
 }

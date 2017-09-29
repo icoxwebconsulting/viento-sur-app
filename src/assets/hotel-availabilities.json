@@ -1,0 +1,3254 @@
+{
+  "items": [
+    {
+      "id": "204918",
+      "hotel": {
+        "id": "204918",
+        "name": "Turnberry Isle Miami",
+        "hotel_type_id": "RSR",
+        "location": {
+          "latitude": 25.960224300937,
+          "longitude": -80.138238747421
+        },
+        "amenity_ids": [
+          "AIR",
+          "BABYSIT",
+          "BAG",
+          "BAR",
+          "BREEXCH",
+          "BSNSC",
+          "CAMA",
+          "CEM",
+          "ELEV",
+          "GARD",
+          "GIM",
+          "GOLF",
+          "HAIRROOM",
+          "INGRAH",
+          "JCZHTL",
+          "LASESU",
+          "LUGFR",
+          "MASSAGE",
+          "PAREEXCH",
+          "PARKADCO",
+          "PISDESC",
+          "R24",
+          "RESTO",
+          "SAUN",
+          "SERCON",
+          "SERNIN",
+          "SMPEALAC",
+          "SOL",
+          "SPA",
+          "STORE",
+          "TENIS",
+          "TOASAB",
+          "VALETPRK",
+          "WAKEUP"
+        ],
+        "stars": 5
+      },
+      "roompacks": [
+        {
+          "choice": "2100336247",
+          "payment_type": "at_destination",
+          "meal_plan": {
+            "id": "H"
+          },
+          "rooms": [
+            {
+              "reference": "1",
+              "name": "Habitaci\u00f3n, 1 cama King size, vista al resort",
+              "room_code": "200334492",
+              "availability": 4
+            }
+          ],
+          "promo": {
+            "type": "STANDARD",
+            "saving": {
+              "type": "percentage",
+              "percentage": 15
+            }
+          },
+          "price_detail": {
+            "currency": "ARS",
+            "subtotal": 8310,
+            "taxes": 1080.52,
+            "taxes_detail": [
+              {
+                "code": "base",
+                "amount": 1080.52
+              }
+            ],
+            "fee": 0,
+            "discounts": 0,
+            "total": 9390.52,
+            "nightly": {
+              "subtotal": 2770,
+              "total": 3130.17
+            },
+            "nightly_subtotal": 2770,
+            "nightly_total": 3130.17
+          },
+          "contract_currency": "USD"
+        }
+      ],
+      "payment_types": [
+        "prepaid",
+        "at_destination"
+      ],
+      "max_installment_quantity": 50,
+      "tags": [
+        "smart_deal"
+      ]
+    },
+    {
+      "id": "297709",
+      "hotel": {
+        "id": "297709",
+        "name": "Hyatt Regency Miami",
+        "hotel_type_id": "HOT",
+        "location": {
+          "latitude": 25.770883029549,
+          "longitude": -80.190959882278
+        },
+        "amenity_ids": [
+          "BAG",
+          "BAR",
+          "BREEXCH",
+          "BSNSC",
+          "CAMA",
+          "ELEV",
+          "GIM",
+          "INGRAH",
+          "LASESU",
+          "MEETROOM",
+          "PISDESC",
+          "R24",
+          "RESTO",
+          "STORE",
+          "VALETPRK"
+        ],
+        "stars": 4
+      },
+      "roompacks": [
+        {
+          "choice": "1793285805",
+          "payment_type": "prepaid",
+          "meal_plan": {
+            "id": "H"
+          },
+          "rooms": [
+            {
+              "reference": "1",
+              "name": "Guest Room, 2 camas matrimoniales",
+              "room_code": "200157204",
+              "availability": 163
+            }
+          ],
+          "price_detail": {
+            "currency": "ARS",
+            "subtotal": 7962.41,
+            "taxes": 1034.48,
+            "taxes_detail": [
+              {
+                "code": "base",
+                "amount": 1034.48
+              }
+            ],
+            "fee": 719.75,
+            "discounts": 0,
+            "total": 9716.65,
+            "nightly": {
+              "subtotal": 2654.14,
+              "total": 3238.88
+            },
+            "nightly_subtotal": 2654.14,
+            "nightly_total": 3238.88
+          },
+          "contract_currency": "USD"
+        }
+      ],
+      "payment_types": [
+        "prepaid"
+      ],
+      "max_installment_quantity": 50
+    },
+    {
+      "id": "364650",
+      "hotel": {
+        "id": "364650",
+        "name": "DoubleTree by Hilton Ocean Pnt Rsrt \u0026 Spa North Miami Beach",
+        "hotel_type_id": "HOT",
+        "location": {
+          "latitude": 25.93677,
+          "longitude": -80.12152
+        },
+        "amenity_ids": [
+          "BAG",
+          "BAR",
+          "BREEXCH",
+          "BSNSC",
+          "CAMA",
+          "ELEV",
+          "GIM",
+          "HAIRROOM",
+          "INGRAH",
+          "LASESU",
+          "PISDESC",
+          "R24",
+          "RESTO",
+          "SAUN",
+          "SERCON",
+          "SOMBR",
+          "SPA",
+          "STORE",
+          "TOALPL",
+          "VALETPRK"
+        ],
+        "stars": 4
+      },
+      "roompacks": [
+        {
+          "choice": "788995236",
+          "payment_type": "prepaid",
+          "meal_plan": {
+            "id": "H"
+          },
+          "rooms": [
+            {
+              "reference": "1",
+              "name": "Habitaci\u00f3n, con acceso para silla de ruedas",
+              "room_code": "201125182"
+            }
+          ],
+          "price_detail": {
+            "currency": "ARS",
+            "subtotal": 9628.45,
+            "taxes": 1251.21,
+            "taxes_detail": [
+              {
+                "code": "base",
+                "amount": 1251.21
+              }
+            ],
+            "fee": 870.37,
+            "discounts": 0,
+            "total": 11750.03,
+            "nightly": {
+              "subtotal": 3209.48,
+              "total": 3916.68
+            },
+            "nightly_subtotal": 3209.48,
+            "nightly_total": 3916.68
+          },
+          "contract_currency": "USD"
+        }
+      ],
+      "payment_types": [
+        "prepaid"
+      ],
+      "max_installment_quantity": 50
+    },
+    {
+      "id": "412101",
+      "hotel": {
+        "id": "412101",
+        "name": "Miami International Airport Hotel",
+        "hotel_type_id": "HOT",
+        "location": {
+          "latitude": 25.794964958786,
+          "longitude": -80.278873952257
+        },
+        "amenity_ids": [
+          "ACOM",
+          "AIR",
+          "BAR",
+          "BSNSC",
+          "ELEV",
+          "HOT",
+          "INGRAH",
+          "INV",
+          "LASESU",
+          "MEETROOM",
+          "PARKADCO",
+          "PEALAC",
+          "R24",
+          "RESTO",
+          "ROOMSVC",
+          "STORE",
+          "WAKEUP"
+        ],
+        "stars": 3
+      },
+      "roompacks": [
+        {
+          "choice": "1631906772",
+          "payment_type": "at_destination",
+          "meal_plan": {
+            "id": "H"
+          },
+          "rooms": [
+            {
+              "reference": "1",
+              "name": "Habitaci\u00f3n est\u00e1ndar, 1 cama Queen size",
+              "room_code": "314087",
+              "availability": 2
+            }
+          ],
+          "price_detail": {
+            "currency": "ARS",
+            "subtotal": 7879.31,
+            "taxes": 1024.31,
+            "taxes_detail": [
+              {
+                "code": "base",
+                "amount": 1024.31
+              }
+            ],
+            "fee": 0,
+            "discounts": 0,
+            "total": 8903.62,
+            "nightly": {
+              "subtotal": 2626.44,
+              "total": 2967.87
+            },
+            "nightly_subtotal": 2626.44,
+            "nightly_total": 2967.87
+          },
+          "contract_currency": "USD"
+        }
+      ],
+      "payment_types": [
+        "prepaid",
+        "at_destination"
+      ],
+      "max_installment_quantity": 50
+    },
+    {
+      "id": "842215",
+      "hotel": {
+        "id": "842215",
+        "name": "EAST, Miami",
+        "hotel_type_id": "HOT",
+        "location": {
+          "latitude": 25.76692,
+          "longitude": -80.19332
+        },
+        "amenity_ids": [
+          "BAG",
+          "BREEXCH",
+          "BSNSC",
+          "CAMA",
+          "GARD",
+          "INGRAH",
+          "JCZHTL",
+          "LASESU",
+          "R24",
+          "SERCON",
+          "STORE",
+          "VALETPRK"
+        ],
+        "stars": 4
+      },
+      "roompacks": [
+        {
+          "choice": "1726332537",
+          "payment_type": "at_destination",
+          "meal_plan": {
+            "id": "H"
+          },
+          "rooms": [
+            {
+              "reference": "1",
+              "name": "Urban King Room",
+              "room_code": "201262981",
+              "availability": 45
+            }
+          ],
+          "promo": {
+            "type": "STANDARD",
+            "saving": {
+              "type": "percentage",
+              "percentage": 20
+            }
+          },
+          "price_detail": {
+            "currency": "ARS",
+            "subtotal": 13751.72,
+            "taxes": 1787.41,
+            "taxes_detail": [
+              {
+                "code": "base",
+                "amount": 1787.41
+              }
+            ],
+            "fee": 0,
+            "discounts": 0,
+            "total": 15539.14,
+            "nightly": {
+              "subtotal": 4583.91,
+              "total": 5179.71
+            },
+            "nightly_subtotal": 4583.91,
+            "nightly_total": 5179.71
+          },
+          "contract_currency": "USD"
+        }
+      ],
+      "payment_types": [
+        "prepaid",
+        "at_destination"
+      ],
+      "max_installment_quantity": 50
+    },
+    {
+      "id": "866964",
+      "hotel": {
+        "id": "866964",
+        "name": "Atton Brickell Miami Hotel",
+        "hotel_type_id": "HOT",
+        "location": {
+          "latitude": 25.7598,
+          "longitude": -80.19672
+        },
+        "amenity_ids": [
+          "BAG",
+          "BAR",
+          "BREEXCH",
+          "BSNSC",
+          "CAMA",
+          "ELEV",
+          "INGRAH",
+          "LASESU",
+          "PISDESC",
+          "R24",
+          "RESTO",
+          "SERCON",
+          "VALETPRK"
+        ],
+        "stars": 4
+      },
+      "roompacks": [
+        {
+          "choice": "911750283",
+          "payment_type": "at_destination",
+          "meal_plan": {
+            "id": "H"
+          },
+          "rooms": [
+            {
+              "reference": "1",
+              "name": "Habitaci\u00f3n est\u00e1ndar, 1 cama King size, con acceso para silla de ruedas",
+              "room_code": "201390809",
+              "availability": 120
+            }
+          ],
+          "promo": {
+            "type": "STANDARD",
+            "saving": {
+              "type": "percentage",
+              "percentage": 15
+            }
+          },
+          "price_detail": {
+            "currency": "ARS",
+            "subtotal": 7869.83,
+            "taxes": 1023.1,
+            "taxes_detail": [
+              {
+                "code": "base",
+                "amount": 1023.1
+              }
+            ],
+            "fee": 0,
+            "discounts": 0,
+            "total": 8892.93,
+            "nightly": {
+              "subtotal": 2623.28,
+              "total": 2964.31
+            },
+            "nightly_subtotal": 2623.28,
+            "nightly_total": 2964.31
+          },
+          "contract_currency": "USD"
+        }
+      ],
+      "payment_types": [
+        "prepaid",
+        "at_destination"
+      ],
+      "max_installment_quantity": 50
+    },
+    {
+      "id": "856823",
+      "hotel": {
+        "id": "856823",
+        "name": "The Langford Hotel",
+        "hotel_type_id": "HOT",
+        "location": {
+          "latitude": 25.77338,
+          "longitude": -80.1914
+        },
+        "amenity_ids": [
+          "BAR",
+          "BSNSC",
+          "INGRAH",
+          "LASESU",
+          "MEETROOM",
+          "R24",
+          "RESTO",
+          "SERCON",
+          "VALETPRK"
+        ],
+        "stars": 4
+      },
+      "roompacks": [
+        {
+          "choice": "1996763053",
+          "payment_type": "prepaid",
+          "meal_plan": {
+            "id": "H"
+          },
+          "rooms": [
+            {
+              "reference": "1",
+              "name": "Habitaci\u00f3n de lujo, 1 cama Queen size",
+              "room_code": "201312617",
+              "availability": 51
+            }
+          ],
+          "promo": {
+            "type": "STANDARD",
+            "saving": {
+              "type": "percentage",
+              "percentage": 15
+            }
+          },
+          "price_detail": {
+            "currency": "ARS",
+            "subtotal": 7430.17,
+            "taxes": 966.72,
+            "taxes_detail": [
+              {
+                "code": "base",
+                "amount": 966.72
+              }
+            ],
+            "fee": 671.75,
+            "discounts": 0,
+            "total": 9068.65,
+            "nightly": {
+              "subtotal": 2476.72,
+              "total": 3022.88
+            },
+            "nightly_subtotal": 2476.72,
+            "nightly_total": 3022.88
+          },
+          "contract_currency": "USD"
+        }
+      ],
+      "payment_types": [
+        "prepaid"
+      ],
+      "max_installment_quantity": 50
+    },
+    {
+      "id": "299616",
+      "hotel": {
+        "id": "299616",
+        "name": "Sonesta Coconut Grove Miami",
+        "hotel_type_id": "HOT",
+        "location": {
+          "latitude": 25.727129477615,
+          "longitude": -80.240772245369
+        },
+        "amenity_ids": [
+          "ACOM",
+          "AIR",
+          "BAG",
+          "BAR",
+          "BREEXCH",
+          "BSNSC",
+          "CAMA",
+          "DRCLSE",
+          "ELEV",
+          "GIM",
+          "HOT",
+          "INGRAH",
+          "JCZHTL",
+          "LASESU",
+          "MEETROOM",
+          "MNA",
+          "PAREEXCH",
+          "PARKADCO",
+          "PISDESC",
+          "PISTSC",
+          "R24",
+          "RESTO",
+          "SAUN",
+          "SERCON",
+          "TOASAB",
+          "VALETPRK"
+        ],
+        "stars": 4
+      },
+      "roompacks": [
+        {
+          "choice": "2111950719",
+          "payment_type": "at_destination",
+          "meal_plan": {
+            "id": "H"
+          },
+          "rooms": [
+            {
+              "reference": "1",
+              "name": "Habitaci\u00f3n superior, vistas a la ciudad",
+              "room_code": "200250467",
+              "availability": 23
+            }
+          ],
+          "promo": {
+            "type": "STANDARD",
+            "saving": {
+              "type": "percentage",
+              "percentage": 30
+            }
+          },
+          "price_detail": {
+            "currency": "ARS",
+            "subtotal": 6843.1,
+            "taxes": 889.66,
+            "taxes_detail": [
+              {
+                "code": "base",
+                "amount": 889.66
+              }
+            ],
+            "fee": 0,
+            "discounts": 0,
+            "total": 7732.76,
+            "nightly": {
+              "subtotal": 2281.03,
+              "total": 2577.59
+            },
+            "nightly_subtotal": 2281.03,
+            "nightly_total": 2577.59
+          },
+          "contract_currency": "USD"
+        }
+      ],
+      "payment_types": [
+        "prepaid",
+        "at_destination"
+      ],
+      "max_installment_quantity": 50,
+      "tags": [
+        "smart_deal"
+      ]
+    },
+    {
+      "id": "298511",
+      "hotel": {
+        "id": "298511",
+        "name": "Hilton Miami Airport",
+        "hotel_type_id": "HOT",
+        "location": {
+          "latitude": 25.782190801269,
+          "longitude": -80.278643080673
+        },
+        "amenity_ids": [
+          "ACOM",
+          "AIR",
+          "BAG",
+          "BAR",
+          "BREEXCH",
+          "BSNSC",
+          "CAMA",
+          "CAR",
+          "DRCLSE",
+          "ELEV",
+          "GIM",
+          "INTPUAREXCH",
+          "INV",
+          "JCZHTL",
+          "LASESU",
+          "LIPA",
+          "LUGFR",
+          "MEETROOM",
+          "MNA",
+          "PARKADCO",
+          "PISCCLI",
+          "PISDESC",
+          "R24",
+          "RESTO",
+          "ROOMSVC",
+          "SERCON",
+          "STORE",
+          "TENIS",
+          "TOASAB",
+          "TRANSAIR",
+          "TRANSER",
+          "VALETPRK"
+        ],
+        "stars": 4
+      },
+      "roompacks": [
+        {
+          "choice": "2121288926",
+          "payment_type": "at_destination",
+          "meal_plan": {
+            "id": "H"
+          },
+          "rooms": [
+            {
+              "reference": "1",
+              "name": "2 camas matrimoniales",
+              "room_code": "255310"
+            }
+          ],
+          "price_detail": {
+            "currency": "ARS",
+            "subtotal": 7189.66,
+            "taxes": 934.66,
+            "taxes_detail": [
+              {
+                "code": "base",
+                "amount": 934.66
+              }
+            ],
+            "fee": 0,
+            "discounts": 0,
+            "total": 8124.31,
+            "nightly": {
+              "subtotal": 2396.55,
+              "total": 2708.1
+            },
+            "nightly_subtotal": 2396.55,
+            "nightly_total": 2708.1
+          },
+          "contract_currency": "USD"
+        }
+      ],
+      "payment_types": [
+        "prepaid",
+        "at_destination"
+      ],
+      "max_installment_quantity": 50
+    },
+    {
+      "id": "864509",
+      "hotel": {
+        "id": "864509",
+        "name": "Residence Inn by Marriott Miami West \/ FL Turnpike",
+        "hotel_type_id": "HOT",
+        "location": {
+          "latitude": 25.869528530849,
+          "longitude": -80.383725273819
+        },
+        "amenity_ids": [
+          "AIR",
+          "BREAKFST",
+          "BSNSC",
+          "ELEV",
+          "GARD",
+          "GIM",
+          "HOT",
+          "INGRAH",
+          "LASESU",
+          "MEETROOM",
+          "PARKING",
+          "PEALAC",
+          "PISCCLI",
+          "PISDESC",
+          "R24",
+          "STORE",
+          "TOASAB"
+        ],
+        "stars": 3
+      },
+      "roompacks": [
+        {
+          "choice": "686633525",
+          "payment_type": "prepaid",
+          "meal_plan": {
+            "id": "BRC"
+          },
+          "rooms": [
+            {
+              "reference": "1",
+              "name": "Estudio, Varias camas, con vista",
+              "room_code": "201363430",
+              "availability": 5
+            }
+          ],
+          "promo": {
+            "type": "STANDARD",
+            "saving": {
+              "type": "percentage",
+              "percentage": 11
+            }
+          },
+          "price_detail": {
+            "currency": "ARS",
+            "subtotal": 7396.55,
+            "taxes": 961.72,
+            "taxes_detail": [
+              {
+                "code": "base",
+                "amount": 961.72
+              }
+            ],
+            "fee": 668.66,
+            "discounts": 0,
+            "total": 9026.94,
+            "nightly": {
+              "subtotal": 2465.52,
+              "total": 3008.98
+            },
+            "nightly_subtotal": 2465.52,
+            "nightly_total": 3008.98
+          },
+          "contract_currency": "USD"
+        }
+      ],
+      "payment_types": [
+        "prepaid"
+      ],
+      "max_installment_quantity": 50
+    },
+    {
+      "id": "677027",
+      "hotel": {
+        "id": "677027",
+        "name": "Ramada Plaza Marco Polo Beach Resort",
+        "hotel_type_id": "RSR",
+        "location": {
+          "latitude": 25.95443087673,
+          "longitude": -80.119782596226
+        },
+        "amenity_ids": [
+          "BAG",
+          "BREEXCH",
+          "BSNSC",
+          "CAMA",
+          "ELEV",
+          "GIM",
+          "INGRAH",
+          "LASESU",
+          "PARKADCO",
+          "PISDESC",
+          "R24",
+          "RESTO",
+          "SAUN",
+          "SERCON",
+          "VALETPRK"
+        ],
+        "stars": 3
+      },
+      "roompacks": [
+        {
+          "choice": "1933510574",
+          "payment_type": "prepaid",
+          "meal_plan": {
+            "id": "H"
+          },
+          "rooms": [
+            {
+              "reference": "1",
+              "name": "Habitaci\u00f3n, 1 cama King size",
+              "room_code": "201291570",
+              "availability": 6
+            }
+          ],
+          "promo": {
+            "type": "STANDARD",
+            "saving": {
+              "type": "percentage",
+              "percentage": 20
+            }
+          },
+          "price_detail": {
+            "currency": "ARS",
+            "subtotal": 4786.21,
+            "taxes": 621.38,
+            "taxes_detail": [
+              {
+                "code": "base",
+                "amount": 621.38
+              }
+            ],
+            "fee": 432.61,
+            "discounts": 0,
+            "total": 5840.19,
+            "nightly": {
+              "subtotal": 1595.4,
+              "total": 1946.73
+            },
+            "nightly_subtotal": 1595.4,
+            "nightly_total": 1946.73
+          },
+          "contract_currency": "USD"
+        }
+      ],
+      "payment_types": [
+        "prepaid"
+      ],
+      "max_installment_quantity": 50
+    },
+    {
+      "id": "564264",
+      "hotel": {
+        "id": "564264",
+        "name": "Intercontinental at Doral Miami",
+        "hotel_type_id": "HOT",
+        "location": {
+          "latitude": 25.797847425297,
+          "longitude": -80.335842407796
+        },
+        "amenity_ids": [
+          "BAG",
+          "BAR",
+          "BREEXCH",
+          "BSNSC",
+          "CAMA",
+          "ELEV",
+          "INTPUAREXCH",
+          "LASESU",
+          "MEETROOM",
+          "PARKING",
+          "PISDESC",
+          "R24",
+          "RESTO",
+          "STORE",
+          "TRANSAIR"
+        ],
+        "stars": 5
+      },
+      "roompacks": [
+        {
+          "choice": "1554087042",
+          "payment_type": "at_destination",
+          "meal_plan": {
+            "id": "H"
+          },
+          "rooms": [
+            {
+              "reference": "1",
+              "name": "Habitaci\u00f3n de lujo, 1 cama King size",
+              "room_code": "201417884"
+            }
+          ],
+          "price_detail": {
+            "currency": "ARS",
+            "subtotal": 9775.86,
+            "taxes": 1270.86,
+            "taxes_detail": [
+              {
+                "code": "base",
+                "amount": 1270.86
+              }
+            ],
+            "fee": 0,
+            "discounts": 0,
+            "total": 11046.72,
+            "nightly": {
+              "subtotal": 3258.62,
+              "total": 3682.24
+            },
+            "nightly_subtotal": 3258.62,
+            "nightly_total": 3682.24
+          },
+          "contract_currency": "USD"
+        }
+      ],
+      "payment_types": [
+        "prepaid",
+        "at_destination"
+      ],
+      "max_installment_quantity": 50,
+      "tags": [
+        "smart_deal"
+      ]
+    },
+    {
+      "id": "298528",
+      "hotel": {
+        "id": "298528",
+        "name": "Courtyard by Marriott Miami Downtown",
+        "hotel_type_id": "HOT",
+        "location": {
+          "latitude": 25.77261,
+          "longitude": -80.1907
+        },
+        "amenity_ids": [
+          "BAG",
+          "BAR",
+          "BSNSC",
+          "CAMA",
+          "ELEV",
+          "GIM",
+          "INGRAH",
+          "LASESU",
+          "MEETROOM",
+          "PISDESC",
+          "R24",
+          "RESTO",
+          "SERCON",
+          "VALETPRK"
+        ],
+        "stars": 4
+      },
+      "roompacks": [
+        {
+          "choice": "2011704854",
+          "payment_type": "prepaid",
+          "meal_plan": {
+            "id": "H"
+          },
+          "rooms": [
+            {
+              "reference": "1",
+              "name": "Habitaci\u00f3n, 1 cama King size",
+              "room_code": "106232",
+              "availability": 5
+            }
+          ],
+          "price_detail": {
+            "currency": "ARS",
+            "subtotal": 7276.21,
+            "taxes": 946.21,
+            "taxes_detail": [
+              {
+                "code": "base",
+                "amount": 946.21
+              }
+            ],
+            "fee": 657.79,
+            "discounts": 0,
+            "total": 8880.21,
+            "nightly": {
+              "subtotal": 2425.4,
+              "total": 2960.07
+            },
+            "nightly_subtotal": 2425.4,
+            "nightly_total": 2960.07
+          },
+          "contract_currency": "USD"
+        }
+      ],
+      "payment_types": [
+        "prepaid"
+      ],
+      "max_installment_quantity": 50
+    },
+    {
+      "id": "519937",
+      "hotel": {
+        "id": "519937",
+        "name": "The Ritz-Carlton Key Biscayne, Miami",
+        "hotel_type_id": "RSR",
+        "location": {
+          "latitude": 25.69172,
+          "longitude": -80.15898
+        },
+        "amenity_ids": [
+          "BABYSIT",
+          "BAG",
+          "BAR",
+          "BREEXCH",
+          "BSNSC",
+          "CAMA",
+          "GAMES",
+          "GARD",
+          "GIM",
+          "HAIRROOM",
+          "INGRAH",
+          "JCZHTL",
+          "LASESU",
+          "R24",
+          "SERCON",
+          "SERNIN",
+          "SOMBR",
+          "SPA",
+          "STORE",
+          "TOALPL",
+          "VALETPRK"
+        ],
+        "stars": 5
+      },
+      "roompacks": [
+        {
+          "choice": "67680057",
+          "payment_type": "at_destination",
+          "meal_plan": {
+            "id": "BRC"
+          },
+          "rooms": [
+            {
+              "reference": "1",
+              "name": "Habitaci\u00f3n, 1 cama King size, vista al resort",
+              "room_code": "12340",
+              "availability": 4
+            }
+          ],
+          "price_detail": {
+            "currency": "ARS",
+            "subtotal": 18568.45,
+            "taxes": 4050.52,
+            "taxes_detail": [
+              {
+                "code": "base",
+                "amount": 4050.52
+              }
+            ],
+            "fee": 0,
+            "discounts": 0,
+            "total": 22618.97,
+            "nightly": {
+              "subtotal": 6189.48,
+              "total": 7539.66
+            },
+            "nightly_subtotal": 6189.48,
+            "nightly_total": 7539.66
+          },
+          "contract_currency": "USD"
+        }
+      ],
+      "payment_types": [
+        "prepaid",
+        "at_destination"
+      ],
+      "max_installment_quantity": 50
+    },
+    {
+      "id": "300050",
+      "hotel": {
+        "id": "300050",
+        "name": "Homewood Suites by Hilton Miami - Airport Blue Lagoon",
+        "hotel_type_id": "HOT",
+        "location": {
+          "latitude": 25.782,
+          "longitude": -80.28462
+        },
+        "amenity_ids": [
+          "ASAD",
+          "BAR",
+          "BREAKFST",
+          "BSNSC",
+          "CAMA",
+          "DRCLSE",
+          "ELEV",
+          "GIM",
+          "INGRAH",
+          "INV",
+          "JCZHTL",
+          "LASESU",
+          "LUGADCO",
+          "MEETROOM",
+          "MNA",
+          "PARKING",
+          "PISDESC",
+          "PISTPO",
+          "R24",
+          "SOL",
+          "STORE",
+          "TOASAB",
+          "TRANSAIR"
+        ],
+        "stars": 3
+      },
+      "roompacks": [
+        {
+          "choice": "337250185",
+          "payment_type": "prepaid",
+          "meal_plan": {
+            "id": "BRB"
+          },
+          "rooms": [
+            {
+              "reference": "1",
+              "name": "Suite, 1 cama King size, para no fumadores",
+              "room_code": "413056"
+            }
+          ],
+          "price_detail": {
+            "currency": "ARS",
+            "subtotal": 7237.24,
+            "taxes": 940.86,
+            "taxes_detail": [
+              {
+                "code": "base",
+                "amount": 940.86
+              }
+            ],
+            "fee": 654.25,
+            "discounts": 0,
+            "total": 8832.35,
+            "nightly": {
+              "subtotal": 2412.41,
+              "total": 2944.12
+            },
+            "nightly_subtotal": 2412.41,
+            "nightly_total": 2944.12
+          },
+          "contract_currency": "USD"
+        }
+      ],
+      "payment_types": [
+        "prepaid"
+      ],
+      "max_installment_quantity": 50
+    },
+    {
+      "id": "825241",
+      "hotel": {
+        "id": "825241",
+        "name": "Homewood Suites by Hilton Miami Downtown\/Brickell",
+        "hotel_type_id": "HOT",
+        "location": {
+          "latitude": 25.758436848132,
+          "longitude": -80.198659737434
+        },
+        "amenity_ids": [
+          "BREAKFST",
+          "BSNSC",
+          "CAMA",
+          "ELEV",
+          "GIM",
+          "INGRAH",
+          "LASESU",
+          "MEETROOM",
+          "PISDESC",
+          "R24",
+          "STORE",
+          "VALETPRK"
+        ],
+        "stars": 3
+      },
+      "roompacks": [
+        {
+          "choice": "988919859",
+          "payment_type": "prepaid",
+          "meal_plan": {
+            "id": "BRB"
+          },
+          "rooms": [
+            {
+              "reference": "1",
+              "name": "Suite estudio, 1 cama King size",
+              "room_code": "201159733"
+            }
+          ],
+          "promo": {
+            "type": "STANDARD",
+            "saving": {
+              "type": "percentage",
+              "percentage": 15
+            }
+          },
+          "price_detail": {
+            "currency": "ARS",
+            "subtotal": 6689.48,
+            "taxes": 870,
+            "taxes_detail": [
+              {
+                "code": "base",
+                "amount": 870
+              }
+            ],
+            "fee": 604.76,
+            "discounts": 0,
+            "total": 8164.24,
+            "nightly": {
+              "subtotal": 2229.83,
+              "total": 2721.41
+            },
+            "nightly_subtotal": 2229.83,
+            "nightly_total": 2721.41
+          },
+          "contract_currency": "USD"
+        }
+      ],
+      "payment_types": [
+        "prepaid"
+      ],
+      "max_installment_quantity": 50
+    },
+    {
+      "id": "298928",
+      "hotel": {
+        "id": "298928",
+        "name": "River Park Hotel \u0026 Suites",
+        "hotel_type_id": "HOT",
+        "location": {
+          "latitude": 25.771242029724,
+          "longitude": -80.191778949738
+        },
+        "amenity_ids": [
+          "BREAKFST",
+          "CAMA",
+          "CAR",
+          "DRCLSE",
+          "ELEV",
+          "GIM",
+          "INGRAH",
+          "INV",
+          "LUGFR",
+          "MEETROOM",
+          "PARKADCO",
+          "PISDESC",
+          "R24",
+          "SEC24",
+          "SERCON",
+          "SOL",
+          "TRANSER",
+          "WAKEUP"
+        ],
+        "stars": 3
+      },
+      "roompacks": [
+        {
+          "choice": "1915642793",
+          "payment_type": "prepaid",
+          "meal_plan": {
+            "id": "BRC"
+          },
+          "rooms": [
+            {
+              "reference": "1",
+              "name": "Habitaci\u00f3n est\u00e1ndar (Run of House)",
+              "room_code": "402563",
+              "availability": 30
+            }
+          ],
+          "promo": {
+            "type": "STANDARD",
+            "saving": {
+              "type": "percentage",
+              "percentage": 24
+            }
+          },
+          "price_detail": {
+            "currency": "ARS",
+            "subtotal": 6451.03,
+            "taxes": 949.66,
+            "taxes_detail": [
+              {
+                "code": "base",
+                "amount": 949.66
+              }
+            ],
+            "fee": 592.06,
+            "discounts": 0,
+            "total": 7992.74,
+            "nightly": {
+              "subtotal": 2150.34,
+              "total": 2664.25
+            },
+            "nightly_subtotal": 2150.34,
+            "nightly_total": 2664.25
+          },
+          "contract_currency": "USD"
+        }
+      ],
+      "payment_types": [
+        "prepaid"
+      ],
+      "max_installment_quantity": 50
+    },
+    {
+      "id": "298747",
+      "hotel": {
+        "id": "298747",
+        "name": "InterContinental Miami",
+        "hotel_type_id": "HOT",
+        "location": {
+          "latitude": 25.772540348036,
+          "longitude": -80.185962203705
+        },
+        "amenity_ids": [
+          "BAG",
+          "BAR",
+          "BREEXCH",
+          "BSNSC",
+          "CAMA",
+          "ELEV",
+          "GIM",
+          "HAIRROOM",
+          "INGRAH",
+          "LASESU",
+          "PISDESC",
+          "R24",
+          "SAUN",
+          "SERCON",
+          "SPA",
+          "STORE",
+          "VALETPRK"
+        ],
+        "stars": 4
+      },
+      "roompacks": [
+        {
+          "choice": "1047529860",
+          "payment_type": "at_destination",
+          "meal_plan": {
+            "id": "H"
+          },
+          "rooms": [
+            {
+              "reference": "1",
+              "name": "Habitaci\u00f3n, 2 camas matrimoniales, vista a la ciudad",
+              "room_code": "200842191"
+            }
+          ],
+          "price_detail": {
+            "currency": "ARS",
+            "subtotal": 8798.28,
+            "taxes": 1144.14,
+            "taxes_detail": [
+              {
+                "code": "base",
+                "amount": 1144.14
+              }
+            ],
+            "fee": 0,
+            "discounts": 0,
+            "total": 9942.41,
+            "nightly": {
+              "subtotal": 2932.76,
+              "total": 3314.14
+            },
+            "nightly_subtotal": 2932.76,
+            "nightly_total": 3314.14
+          },
+          "contract_currency": "USD"
+        }
+      ],
+      "payment_types": [
+        "prepaid",
+        "at_destination"
+      ],
+      "max_installment_quantity": 50
+    },
+    {
+      "id": "299050",
+      "hotel": {
+        "id": "299050",
+        "name": "Courtyard by Marriott Miami at Dolphin Mall",
+        "hotel_type_id": "HOT",
+        "location": {
+          "latitude": 25.78464,
+          "longitude": -80.37732
+        },
+        "amenity_ids": [
+          "ACOM",
+          "BAR",
+          "BREEXCH",
+          "BSNSC",
+          "CAMA",
+          "ELEV",
+          "GAMES",
+          "GIM",
+          "INGRAH",
+          "INV",
+          "LASESU",
+          "MEETROOM",
+          "MNA",
+          "PARKING",
+          "PISDESC",
+          "RECEP",
+          "RESTO",
+          "SOL",
+          "STORE",
+          "TOASAB"
+        ],
+        "stars": 3
+      },
+      "roompacks": [
+        {
+          "choice": "1103382557",
+          "payment_type": "prepaid",
+          "meal_plan": {
+            "id": "H"
+          },
+          "rooms": [
+            {
+              "reference": "1",
+              "name": "Habitaci\u00f3n, 2 camas Queen size, vista a la ciudad",
+              "room_code": "278067",
+              "availability": 5
+            }
+          ],
+          "price_detail": {
+            "currency": "ARS",
+            "subtotal": 9293.28,
+            "taxes": 1208.1,
+            "taxes_detail": [
+              {
+                "code": "base",
+                "amount": 1208.1
+              }
+            ],
+            "fee": 840.11,
+            "discounts": 0,
+            "total": 11341.49,
+            "nightly": {
+              "subtotal": 3097.76,
+              "total": 3780.5
+            },
+            "nightly_subtotal": 3097.76,
+            "nightly_total": 3780.5
+          },
+          "contract_currency": "USD"
+        }
+      ],
+      "payment_types": [
+        "prepaid"
+      ],
+      "max_installment_quantity": 50
+    },
+    {
+      "id": "487573",
+      "hotel": {
+        "id": "487573",
+        "name": "Aloft Miami Brickell",
+        "hotel_type_id": "HOT",
+        "location": {
+          "latitude": 25.76409,
+          "longitude": -80.19732
+        },
+        "amenity_ids": [
+          "BAR",
+          "BREEXCH",
+          "BSNSC",
+          "CAMA",
+          "ELEV",
+          "GAMES",
+          "INGRAH",
+          "LASESU",
+          "MEETROOM",
+          "PARKADCO",
+          "PISDESC",
+          "R24",
+          "SERCON",
+          "STORE",
+          "VALETPRK"
+        ],
+        "stars": 4
+      },
+      "roompacks": [
+        {
+          "choice": "1050677946",
+          "payment_type": "prepaid",
+          "meal_plan": {
+            "id": "H"
+          },
+          "rooms": [
+            {
+              "reference": "1",
+              "name": "aloft, Habitaci\u00f3n, 1 cama King size",
+              "room_code": "200445793",
+              "availability": 48
+            }
+          ],
+          "price_detail": {
+            "currency": "ARS",
+            "subtotal": 7448.28,
+            "taxes": 968.28,
+            "taxes_detail": [
+              {
+                "code": "base",
+                "amount": 968.28
+              }
+            ],
+            "fee": 673.32,
+            "discounts": 0,
+            "total": 9089.88,
+            "nightly": {
+              "subtotal": 2482.76,
+              "total": 3029.96
+            },
+            "nightly_subtotal": 2482.76,
+            "nightly_total": 3029.96
+          },
+          "contract_currency": "USD"
+        }
+      ],
+      "payment_types": [
+        "prepaid"
+      ],
+      "max_installment_quantity": 50
+    },
+    {
+      "id": "703576",
+      "hotel": {
+        "id": "703576",
+        "name": "Hyatt Place Miami Airport - East",
+        "hotel_type_id": "HOT",
+        "location": {
+          "latitude": 25.806340287831,
+          "longitude": -80.26297959259
+        },
+        "amenity_ids": [
+          "AIR",
+          "BAR",
+          "BREAKFST",
+          "BSNSC",
+          "CAMA",
+          "ELEV",
+          "GIM",
+          "INGRAH",
+          "LASESU",
+          "MEETROOM",
+          "PAREFR",
+          "PARKADCO",
+          "PEALAC",
+          "PISDESC",
+          "R24",
+          "RESTO",
+          "ROOMSVC",
+          "SERCON",
+          "TOASAB",
+          "TRANSAIR",
+          "VALETPRK"
+        ],
+        "stars": 3
+      },
+      "roompacks": [
+        {
+          "choice": "731939597",
+          "payment_type": "at_destination",
+          "meal_plan": {
+            "id": "BRB"
+          },
+          "rooms": [
+            {
+              "reference": "1",
+              "name": "King Bed with Sofa Bed",
+              "room_code": "200885077",
+              "availability": 21
+            }
+          ],
+          "promo": {
+            "type": "STANDARD",
+            "saving": {
+              "type": "percentage",
+              "percentage": 15
+            }
+          },
+          "price_detail": {
+            "currency": "ARS",
+            "subtotal": 5671.55,
+            "taxes": 737.59,
+            "taxes_detail": [
+              {
+                "code": "base",
+                "amount": 737.59
+              }
+            ],
+            "fee": 0,
+            "discounts": 0,
+            "total": 6409.14,
+            "nightly": {
+              "subtotal": 1890.52,
+              "total": 2136.38
+            },
+            "nightly_subtotal": 1890.52,
+            "nightly_total": 2136.38
+          },
+          "contract_currency": "USD"
+        }
+      ],
+      "payment_types": [
+        "prepaid",
+        "at_destination"
+      ],
+      "max_installment_quantity": 50
+    },
+    {
+      "id": "858696",
+      "hotel": {
+        "id": "858696",
+        "name": "Homewood Suites by Hilton Miami Dolphin Mall",
+        "hotel_type_id": "HOT",
+        "location": {
+          "latitude": 25.78937,
+          "longitude": -80.37645
+        },
+        "amenity_ids": [
+          "BAG",
+          "BAR",
+          "BREAKFST",
+          "BSNSC",
+          "CAMA",
+          "ELEV",
+          "INGRAH",
+          "LASESU",
+          "PARKING",
+          "PISDESC",
+          "RESTO",
+          "STORE"
+        ],
+        "stars": 3
+      },
+      "roompacks": [
+        {
+          "choice": "1490008336",
+          "payment_type": "at_destination",
+          "meal_plan": {
+            "id": "BRB"
+          },
+          "rooms": [
+            {
+              "reference": "1",
+              "name": "Suite estudio, 1 cama King size, para no fumadores",
+              "room_code": "201323258"
+            }
+          ],
+          "price_detail": {
+            "currency": "ARS",
+            "subtotal": 11327.59,
+            "taxes": 1472.59,
+            "taxes_detail": [
+              {
+                "code": "base",
+                "amount": 1472.59
+              }
+            ],
+            "fee": 0,
+            "discounts": 0,
+            "total": 12800.17,
+            "nightly": {
+              "subtotal": 3775.86,
+              "total": 4266.72
+            },
+            "nightly_subtotal": 3775.86,
+            "nightly_total": 4266.72
+          },
+          "contract_currency": "USD"
+        }
+      ],
+      "payment_types": [
+        "prepaid",
+        "at_destination"
+      ],
+      "max_installment_quantity": 50
+    },
+    {
+      "id": "297808",
+      "hotel": {
+        "id": "297808",
+        "name": "Hilton Miami Downtown",
+        "hotel_type_id": "HOT",
+        "location": {
+          "latitude": 25.790802823579,
+          "longitude": -80.188879067459
+        },
+        "amenity_ids": [
+          "BAG",
+          "BAR",
+          "BREEXCH",
+          "BSNSC",
+          "CAMA",
+          "ELEV",
+          "GIM",
+          "INGRAH",
+          "LASESU",
+          "MEETROOM",
+          "PARKADCO",
+          "PISDESC",
+          "R24",
+          "RESTO",
+          "SERCON",
+          "STORE",
+          "VALETPRK"
+        ],
+        "stars": 4
+      },
+      "roompacks": [
+        {
+          "choice": "1947949855",
+          "payment_type": "prepaid",
+          "meal_plan": {
+            "id": "H"
+          },
+          "rooms": [
+            {
+              "reference": "1",
+              "name": "Habitaci\u00f3n, 2 camas Queen size",
+              "room_code": "224852"
+            }
+          ],
+          "price_detail": {
+            "currency": "ARS",
+            "subtotal": 8517.93,
+            "taxes": 1107.93,
+            "taxes_detail": [
+              {
+                "code": "base",
+                "amount": 1107.93
+              }
+            ],
+            "fee": 770.07,
+            "discounts": 0,
+            "total": 10395.93,
+            "nightly": {
+              "subtotal": 2839.31,
+              "total": 3465.31
+            },
+            "nightly_subtotal": 2839.31,
+            "nightly_total": 3465.31
+          },
+          "contract_currency": "USD"
+        }
+      ],
+      "payment_types": [
+        "prepaid"
+      ],
+      "max_installment_quantity": 50
+    },
+    {
+      "id": "420771",
+      "hotel": {
+        "id": "420771",
+        "name": "Comfort Suites Miami Airport North",
+        "hotel_type_id": "HOT",
+        "location": {
+          "latitude": 25.808913060398,
+          "longitude": -80.27528107791
+        },
+        "amenity_ids": [
+          "ACOM",
+          "BAG",
+          "BAR",
+          "BREAKFST",
+          "BSNSC",
+          "CAMA",
+          "ELEV",
+          "GIM",
+          "INGRAH",
+          "LASESU",
+          "LIPA",
+          "LUGFR",
+          "MEETROOM",
+          "PARKING",
+          "PISDESC",
+          "R24",
+          "SOL",
+          "STORE",
+          "TOASAB",
+          "TRANSAIR",
+          "TRANSFREE",
+          "TVROOM"
+        ],
+        "stars": 3
+      },
+      "roompacks": [
+        {
+          "choice": "746060538",
+          "payment_type": "at_destination",
+          "meal_plan": {
+            "id": "BRB"
+          },
+          "rooms": [
+            {
+              "reference": "1",
+              "name": "Suite, Two Queen and One Sofa Bed, Non Smoking",
+              "room_code": "200120488"
+            }
+          ],
+          "price_detail": {
+            "currency": "ARS",
+            "subtotal": 5172.41,
+            "taxes": 672.41,
+            "taxes_detail": [
+              {
+                "code": "base",
+                "amount": 672.41
+              }
+            ],
+            "fee": 0,
+            "discounts": 0,
+            "total": 5844.83,
+            "nightly": {
+              "subtotal": 1724.14,
+              "total": 1948.28
+            },
+            "nightly_subtotal": 1724.14,
+            "nightly_total": 1948.28
+          },
+          "contract_currency": "USD"
+        }
+      ],
+      "payment_types": [
+        "prepaid",
+        "at_destination"
+      ],
+      "max_installment_quantity": 50
+    },
+    {
+      "id": "298568",
+      "hotel": {
+        "id": "298568",
+        "name": "Extended Stay America - Miami - Airport - Doral",
+        "hotel_type_id": "HOT",
+        "location": {
+          "latitude": 25.8053,
+          "longitude": -80.33873
+        },
+        "amenity_ids": [
+          "ASAD",
+          "BREAKFST",
+          "ELEV",
+          "INGRAH",
+          "LASESU",
+          "PARKING",
+          "PISDESC",
+          "R24"
+        ],
+        "stars": 2
+      },
+      "roompacks": [
+        {
+          "choice": "1758018472",
+          "payment_type": "prepaid",
+          "meal_plan": {
+            "id": "BRC"
+          },
+          "rooms": [
+            {
+              "reference": "1",
+              "name": "Estudio, 1 cama Queen size, para no fumadores",
+              "room_code": "203905",
+              "availability": 74
+            }
+          ],
+          "price_detail": {
+            "currency": "ARS",
+            "subtotal": 4421.9,
+            "taxes": 574.66,
+            "taxes_detail": [
+              {
+                "code": "base",
+                "amount": 574.66
+              }
+            ],
+            "fee": 399.72,
+            "discounts": 0,
+            "total": 5396.28,
+            "nightly": {
+              "subtotal": 1473.97,
+              "total": 1798.76
+            },
+            "nightly_subtotal": 1473.97,
+            "nightly_total": 1798.76
+          },
+          "contract_currency": "USD"
+        }
+      ],
+      "payment_types": [
+        "prepaid"
+      ],
+      "max_installment_quantity": 50
+    }
+  ],
+  "paging": {
+    "offset": 0,
+    "limit": 25,
+    "total": 207
+  },
+  "sorting": {
+    "criteria": "order_by",
+    "label": "order_by",
+    "values": [
+      {
+        "value": "adjustment_rate_markup_descending",
+        "label": "adjustment_rate_markup_descending",
+        "selected": false
+      },
+      {
+        "value": "weighted_margin_descending",
+        "label": "weighted_margin_descending",
+        "selected": false
+      },
+      {
+        "value": "best_selling_descending",
+        "label": "best_selling_descending",
+        "selected": true
+      },
+      {
+        "value": "subtotal_price_ascending",
+        "label": "subtotal_price_ascending",
+        "selected": false
+      },
+      {
+        "value": "subtotal_price_descending",
+        "label": "subtotal_price_descending",
+        "selected": false
+      },
+      {
+        "value": "total_price_ascending",
+        "label": "total_price_ascending",
+        "selected": false
+      },
+      {
+        "value": "total_price_descending",
+        "label": "total_price_descending",
+        "selected": false
+      },
+      {
+        "value": "stars_ascending",
+        "label": "stars_ascending",
+        "selected": false
+      },
+      {
+        "value": "stars_descending",
+        "label": "stars_descending",
+        "selected": false
+      },
+      {
+        "value": "rate_descending",
+        "label": "rate_descending",
+        "selected": false
+      },
+      {
+        "value": "building_descending",
+        "label": "building_descending",
+        "selected": false
+      },
+      {
+        "value": "location_descending",
+        "label": "location_descending",
+        "selected": false
+      },
+      {
+        "value": "service_descending",
+        "label": "service_descending",
+        "selected": false
+      },
+      {
+        "value": "service_personal_descending",
+        "label": "service_personal_descending",
+        "selected": false
+      },
+      {
+        "value": "cleaning_descending",
+        "label": "cleaning_descending",
+        "selected": false
+      },
+      {
+        "value": "quality_price_descending",
+        "label": "quality_price_descending",
+        "selected": false
+      },
+      {
+        "value": "wishlist_descending",
+        "label": "wishlist_descending",
+        "selected": false
+      },
+      {
+        "value": "singles_rating_descending",
+        "label": "singles_rating_descending",
+        "selected": false
+      },
+      {
+        "value": "business_trip_rating_descending",
+        "label": "business_trip_rating_descending",
+        "selected": false
+      },
+      {
+        "value": "friends_rating_descending",
+        "label": "friends_rating_descending",
+        "selected": false
+      },
+      {
+        "value": "family_rating_descending",
+        "label": "family_rating_descending",
+        "selected": false
+      },
+      {
+        "value": "couple_rating_descending",
+        "label": "couple_rating_descending",
+        "selected": false
+      },
+      {
+        "value": "logged_user_descending",
+        "label": "logged_user_descending",
+        "selected": false
+      },
+      {
+        "value": "discount_descending",
+        "label": "discount_descending",
+        "selected": false
+      },
+      {
+        "value": "cross_selling_descending",
+        "label": "cross_selling_descending",
+        "selected": false
+      }
+    ]
+  },
+  "facets": [
+    {
+      "criteria": "amenities",
+      "label": "Amenities",
+      "type": "discrete",
+      "subtype": "text",
+      "values": [
+        {
+          "value": "ACOM",
+          "label": "Alojamientos Adaptados a Personas con Discapacidad",
+          "count": 27,
+          "selected": false
+        },
+        {
+          "value": "AIR",
+          "label": "Aire Acondicionado",
+          "count": 32,
+          "selected": false
+        },
+        {
+          "value": "AIRTRAN",
+          "label": "Traslado Aeropuerto con Costo Adicional",
+          "count": 6,
+          "selected": false
+        },
+        {
+          "value": "ASAD",
+          "label": "Asador",
+          "count": 40,
+          "selected": false
+        },
+        {
+          "value": "BABYSIT",
+          "label": "Guarder\u00eda Infantil",
+          "count": 8,
+          "selected": false
+        },
+        {
+          "value": "BAG",
+          "label": "Servicio de Maletero",
+          "count": 46,
+          "selected": false
+        },
+        {
+          "value": "BAR",
+          "label": "Bar",
+          "count": 75,
+          "selected": false
+        },
+        {
+          "value": "BEASAL",
+          "label": "Sal\u00f3n de Belleza",
+          "count": 4,
+          "selected": false
+        },
+        {
+          "value": "BREAKFST",
+          "label": "Desayuno",
+          "count": 69,
+          "selected": false
+        },
+        {
+          "value": "BREEXCH",
+          "label": "Desayuno con Costo Adicional",
+          "count": 59,
+          "selected": false
+        },
+        {
+          "value": "BSNSC",
+          "label": "Centro de Negocios",
+          "count": 138,
+          "selected": false
+        },
+        {
+          "value": "CAMA",
+          "label": "Cajero Autom\u00e1tico en La Propiedad",
+          "count": 98,
+          "selected": false
+        },
+        {
+          "value": "CAR",
+          "label": "Alquiler de Coches",
+          "count": 11,
+          "selected": false
+        },
+        {
+          "value": "CAS",
+          "label": "Casino",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "CEM",
+          "label": "Entretenimiento \/ Monitores para Ni\u00f1os",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "CFGU",
+          "label": "Computadora para Hu\u00e9spedes \/ Cibercaf\u00e9",
+          "count": 5,
+          "selected": false
+        },
+        {
+          "value": "DISC",
+          "label": "Discoteca",
+          "count": 7,
+          "selected": false
+        },
+        {
+          "value": "DRCLSE",
+          "label": "Servicio de Tintorer\u00eda con Costo Adicional",
+          "count": 16,
+          "selected": false
+        },
+        {
+          "value": "ELEV",
+          "label": "Ascensor",
+          "count": 127,
+          "selected": false
+        },
+        {
+          "value": "GAMES",
+          "label": "Sal\u00f3n de Juegos",
+          "count": 14,
+          "selected": false
+        },
+        {
+          "value": "GARD",
+          "label": "Jard\u00edn",
+          "count": 38,
+          "selected": false
+        },
+        {
+          "value": "GIM",
+          "label": "Gimnasio",
+          "count": 115,
+          "selected": false
+        },
+        {
+          "value": "GOLF",
+          "label": "Campo de Golf",
+          "count": 4,
+          "selected": false
+        },
+        {
+          "value": "HAIRROOM",
+          "label": "Peluquer\u00eda",
+          "count": 17,
+          "selected": false
+        },
+        {
+          "value": "HOT",
+          "label": "Calefacci\u00f3n",
+          "count": 12,
+          "selected": false
+        },
+        {
+          "value": "INGRAH",
+          "label": "WIFI gratis",
+          "count": 191,
+          "selected": false
+        },
+        {
+          "value": "INTCA",
+          "label": "Internet con costo adicional",
+          "count": 2,
+          "selected": false
+        },
+        {
+          "value": "INTGR",
+          "label": "Internet gratis",
+          "count": 2,
+          "selected": false
+        },
+        {
+          "value": "INTPUAREXCH",
+          "label": "WIFI con costo adicional",
+          "count": 11,
+          "selected": false
+        },
+        {
+          "value": "INV",
+          "label": "Accesible para personas con movilidad reducida",
+          "count": 32,
+          "selected": false
+        },
+        {
+          "value": "ISV",
+          "label": "Servicio de Planchado",
+          "count": 5,
+          "selected": false
+        },
+        {
+          "value": "JCZHTL",
+          "label": "Ba\u00f1era de Hidromasaje",
+          "count": 44,
+          "selected": false
+        },
+        {
+          "value": "LASESU",
+          "label": "Servicio de Lavander\u00eda con Costo Adicional",
+          "count": 153,
+          "selected": false
+        },
+        {
+          "value": "LIPA",
+          "label": "Estacionamiento Rotativo",
+          "count": 2,
+          "selected": false
+        },
+        {
+          "value": "LUGADCO",
+          "label": "Guardaequipajes con Costo Adicional",
+          "count": 7,
+          "selected": false
+        },
+        {
+          "value": "LUGFR",
+          "label": "Guardaequipajes Gratis",
+          "count": 16,
+          "selected": false
+        },
+        {
+          "value": "MASSAGE",
+          "label": "Masajes",
+          "count": 4,
+          "selected": false
+        },
+        {
+          "value": "MEETROOM",
+          "label": "Sala de Reuniones",
+          "count": 91,
+          "selected": false
+        },
+        {
+          "value": "MNA",
+          "label": "Mascotas: no se admiten",
+          "count": 34,
+          "selected": false
+        },
+        {
+          "value": "OUSWPOSE",
+          "label": "Piscina al Aire Libre (de Temporada)",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "PAREEXCH",
+          "label": "Recepci\u00f3n de Paquetes con Costo Adicional",
+          "count": 7,
+          "selected": false
+        },
+        {
+          "value": "PAREFR",
+          "label": "Recepci\u00f3n de Paquetes Gratis",
+          "count": 3,
+          "selected": false
+        },
+        {
+          "value": "PARKADCO",
+          "label": "Estacionamiento con Costo Adicional",
+          "count": 37,
+          "selected": false
+        },
+        {
+          "value": "PARKING",
+          "label": "Estacionamiento Gratis",
+          "count": 111,
+          "selected": false
+        },
+        {
+          "value": "PEALAC",
+          "label": "Se Admiten Mascotas con Costo Adicional",
+          "count": 7,
+          "selected": false
+        },
+        {
+          "value": "PET",
+          "label": "Se Admiten Mascotas Gratuitamente",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "PISC",
+          "label": "Piscina Interior (Todo el A\u00f1o)",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "PISCCLI",
+          "label": "Piscina climatizada",
+          "count": 6,
+          "selected": false
+        },
+        {
+          "value": "PISCINF",
+          "label": "Piscina Infantil",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "PISCN",
+          "label": "Piscina",
+          "count": 4,
+          "selected": false
+        },
+        {
+          "value": "PISDESC",
+          "label": "Piscina al Aire Libre (Todo el A\u00f1o)",
+          "count": 163,
+          "selected": false
+        },
+        {
+          "value": "PISTPO",
+          "label": "Cancha Polideportiva",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "PISTSC",
+          "label": "Cancha de Squash",
+          "count": 2,
+          "selected": false
+        },
+        {
+          "value": "PRIBEAR",
+          "label": "Zona Privada de Playa",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "R24",
+          "label": "Recepci\u00f3n 24hs",
+          "count": 127,
+          "selected": false
+        },
+        {
+          "value": "RECEP",
+          "label": "Recepci\u00f3n (horario limitado)",
+          "count": 6,
+          "selected": false
+        },
+        {
+          "value": "RESTO",
+          "label": "Restaurante",
+          "count": 71,
+          "selected": false
+        },
+        {
+          "value": "ROOMSVC",
+          "label": "Servicio de Habitaci\u00f3n",
+          "count": 22,
+          "selected": false
+        },
+        {
+          "value": "SALJUE",
+          "label": "Sala de juegos para ni\u00f1os",
+          "count": 2,
+          "selected": false
+        },
+        {
+          "value": "SAUN",
+          "label": "Sauna",
+          "count": 24,
+          "selected": false
+        },
+        {
+          "value": "SEC24",
+          "label": "Seguridad 24h",
+          "count": 10,
+          "selected": false
+        },
+        {
+          "value": "SECTNI",
+          "label": "Sector de juegos para ni\u00f1os",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "SERCAM",
+          "label": "Servicio de Cambio de Moneda",
+          "count": 2,
+          "selected": false
+        },
+        {
+          "value": "SERCON",
+          "label": "Servicio de Conserjer\u00eda",
+          "count": 82,
+          "selected": false
+        },
+        {
+          "value": "SERGUAR",
+          "label": "Servicio de ni\u00f1era",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "SERNIN",
+          "label": "Cambiador de bebes",
+          "count": 5,
+          "selected": false
+        },
+        {
+          "value": "SMPEALAC",
+          "label": "Se Admiten Mascotas Peque\u00f1as con Costo Adicional",
+          "count": 2,
+          "selected": false
+        },
+        {
+          "value": "SMPEALFR",
+          "label": "Se Admiten Mascotas Peque\u00f1as Gratis",
+          "count": 2,
+          "selected": false
+        },
+        {
+          "value": "SOL",
+          "label": "Sol\u00e1rium",
+          "count": 24,
+          "selected": false
+        },
+        {
+          "value": "SOMBR",
+          "label": "Sombrilla",
+          "count": 3,
+          "selected": false
+        },
+        {
+          "value": "SPA",
+          "label": "SPA",
+          "count": 26,
+          "selected": false
+        },
+        {
+          "value": "STORE",
+          "label": "Tiendas en la Propiedad",
+          "count": 74,
+          "selected": false
+        },
+        {
+          "value": "TENIS",
+          "label": "Cancha de Tenis",
+          "count": 14,
+          "selected": false
+        },
+        {
+          "value": "TOALPL",
+          "label": "Toallas para la Playa",
+          "count": 6,
+          "selected": false
+        },
+        {
+          "value": "TOASAB",
+          "label": "Toallas \/ S\u00e1banas",
+          "count": 37,
+          "selected": false
+        },
+        {
+          "value": "TRANSAIR",
+          "label": "Traslado al Aeropuerto Gratis",
+          "count": 41,
+          "selected": false
+        },
+        {
+          "value": "TRANSER",
+          "label": "Servicio de Traslado con Costo Adicional",
+          "count": 8,
+          "selected": false
+        },
+        {
+          "value": "TRANSFREE",
+          "label": "Servicio de Traslado Gratis",
+          "count": 5,
+          "selected": false
+        },
+        {
+          "value": "TVROOM",
+          "label": "Sal\u00f3n de TV",
+          "count": 5,
+          "selected": false
+        },
+        {
+          "value": "VALETPRK",
+          "label": "Valet Parking",
+          "count": 72,
+          "selected": false
+        },
+        {
+          "value": "WAKEUP",
+          "label": "Servicio de Despertador",
+          "count": 16,
+          "selected": false
+        }
+      ]
+    },
+    {
+      "criteria": "hotel_type",
+      "label": "HotelType",
+      "type": "discrete",
+      "subtype": "text",
+      "values": [
+        {
+          "value": "DPT",
+          "label": "Departamentos",
+          "count": 3,
+          "selected": false
+        },
+        {
+          "value": "HOT",
+          "label": "Hoteles",
+          "count": 197,
+          "selected": false
+        },
+        {
+          "value": "MOT",
+          "label": "Motels",
+          "count": 2,
+          "selected": false
+        },
+        {
+          "value": "RSR",
+          "label": "Resorts",
+          "count": 5,
+          "selected": false
+        }
+      ]
+    },
+    {
+      "criteria": "payment_type",
+      "label": "PaymentType",
+      "type": "discrete",
+      "subtype": "text",
+      "values": [
+        {
+          "value": "at_destination",
+          "label": "Paga al hotel",
+          "count": 89,
+          "selected": false
+        },
+        {
+          "value": "prepaid_installments",
+          "label": "M\u00e1s de 1 pago",
+          "count": 183,
+          "selected": false
+        },
+        {
+          "value": "prepaid_one_payment",
+          "label": "En 1 pago",
+          "count": 183,
+          "selected": false
+        }
+      ]
+    },
+    {
+      "criteria": "meal_plans",
+      "label": "MealPlans",
+      "type": "discrete",
+      "subtype": "text",
+      "values": [
+        {
+          "value": "B",
+          "count": 60,
+          "selected": false
+        },
+        {
+          "value": "H",
+          "count": 147,
+          "selected": false
+        }
+      ]
+    },
+    {
+      "criteria": "stars",
+      "label": "Stars",
+      "type": "discrete",
+      "subtype": "text",
+      "values": [
+        {
+          "value": "0",
+          "label": "0 Estrellas",
+          "count": 16,
+          "selected": false
+        },
+        {
+          "value": "1",
+          "label": "1 Estrellas",
+          "count": 2,
+          "selected": false
+        },
+        {
+          "value": "2",
+          "label": "2 Estrellas",
+          "count": 21,
+          "selected": false
+        },
+        {
+          "value": "3",
+          "label": "3 Estrellas",
+          "count": 84,
+          "selected": false
+        },
+        {
+          "value": "4",
+          "label": "4 Estrellas",
+          "count": 69,
+          "selected": false
+        },
+        {
+          "value": "5",
+          "label": "5 Estrellas",
+          "count": 15,
+          "selected": false
+        }
+      ]
+    },
+    {
+      "criteria": "zones",
+      "label": "Zones",
+      "type": "discrete",
+      "subtype": "text",
+      "values": [
+        {
+          "value": "179332",
+          "label": "Aventura",
+          "count": 2,
+          "selected": false
+        },
+        {
+          "value": "179333",
+          "label": "Allapattah",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "179336",
+          "label": "Brickell Hammock",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "179337",
+          "label": "Coconut Grove",
+          "count": 24,
+          "selected": false
+        },
+        {
+          "value": "179338",
+          "label": "Coral Way",
+          "count": 39,
+          "selected": false
+        },
+        {
+          "value": "179339",
+          "label": "Flagami",
+          "count": 24,
+          "selected": false
+        },
+        {
+          "value": "179341",
+          "label": "Golden Beach",
+          "count": 2,
+          "selected": false
+        },
+        {
+          "value": "179344",
+          "label": "Miami Lakes",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "179345",
+          "label": "Miami Springs",
+          "count": 2,
+          "selected": false
+        },
+        {
+          "value": "179346",
+          "label": "North Miami",
+          "count": 2,
+          "selected": false
+        },
+        {
+          "value": "179348",
+          "label": "South Miami",
+          "count": 9,
+          "selected": false
+        },
+        {
+          "value": "179351",
+          "label": "Sunrise Harbor",
+          "count": 3,
+          "selected": false
+        },
+        {
+          "value": "179356",
+          "label": "Blue Lagoon",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "179358",
+          "label": "Midtown",
+          "count": 14,
+          "selected": false
+        },
+        {
+          "value": "179360",
+          "label": "Wynwood Art District",
+          "count": 6,
+          "selected": false
+        },
+        {
+          "value": "179361",
+          "label": "Miami Beach",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "179362",
+          "label": "Brickell",
+          "count": 30,
+          "selected": false
+        },
+        {
+          "value": "179364",
+          "label": "Downtown",
+          "count": 57,
+          "selected": false
+        },
+        {
+          "value": "179365",
+          "label": "East Little Havana",
+          "count": 11,
+          "selected": false
+        },
+        {
+          "value": "179370",
+          "label": "Brickell Key",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "179371",
+          "label": "Miami Financial District",
+          "count": 22,
+          "selected": false
+        },
+        {
+          "value": "179372",
+          "label": "Media and Entertainment District",
+          "count": 4,
+          "selected": false
+        },
+        {
+          "value": "179373",
+          "label": "Miami Government District",
+          "count": 4,
+          "selected": false
+        },
+        {
+          "value": "179378",
+          "label": "Golden Pines",
+          "count": 3,
+          "selected": false
+        },
+        {
+          "value": "179383",
+          "label": "Downtown Coral Gables",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "179384",
+          "label": "Little Havana",
+          "count": 13,
+          "selected": false
+        },
+        {
+          "value": "179385",
+          "label": "Overtown",
+          "count": 12,
+          "selected": false
+        },
+        {
+          "value": "179386",
+          "label": "Edgewater",
+          "count": 9,
+          "selected": false
+        },
+        {
+          "value": "192385",
+          "label": "Miami International Airport Area",
+          "count": 35,
+          "selected": false
+        }
+      ]
+    },
+    {
+      "criteria": "profiles",
+      "label": "Profiles",
+      "type": "discrete",
+      "subtype": "text",
+      "values": [
+        {
+          "value": "businessTrip",
+          "label": "businessTrip",
+          "count": 121,
+          "selected": false
+        },
+        {
+          "value": "cheap",
+          "label": "cheap",
+          "count": 105,
+          "selected": false
+        },
+        {
+          "value": "design",
+          "label": "design",
+          "count": 57,
+          "selected": false
+        },
+        {
+          "value": "family",
+          "label": "family",
+          "count": 127,
+          "selected": false
+        },
+        {
+          "value": "gourmet",
+          "label": "gourmet",
+          "count": 25,
+          "selected": false
+        },
+        {
+          "value": "luxury",
+          "label": "luxury",
+          "count": 47,
+          "selected": false
+        },
+        {
+          "value": "nature",
+          "label": "nature",
+          "count": 23,
+          "selected": false
+        },
+        {
+          "value": "other",
+          "label": "other",
+          "count": 68,
+          "selected": false
+        },
+        {
+          "value": "relax",
+          "label": "relax",
+          "count": 95,
+          "selected": false
+        },
+        {
+          "value": "romantic",
+          "label": "romantic",
+          "count": 86,
+          "selected": false
+        },
+        {
+          "value": "shopping",
+          "label": "shopping",
+          "count": 108,
+          "selected": false
+        },
+        {
+          "value": "singles",
+          "label": "singles",
+          "count": 85,
+          "selected": false
+        },
+        {
+          "value": "sport",
+          "label": "sport",
+          "count": 13,
+          "selected": false
+        }
+      ]
+    },
+    {
+      "criteria": "hotel_chains",
+      "label": "HotelChains",
+      "type": "discrete",
+      "subtype": "text",
+      "values": [
+        {
+          "value": "116",
+          "label": "BW",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "117",
+          "label": "BW Plus",
+          "count": 3,
+          "selected": false
+        },
+        {
+          "value": "118",
+          "label": "BW Premier",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "120",
+          "label": "Aloft",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "125",
+          "label": "Sheraton",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "127",
+          "label": "Element",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "136",
+          "label": "Hyatt",
+          "count": 2,
+          "selected": false
+        },
+        {
+          "value": "137",
+          "label": "Hyatt Regency",
+          "count": 2,
+          "selected": false
+        },
+        {
+          "value": "179",
+          "label": "Four Seasons",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "206",
+          "label": "Red Roof Inn",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "212",
+          "label": "Intercontinental",
+          "count": 2,
+          "selected": false
+        },
+        {
+          "value": "229",
+          "label": "Crowne Plaza",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "230",
+          "label": "Hotel Indigo",
+          "count": 2,
+          "selected": false
+        },
+        {
+          "value": "232",
+          "label": "Holiday Inn",
+          "count": 5,
+          "selected": false
+        },
+        {
+          "value": "233",
+          "label": "HI Express",
+          "count": 5,
+          "selected": false
+        },
+        {
+          "value": "236",
+          "label": "Staybridge",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "241",
+          "label": "Sonesta",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "57",
+          "label": "Days Inn",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "59",
+          "label": "Super 8",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "60",
+          "label": "Baymont Inn \u0026 Suites",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "71",
+          "label": "Marriott Hotels",
+          "count": 14,
+          "selected": false
+        },
+        {
+          "value": "73",
+          "label": "Springhill Suites",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "80",
+          "label": "Conrad Hotels \u0026 Resorts",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "81",
+          "label": "Hilton Hotels \u0026 Resorts",
+          "count": 4,
+          "selected": false
+        },
+        {
+          "value": "82",
+          "label": "Double Tree By Hilton",
+          "count": 2,
+          "selected": false
+        },
+        {
+          "value": "83",
+          "label": "Embassy Suites By Hilton",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "85",
+          "label": "Hampton By Hilton",
+          "count": 7,
+          "selected": false
+        },
+        {
+          "value": "86",
+          "label": "Homewood Suites by Hilton",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "90",
+          "label": "Comfort Hotel \u0026 Suites",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "91",
+          "label": "Quality",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "94",
+          "label": "Cambria Suites",
+          "count": 1,
+          "selected": false
+        }
+      ]
+    },
+    {
+      "criteria": "promo_percentage",
+      "type": "discrete",
+      "subtype": "text",
+      "values": [
+        {
+          "value": "20",
+          "count": 38,
+          "selected": false
+        },
+        {
+          "value": "50",
+          "count": 1,
+          "selected": false
+        },
+        {
+          "value": "all",
+          "count": 70,
+          "selected": false
+        }
+      ]
+    },
+    {
+      "criteria": "promo_type",
+      "type": "discrete",
+      "subtype": "text",
+      "values": [
+        {
+          "value": "STANDARD",
+          "count": 70,
+          "selected": false
+        }
+      ]
+    },
+    {
+      "criteria": "tags",
+      "label": "Tags",
+      "type": "discrete",
+      "subtype": "text",
+      "values": [
+        {
+          "value": "smart_deal",
+          "count": 21,
+          "selected": false
+        }
+      ]
+    },
+    {
+      "criteria": "markup_detail",
+      "type": "discrete",
+      "subtype": "text"
+    },
+    {
+      "criteria": "subtotal_price_range",
+      "label": "subtotal_price_range",
+      "type": "range",
+      "subtype": "number",
+      "max": 43896.55,
+      "min": 747.59
+    },
+    {
+      "criteria": "total_price_range",
+      "label": "total_price_range",
+      "type": "range",
+      "subtype": "number",
+      "max": 54473.79,
+      "min": 844.66
+    },
+    {
+      "criteria": "nightly_subtotal_price_range",
+      "label": "nightly_subtotal_price_range",
+      "type": "range",
+      "subtype": "number",
+      "max": 43896.55,
+      "min": 747.59
+    },
+    {
+      "criteria": "nightly_total_price_range",
+      "label": "nightly_total_price_range",
+      "type": "range",
+      "subtype": "number",
+      "max": 54473.79,
+      "min": 844.66
+    }
+  ]
+}

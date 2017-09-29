@@ -17,21 +17,30 @@ import {SearchHotelPage} from "../search-hotel/search-hotel"
 })
 export class WelcomePage {
 
-  constructor(public nav: NavController) {
+  constructor(public navCtrl: NavController) {
+
   }
+
+    ionViewDidLoad(){
+      console.log('WelcomePage');
+    }
 
   // go to register page
   register() {
-    this.nav.setRoot(RegisterPage);
+    this.navCtrl.setRoot(RegisterPage);
   }
 
   // login and go to home page
   login() {
-    this.nav.setRoot(HomePage);
+    this.navCtrl.setRoot(HomePage);
   }
 
   searchHotel(){
-      this.nav.setRoot(SearchHotelPage);
+      this.navCtrl.setRoot(SearchHotelPage)
+          .then(() => {
+              const index = this.navCtrl.getActive().index;
+              this.navCtrl.remove(0, index);
+          })
   }
 
 }

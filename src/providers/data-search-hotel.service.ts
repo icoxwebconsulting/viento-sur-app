@@ -11,9 +11,7 @@ export class DataSearchHotelService {
     }
 
     setRooms(room: any) {
-
         this.storage.set('rooms', JSON.stringify(room));
-
     }
 
     getRooms() {
@@ -21,15 +19,11 @@ export class DataSearchHotelService {
     }
 
     removeRooms() {
-
         this.storage.remove('rooms');
-
     }
 
     setDestination(destination: any) {
-
         this.storage.set('destination', JSON.stringify(destination));
-
     }
 
     getDestination() {
@@ -40,5 +34,28 @@ export class DataSearchHotelService {
         this.storage.remove("destination").then(() => {});
     }
 
+    setSearchHotels(query){
+        this.storage.set('searchHotel', JSON.stringify(query));
+    }
+
+    getSearchHotels() {
+        return this.storage.get('searchHotel');
+    }
+
+    removeSearchHotels() {
+        this.storage.remove("searchHotel").then(() => {});
+    }
+
+    setFacets(query){
+        this.storage.set('facets', JSON.stringify(query));
+    }
+
+    getFacets() {
+        return this.storage.get('facets');
+    }
+
+    removeFacets() {
+        this.storage.remove("facets").then(() => {});
+    }
 
 }

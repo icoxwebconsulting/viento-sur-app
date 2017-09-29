@@ -6,57 +6,127 @@
 -->
 <ion-header>
 
-  <ion-navbar color="primary">
-    <ion-title>Hotel</ion-title>
-  </ion-navbar>
+    <!--<ion-navbar color="primary">
+        <ion-title>Hoteles</ion-title>
+        <button (click)="openModal()">
+            <ion-icon name="more"></ion-icon>
+        </button>
+        <ion-buttons end>
+
+        </ion-buttons>
+    </ion-navbar>-->
+
+    <ion-navbar color="primary" [hideBackButton]="true">
+        <ion-buttons left>
+            <button ion-button icon-only (click)="navBack()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>
+            Hoteles
+        </ion-title>
+        <!--<ion-buttons end>
+            <button ion-button icon-only (click)="filtersPopover($event)">
+                <ion-icon name="more"></ion-icon>
+            </button>
+        </ion-buttons>-->
+    </ion-navbar>
 
 </ion-header>
 
 
-<ion-content>
-  <!-- Show map here -->
-  <div id="map"></div>
+<ion-content class="common-bg">
+    <!-- Show map here -->
+    <!--<div id="map"></div>-->
 
-  <!--list of hotels-->
-  <ion-grid class="list-hotels">
-    <ion-row *ngFor="let hotel of hotels">
-      <ion-col>
-        <div class="hotel-bg" [ngStyle]="{'background-image': 'url(' + hotel.thumb + ')'}"
-             (click)="viewHotel(hotel.id)">
-          <div class="bg-filter">
-            <div class="discount" *ngIf="hotel.sale_price">{{ (100 * (1 - hotel.price / hotel.sale_price)).toFixed(0)
-              }}%
-            </div>
-            <div class="bottom-info">
+    <!--list of hotels-->
 
-              <div>
-                <div class="pull-left">
-                  <h5 ion-text color="light">{{ hotel.name }}</h5>
-                </div>
-                <div class="pull-right">
-                  <span class="origin-price" *ngIf="hotel.sale_price">{{ hotel.price | currency:'USD':true }}</span>
-                </div>
-                <div class="clear"></div>
-              </div>
+    <!--<ion-list class="list-no-border bg-color">
+        <ion-row>
+            <ion-col col-6>
+                <ion-item text-left class="bg-color">
+                    <ion-icon name="reorder" item-start></ion-icon>
+                    Ordenar
+                </ion-item>
+            </ion-col>
 
-              <div>
-                <div class="pull-left">
-                  <ion-badge class="square" color="light">{{ hotel.rating }}</ion-badge>
-                  <span class="rating-label" ion-text color="light"> of 5 - guest rating</span>
-                </div>
-                <div class="pull-right">
-                  <span class="price" *ngIf="!hotel.sale_price"
-                        ion-text color="light">{{ hotel.price | currency:'USD':true }}</span>
-                  <span class="sale-price" *ngIf="hotel.sale_price" ion-text color="light">{{ hotel.sale_price | currency:'USD':true }}</span>
-                </div>
-                <div class="clear"></div>
-              </div>
-            </div>
+            <ion-col col-6>
+                <ion-item text-left class="bg-color" (click)="goFilters()">
+                    <ion-icon name="funnel" item-start></ion-icon>
+                    <span>Filtros</span>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-list>-->
 
-          </div>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-list class="" no-margin no-padding>
+        <ion-item color="primary">
+            <ion-col col-4 offset-1 text-center (click)="goSorting()">
+                <button ion-button icon-left clear class="btn-color" >
+                    <ion-icon name="reorder"></ion-icon>
+                    Ordenar
+                </button>
+            </ion-col>
+
+            <ion-col col-4 offset-1 text-center (click)="goFilters()">
+                <button ion-button icon-left clear class="btn-color" >
+                    <ion-icon name="funnel"></ion-icon>
+                    Filtro
+                </button>
+            </ion-col>
+        </ion-item>
+    </ion-list>
+
+    <ion-grid class="list-hotels" no-margin no-padding>
+        <ion-row *ngFor="let hotel of hotels; let i = index" >
+            <ion-col>
+                <div class="hotel-bg"
+                     [ngStyle]="{'background-image': 'url('+hotel.main_picture.url+')','height': '150px','background-repeat': 'no-repeat','background-size': 'cover'}"
+                     (click)="viewHotel(hotel.id)">
+                    <div class="bg-filter">
+                        <!--<div class="discount">-50%</div>-->
+                        <div class="bottom-info">
+
+                            <div>
+                                <div class="pull-left">
+                                    <h5 ion-text color="light">{{hotel.name}}</h5>
+                                </div>
+                                <!--<div class="pull-right">
+                                    AR{{ hotelArray[i].roompacks[0].price_detail.subtotal | currency:'USD':true:'1.2-2'}}
+                                </div>
+                                <div class="pull-right" *ngIf="hotelArray[i].roompacks[0].price_detail.currency == 'USD'">
+                                    <span class="origin-price">{{hotelArray[i].roompacks[0].price_detail.currency}}</span>
+                                    &lt;!&ndash;<span class="origin-price">{{hotel.roompacks.price_detail.currency}}</span>&ndash;&gt;
+                                    &lt;!&ndash;AR{{ 31.004 | currency:'USD':true:'1.2-2'}}&ndash;&gt;
+                                </div>-->
+                                <div class="clear"></div>
+                            </div>
+
+                            <div>
+                                <div class="pull-left">
+                                    <ion-badge class="square" color="light">{{hotel.stars}}</ion-badge>
+                                    <span class="rating-label" ion-text color="light"> de 5 - estrellas</span>
+                                </div>
+                                <div class="pull-right" *ngIf="hotelArray[i].roompacks[0].price_detail.currency == 'ARS'">
+                                    <span class="price" ion-text color="light">
+                                        AR{{ hotelArray[i].roompacks[0].price_detail.subtotal | currency:'USD':true:'1.2-2'}}
+                                    </span>
+                                    <!--<span class="sale-price" ion-text color="light">40 USD</span>-->
+                                </div>
+                                <div class="pull-right" *ngIf="hotelArray[i].roompacks[0].price_detail.currency == 'USD'">
+                                    <span class="price" ion-text color="light">
+                                        USD{{ hotelArray[i].roompacks[0].price_detail.subtotal | currency:'USD':true:'1.2-2'}}
+                                    </span>
+                                    <!--<span class="sale-price" ion-text color="light">40 USD</span>-->
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
 </ion-content>

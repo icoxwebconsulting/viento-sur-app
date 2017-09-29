@@ -1,20 +1,19 @@
-<!--
-  Generated template for the ProfilePage page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
-    <ion-navbar color="primary">
-        <ion-title>Habitación</ion-title>
+    <ion-navbar color="primary" [hideBackButton]="true">
+        <ion-buttons left>
+            <button ion-button icon-only (click)="navBack()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+
+        <ion-title>Habitación #{{room.room}}</ion-title>
     </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding class="filter-guest">
-    <h3> Habitación #{{room.room}}</h3>
+<ion-content padding class="filter-guest common-bg">
     <ion-grid class="filters">
         <ion-row>
             <ion-col width-25>
@@ -22,7 +21,7 @@
             </ion-col>
             <ion-col class="adult" col-6 text-center>{{ room.adults }} Adultos</ion-col>
             <ion-col width-25 text-right>
-                <ion-icon name="ios-add-circle-outline" (click)="plusAdult()"></ion-icon>
+                <ion-icon name="add-circle" (click)="plusAdult()"></ion-icon>
             </ion-col>
         </ion-row>
         <ion-row margin-top>
@@ -35,7 +34,7 @@
                 <div class="text-sm">(0-17 años)</div>
             </ion-col>
             <ion-col width-25 text-right>
-                <ion-icon name="ios-add-circle-outline" (click)="plusChildren()" [hidden]="room.children > 6"></ion-icon>
+                <ion-icon name="add-circle" (click)="plusChildren()" [hidden]="room.children > 6"></ion-icon>
             </ion-col>
         </ion-row>
     </ion-grid>
@@ -43,10 +42,10 @@
     <ion-list class="list-no-border">
         <!--<ion-item-divider color="light" [hidden]="minors.length < 1">Menores</ion-item-divider>-->
 
-        <ion-item *ngFor="let minor of minors; let i = index" text-center>
-            <ion-icon name="ios-remove-circle-outline" (click)="minusAge(minor)" item-start [hidden]="minor.age < 1"></ion-icon>
+        <ion-item margin-bottom *ngFor="let minor of minors; let i = index" text-center>
+            <ion-icon name="remove-circle" (click)="minusAge(minor)" item-start [hidden]="minor.age < 1"></ion-icon>
             <span>Menor {{i + 1}} - Edad {{ minor.age }} </span>
-            <ion-icon name="ios-add-circle-outline" (click)="plusAge(minor)" item-end [hidden]="minor.age > 16"></ion-icon>
+            <ion-icon name="add-circle" (click)="plusAge(minor)" item-end [hidden]="minor.age > 16"></ion-icon>
         </ion-item>
 
     </ion-list>
@@ -54,6 +53,13 @@
 </ion-content>
 
 <ion-footer>
-    <!-- submit button -->
-    <button ion-button class="no-round" block no-margin color="primary" (click)="setGuests()">Listo</button>
+    <!--<button ion-button class="no-round" block no-margin color="primary" (click)="setGuests()">Listo</button>-->
+    <ion-grid>
+        <ion-row>
+            <ion-col col-12>
+                <button ion-button class="no-round" block no-margin color="primary" (click)="setGuests()">Aplicar</button>
+            </ion-col>
+
+        </ion-row>
+    </ion-grid>
 </ion-footer>
