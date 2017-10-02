@@ -22,7 +22,10 @@ import {SortingHotel} from "../sorting-hotel/sorting-hotel";
 })
 export class HotelPage {
     // list of hotels
+    public tmpHotels: any[] = [];
     public hotels: any[] = [];
+    public indexScroll = 5;
+    public lengthResult: number;
     // Map
     public map: any;
 
@@ -93,39 +96,39 @@ export class HotelPage {
                     if (this.arraySearch[0].filter === true) {
 
                         if (typeof this.arraySearch[0].sorting != 'undefined') {
-                            query+= '&sorting=' + this.arraySearch[0].sorting;
+                            query += '&sorting=' + this.arraySearch[0].sorting;
                         }
 
                         if (typeof this.arraySearch[0].amenities != 'undefined') {
-                            query+= '&amenities=' + this.arraySearch[0].amenities;
+                            query += '&amenities=' + this.arraySearch[0].amenities;
                         }
 
                         if (typeof this.arraySearch[0].hotel_type != 'undefined') {
-                            query+= '&hotel_type=' + this.arraySearch[0].hotel_type;
+                            query += '&hotel_type=' + this.arraySearch[0].hotel_type;
                         }
 
                         if (typeof this.arraySearch[0].payment_type != 'undefined') {
-                            query+= '&payment_type=' + this.arraySearch[0].payment_type;
+                            query += '&payment_type=' + this.arraySearch[0].payment_type;
                         }
 
                         if (typeof this.arraySearch[0].meal_plans != 'undefined') {
-                            query+= '&meal_plans=' + this.arraySearch[0].meal_plans;
+                            query += '&meal_plans=' + this.arraySearch[0].meal_plans;
                         }
 
                         if (typeof this.arraySearch[0].stars != 'undefined') {
-                            query+= '&stars=' + this.arraySearch[0].stars;
+                            query += '&stars=' + this.arraySearch[0].stars;
                         }
 
                         if (typeof this.arraySearch[0].zones != 'undefined') {
-                            query+= '&zones=' + this.arraySearch[0].zones;
+                            query += '&zones=' + this.arraySearch[0].zones;
                         }
 
                         if (typeof this.arraySearch[0].profiles != 'undefined') {
-                            query+= '&profiles=' + this.arraySearch[0].profiles;
+                            query += '&profiles=' + this.arraySearch[0].profiles;
                         }
 
                         if (typeof this.arraySearch[0].hotel_chains != 'undefined') {
-                            query+= '&hotel_chains=' + this.arraySearch[0].hotel_chains;
+                            query += '&hotel_chains=' + this.arraySearch[0].hotel_chains;
                         }
 
                         console.log('query modificado', query)
@@ -143,9 +146,11 @@ export class HotelPage {
 
                             // console.log('data.data.items', data.data.items);
 
-                            if(data.data.items.length == 0){
+                            if (data.data.items.length == 0) {
                                 this.notFoundHotel();
                             }
+
+                            this.lengthResult = this.hotelArray.length;
 
                             for (let i = 0; this.hotelArray.length > i; i++) {
                                 this.hotelIds.push(this.hotelArray[i].id);
@@ -159,10 +164,14 @@ export class HotelPage {
                                 .then(detail => {
 
                                     for (let j = 0; this.hotelIds.length > j; j++) {
-                                        this.hotels.push(detail.data[this.hotelIds[j]]);
+                                        this.tmpHotels.push(detail.data[this.hotelIds[j]]);
                                     }
 
                                     loading.dismiss();
+
+                                    for (let i = 0; i < 5; i++) {
+                                        this.hotels.push(this.tmpHotels[i]);
+                                    }
                                 })
                                 .catch(error => {
                                     console.error(error);
@@ -183,7 +192,7 @@ export class HotelPage {
 
     }
 
-    goFilters(){
+    goFilters() {
         this.navCtrl.push(FilterHotelPage)
         /*.then(() => {
                 const index = this.navCtrl.getActive().index;
@@ -191,7 +200,7 @@ export class HotelPage {
             })*/
     }
 
-    goSorting(){
+    goSorting() {
         this.navCtrl.push(SortingHotel)
         /*.then(() => {
                 const index = this.navCtrl.getActive().index;
@@ -199,7 +208,7 @@ export class HotelPage {
             })*/
     }
 
-    navBack(){
+    navBack() {
         this.navCtrl.push(SearchHotelPage)
             .then(() => {
                 const index = this.navCtrl.getActive().index;
@@ -214,5 +223,21 @@ export class HotelPage {
         });
         alert.present();
         this.navBack();
+    }
+
+    doInfinite(infiniteScroll) {
+        console.log('Begin async operation');
+        console.log('this.indexScroll', this.indexScroll);
+        console.log('this.lengthResult', this.lengthResult);
+
+        setTimeout(() => {
+
+            for (let i = 0; i < 5; i++) {
+                this.hotels.push(this.tmpHotels[i + this.indexScroll]);
+            }
+            this.indexScroll = 5 + this.indexScroll;
+
+            infiniteScroll.complete();
+        }, 1000);
     }
 }

@@ -129,4 +129,8 @@
         </ion-row>
     </ion-grid>
 
+    <ion-infinite-scroll *ngIf="lengthResult != indexScroll"  (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
 </ion-content>
