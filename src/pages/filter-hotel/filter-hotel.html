@@ -182,10 +182,10 @@
                 </ion-select>
             </ion-item>
 
-            <ion-item *ngIf="facet.criteria == 'total_price_range'">
+            <!--<ion-item *ngIf="facet.criteria == 'total_price_range'">
 
 
-            </ion-item>
+            </ion-item>-->
 
         </ion-list>
 
@@ -201,7 +201,7 @@
             </ion-col>
 
             <ion-col col-6>
-                <button ion-button class="no-round" block no-margin color="primary" (click)="applyFilters()">Aplicar</button>
+                <button ion-button class="no-round" block no-margin color="primary" (click)="applyFilters(true)">Aplicar</button>
             </ion-col>
 
         </ion-row>

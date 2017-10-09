@@ -58,4 +58,16 @@ export class DataSearchHotelService {
         this.storage.remove("facets").then(() => {});
     }
 
+    setHotelDetail(query){
+        this.storage.set('hotelDetail', JSON.stringify(query));
+    }
+
+    getHotelDetail() {
+        return this.storage.get('hotelDetail');
+    }
+
+    remHotelDetail() {
+        this.storage.remove("hotelDetail").then(() => {});
+    }
+
 }

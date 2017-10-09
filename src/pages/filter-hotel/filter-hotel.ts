@@ -20,6 +20,7 @@ export class FilterHotelPage {
         upper: 100,
         lower: 50
     }
+    public filter: boolean;
     public sorting: any;
     public sortingPrice: any;
     public sortingStars: any;
@@ -40,6 +41,7 @@ export class FilterHotelPage {
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
                 private dataSearch: DataSearchHotelService) {
+        this.filter = false;
     }
 
 
@@ -71,6 +73,7 @@ export class FilterHotelPage {
     }
 
     popView(){
+        this.applyFilters(false);
         this.navCtrl.pop();
     }
 
@@ -147,10 +150,11 @@ export class FilterHotelPage {
 
     }
 
-    applyFilters(){
+    applyFilters(filter){
+
         let data;
         let query;
-
+        this.filter = filter;
         this.dataSearch.getSearchHotels()
             .then((val) => {
                 data = JSON.parse(val);
@@ -164,7 +168,7 @@ export class FilterHotelPage {
                         distribution: data[0].distribution,
                         language: data[0].language,
                         currency: data[0].currency,
-                        filter: true
+                        filter: this.filter
                     }
                 ];
 

@@ -14,15 +14,15 @@ export class SearchHotelService {
     }
 
     getHotels(query: string) {
-        console.log('query', query);
-
+        console.log('getHotels query = ', query);
         return this.http.get(this.url + 'hotels/?.json&'+ query)
             .map(res => res.json())
             .toPromise();
     }
 
-    getHotelsAvailabilities(query){
-        return this.http.get(this.url + 'hotel/availabilities/?.json&'+ query)
+    getHotelsAvailabilities(query, offset){
+        console.log(query);
+        return this.http.get(this.url + 'hotel/availabilities/?.json&'+ query + '&offset='+ offset)
             .map(res => res.json())
             .toPromise();
 
