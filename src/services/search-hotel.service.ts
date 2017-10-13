@@ -14,14 +14,14 @@ export class SearchHotelService {
     }
 
     getHotels(query: string) {
-        console.log('getHotels query = ', query);
+        // console.log('getHotels query = ', query);
         return this.http.get(this.url + 'hotels/?.json&'+ query)
             .map(res => res.json())
             .toPromise();
     }
 
     getHotelsAvailabilities(query, offset){
-        console.log(query);
+        // console.log(query);
         return this.http.get(this.url + 'hotel/availabilities/?.json&'+ query + '&offset='+ offset)
             .map(res => res.json())
             .toPromise();
@@ -29,6 +29,13 @@ export class SearchHotelService {
         /*return this.http.get('assets/hotel-availabilities.json')
             .map(res => res.json())
             .toPromise();*/
+    }
+
+    getHotelsAvailabilitiesId(query: string, hotelId: string) {
+        // console.log('getHotelsAvailabilitiesId query = ', query);
+        return this.http.get(this.url + 'hotel/availabilities/'+ hotelId+'?.json&'+ query)
+            .map(res => res.json())
+            .toPromise();
     }
 
 }

@@ -53,7 +53,7 @@ export class HotelPage {
 
     }
 
-    ionViewWillEnter() {
+    ionViewCanEnter() {
         console.log('HotelPage');
         this.initPage();
     }

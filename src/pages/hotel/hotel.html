@@ -83,7 +83,7 @@
             <ion-col>
                 <div>
                     <div class="hotel-bg"
-                         [ngStyle]="{'background-image': 'url('+item.main_picture.url+')','height': '150px','background-repeat': 'no-repeat','background-size': 'cover'}"
+                         [ngStyle]="{'background-image': 'url('+item.main_picture?.url+')','height': '150px','background-repeat': 'no-repeat','background-size': 'cover'}"
                          (click)="viewHotel(item.id)">
                         <div class="bg-filter">
                             <!--<div class="discount">-50%</div>-->
@@ -103,13 +103,13 @@
                                     </div>
                                     <div class="pull-right" *ngIf="item.roompacks[0].price_detail.currency == 'ARS'">
                                         <span class="price" ion-text color="light">
-                                            AR{{ item.roompacks[0].price_detail.subtotal | currency:'USD':true:'1.2-2'}}
+                                            AR{{ item.roompacks[0].price_detail.subtotal | currency:'USD':true:'1.0-0'}}
                                         </span>
                                         <!--<span class="sale-price" ion-text color="light">40 USD</span>-->
                                     </div>
                                     <div class="pull-right" *ngIf="item.roompacks[0].price_detail.currency == 'USD'">
                                         <span class="price" ion-text color="light">
-                                            USD{{ item.roompacks[0].price_detail.subtotal | currency:'USD':true:'1.2-2'}}
+                                            USD{{ item.roompacks[0].price_detail.subtotal | currency:'USD':true:'1.0-0'}}
                                         </span>
                                         <!--<span class="sale-price" ion-text color="light">40 USD</span>-->
                                     </div>

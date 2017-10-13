@@ -277,11 +277,11 @@ ion-navbar.no-border {
 
 // style for slider
 ion-slides.to-top {
-  height: auto;
+  height: 240px;
   margin-bottom: -5px;
 
   .swiper-pagination {
-    display: block !important;
+    display: block ;
 
     .swiper-pagination-bullet {
       background: color($colors, light);

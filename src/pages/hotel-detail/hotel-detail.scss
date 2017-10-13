@@ -1,9 +1,19 @@
+.swiper-pagination {
+    display: none!important;
+}
+.custom-star{
+    color: #febb02!important;
+    font-size: 25px!important;
+}
 page-hotel-detail,
 .hotel-detail {
 
   .scroll-content {
     margin-top: 0 !important;
   }
+    .toolbar-title{
+        white-space: normal!important;
+    }
 
   .price-info {
     background: #00937F;

@@ -5,6 +5,8 @@ import {IonicApp, IonicModule} from "ionic-angular";
 import { IonicStorageModule } from '@ionic/storage';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
+import { TruncatePipe } from '../pipes/truncate/truncate';
+
 
 import {MyApp} from "./app.component";
 import {HotelService} from "../services/hotel-service";
@@ -87,7 +89,8 @@ import {SortingHotel} from "../pages/sorting-hotel/sorting-hotel";
         TripsPage,
         WelcomePage,
         FilterHotelPage,
-        SortingHotel
+        SortingHotel,
+        TruncatePipe
     ],
     imports: [
         BrowserModule,
