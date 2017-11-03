@@ -7,7 +7,6 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import { TruncatePipe } from '../pipes/truncate/truncate';
 
-
 import {MyApp} from "./app.component";
 import {HotelService} from "../services/hotel-service";
 import {PlaceService} from "../services/place-service";
@@ -48,6 +47,10 @@ import {DataSearchHotelService} from '../providers/data-search-hotel.service'
 import {SearchHotelService} from '../services/search-hotel.service';
 import {FilterHotelPage} from '../pages/filter-hotel/filter-hotel';
 import {SortingHotel} from "../pages/sorting-hotel/sorting-hotel";
+import {CardsHotelPage} from "../pages/cards-hotel/cards-hotel";
+import { SplitPipe } from '../pipes/split/split';
+import { KeysPipe } from '../pipes/keys/keys';
+import { InputMaskDirective } from '../directives/input-mask/input-mask';
 
 
 // import services
@@ -60,77 +63,50 @@ import {SortingHotel} from "../pages/sorting-hotel/sorting-hotel";
 @NgModule({
     declarations: [
         MyApp,
-        AboutPage,
-        AccountPage,
-        CarDetailPage,
-        CarsPage,
-        CheckoutCarPage,
-        CheckoutFlightPage,
         CheckoutHotelPage,
         CheckoutTripPage,
-        ContactPage,
         FilterDatePage,
         FilterGuestPage,
-        FlightsPage,
         HomePage,
         HotelPage,
         HotelDetailPage,
         // LoginPage,
-        RegisterPage,
-        ReviewsPage,
-        SearchCarsPage,
-        SearchFlightPage,
         SearchHotelPage,
         SearchLocationPage,
-        SearchTripsPage,
-        TabReviewsPage,
-        TabsPage,
-        TripDetailPage,
-        TripsPage,
         WelcomePage,
         FilterHotelPage,
         SortingHotel,
-        TruncatePipe
+        TruncatePipe,
+        CardsHotelPage,
+        SplitPipe,
+        KeysPipe,
+        InputMaskDirective
     ],
     imports: [
         BrowserModule,
         HttpModule,
-        IonicModule.forRoot(MyApp),
+        IonicModule.forRoot(MyApp, {
+            monthShortNames:['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sept', 'Oct', 'Nov', 'Dic']
+        }),
         IonicStorageModule.forRoot()
     ],
     bootstrap: [IonicApp],
     entryComponents: [
         MyApp,
-        AboutPage,
-        AccountPage,
-        CarDetailPage,
-        CarsPage,
-        CheckoutCarPage,
-        CheckoutFlightPage,
         CheckoutHotelPage,
         CheckoutTripPage,
-        ContactPage,
         FilterDatePage,
         FilterGuestPage,
-        FlightsPage,
         HomePage,
         HotelPage,
         HotelDetailPage,
         // LoginPage,
-        RegisterPage,
-        ReviewsPage,
-        SearchCarsPage,
-        SearchFlightPage,
         SearchHotelPage,
         SearchLocationPage,
-        SearchTripsPage,
-        TabReviewsPage,
-        TabsPage,
-        TripDetailPage,
-        TripsPage,
         WelcomePage,
         FilterHotelPage,
-        SortingHotel
+        SortingHotel,
+        CardsHotelPage
     ],
     providers: [
         StatusBar,

@@ -4,7 +4,7 @@
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<ion-header *ngIf="hotelDetail.name != ''">
 
     <ion-navbar class="nav-transparent" color="dark">
         <ion-title>{{ hotelDetail.name }}</ion-title>
@@ -21,14 +21,14 @@
       </ion-slide>
     </ion-slides>-->
 
-    <ion-slides class="to-top" pager>
+    <ion-slides class="to-top" pager *ngIf="hotelDetail.pictures != ''">
         <ion-slide *ngFor="let image of hotelDetail.pictures">
             <img src="{{ image.url }}" alt="" height="240">
         </ion-slide>
     </ion-slides>
 
     <!--hotel detail-->
-    <div class="primary-bg" padding>
+    <div class="primary-bg" padding *ngIf="hotelDetail.stars != ''">
         <div class="pull-left">
             <!--<ion-badge class="square" *ngIf="hotel.sale_price" color="green">{{ (100 * (1 - hotel.price /
               hotel.sale_price)).toFixed(0) }}% esto
@@ -212,7 +212,7 @@
         <div class="border-bottom" padding *ngFor="let room of roompack.rooms">
             <div class="room-info card">
                 <ion-slides class="to-top" pager>
-                    <ion-slide *ngFor="let image of this.hotelDetail.room_types[i]?.pictures">
+                    <ion-slide *ngFor="let image of hotelDetail.room_types[i]?.pictures">
                         <img src="{{ image.url }}" alt="" height="240">
                     </ion-slide>
                 </ion-slides>
@@ -238,7 +238,7 @@
                             </div>
                         </div>
                         <div class="pull-right" text-right>
-                            <button ion-button (click)="checkout()">Reservar</button>
+                            <button ion-button (click)="checkout(roompack, roompack.price_detail, room.name)">Reservar</button>
                         </div>
                         <div class="clear"></div>
                     </div>

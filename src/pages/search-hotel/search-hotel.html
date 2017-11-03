@@ -30,7 +30,7 @@
             </ion-row>
 
             <div *ngIf="querySearch?.length > 0">
-                <button ion-item *ngFor="let item of items" (click)="itemSelected(item.id, item.description)">
+                <button ion-item *ngFor="let item of items" (click)="itemSelected(item.id, item.description, item?.hotel_id, item?.geolocation.latitude, item?.geolocation.longitude)">
                     {{ item.description }}
                 </button>
             </div>

@@ -38,4 +38,30 @@ export class SearchHotelService {
             .toPromise();
     }
 
+    postHotelBooking(query: any) {
+        return this.http.post(this.url+'hotel/booking/', query)
+            .map(res => res.json())
+            .toPromise();
+    }
+
+    getHotelBooking(bookingId: string) {
+        // console.log('getHotelsAvailabilitiesId query = ', query);
+        return this.http.get(this.url + 'hotel/booking/'+ bookingId+'/forms?.json')
+            .map(res => res.json())
+            .toPromise();
+    }
+
+    getCards() {
+        // console.log('getHotelsAvailabilitiesId query = ', query);
+        return this.http.get(this.url + 'cards')
+            .map(res => res.json())
+            .toPromise();
+    }
+
+    getBanks() {
+        // console.log('getHotelsAvailabilitiesId query = ', query);
+        return this.http.get(this.url + 'banks')
+            .map(res => res.json())
+            .toPromise();
+    }
 }

@@ -66,8 +66,20 @@ export class DataSearchHotelService {
         return this.storage.get('hotelDetail');
     }
 
-    remHotelDetail() {
+    removeHotelDetail() {
         this.storage.remove("hotelDetail").then(() => {});
+    }
+
+    setHotelBooking(query){
+        this.storage.set('hotelBooking', JSON.stringify(query));
+    }
+
+    getHotelBooking() {
+        return this.storage.get('hotelBooking');
+    }
+
+    removeHotelBooking() {
+        this.storage.remove("hotelBooking").then(() => {});
     }
 
 }

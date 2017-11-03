@@ -4,11 +4,12 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 // import {LoginPage} from "../pages/login/login";
 // import {HomePage} from "../pages/home/home";
-// import {SearchHotelPage} from  '../pages/search-hotel/search-hotel';
-import {HotelPage} from "../pages/hotel/hotel";
 // import {FilterHotelPage} from '../pages/filter-hotel/filter-hotel'
+import {SearchHotelPage} from  '../pages/search-hotel/search-hotel';
+import {HotelPage} from "../pages/hotel/hotel";
 import {WelcomePage} from  '../pages/welcome/welcome';
 import {HotelDetailPage} from  '../pages/hotel-detail/hotel-detail';
+import {CheckoutHotelPage} from "../pages/checkout-hotel/checkout-hotel";
 
 // import pages
 // end import pages
@@ -26,7 +27,7 @@ export class MyApp {
   public nav: any;
 
   constructor(public platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-    this.rootPage = HotelDetailPage;
+    this.rootPage = WelcomePage;
 
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

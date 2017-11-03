@@ -73,11 +73,13 @@ export class SearchHotelPage {
         }
     }
 
-    itemSelected(id: any, description: any) {
+    itemSelected(id: any, description: any, hotel_id, latitude, longitude) {
         let splited = id.split('-');
 
         if (splited[0] == 'CITY') {
             this.destination = splited[1];
+        }else {
+            console.log(hotel_id +' - ' + latitude +' - '+ longitude)
         }
 
         this.params.push('id', id);
@@ -172,7 +174,7 @@ export class SearchHotelPage {
 
     validDestination() {
         let alert = this.alertCtrl.create({
-            subTitle: 'Debe ingresar un destiono',
+            subTitle: 'Debe ingresar un destino',
             buttons: ['Cerrar']
         });
         alert.present();

@@ -4,7 +4,8 @@ import {HotelService} from "../../services/hotel-service";
 import {ReviewsPage} from "../reviews/reviews";
 import {CheckoutHotelPage} from "../checkout-hotel/checkout-hotel";
 import {DataSearchHotelService} from "../../providers/data-search-hotel.service";
-import {SearchHotelService} from '../../services/search-hotel.service';
+import {SearchHotelService} from '../../services/search-hotel.service'
+import * as moment from "moment";
 
 
 declare var google: any;
@@ -24,7 +25,11 @@ export class HotelDetailPage {
     public hotelId: any;
     public arraySearch: any[] = [];
     public hotelAvailable = {
-        roompacks:[]
+        roompacks:[],
+        availability_token: '',
+        hotel: {
+            id: ''
+        }
     };
     public hotelDetail = {
         name: '',
@@ -34,6 +39,9 @@ export class HotelDetailPage {
             zipcode:"",
             latitude: 0,
             longitude: 0
+        },
+        main_picture: {
+            url: ''
         },
         pictures:[],
         number_of_rooms:0,
@@ -45,8 +53,8 @@ export class HotelDetailPage {
             es: '',
             en: ''
         }
-
-    }
+    };
+    public bookingId: string;
     public amenitiesIds = [];
     // Map
     public map: any;
@@ -71,7 +79,7 @@ export class HotelDetailPage {
     }
 
     ionViewCanEnter(){
-        console.log('HotelPage');
+        console.log('HotelDetailPage');
         this.amenitiesIds = [];
         this.initPage();
     }
@@ -86,7 +94,7 @@ export class HotelDetailPage {
                 this.dataSearch.getHotelDetail()
                     .then((val) => {
                     this.arraySearch = JSON.parse(val);
-
+                    console.log('this.arraySearch', this.arraySearch)
                         this.dataHotel();
 
                     })
@@ -110,14 +118,14 @@ export class HotelDetailPage {
             .then(data => {
 
                 this.hotelAvailable = data.data;
-                console.log('this.hotelAvailable.roompacks', this.hotelAvailable.roompacks);
+                console.log('this.hotelAvailable', this.hotelAvailable);
 
                 this.searchHotel.getHotels(queryHotels)
                     .then(hotelDetail => {
                         this.hotelDetail = hotelDetail.data[this.hotelId];
                         // this.hotelDetail.push(hotelDetail.data[this.hotelId]);
 
-                        console.log('this.hotelDetail.room_types', this.hotelDetail);
+                        console.log('this.hotelDetail', this.hotelDetail);
 
                         for(let i = 0; this.hotelDetail.amenities.length > i; i++){
                             let id = this.hotelDetail.amenities[i].id;
@@ -153,19 +161,6 @@ export class HotelDetailPage {
                                 this.amenitiesIds.push(services);
                             }
                         }
-
-                        /*for (let key in this.hotelDetail.room_types) {
-                            let value = this.hotelDetail.room_types[key];
-
-                            console.log('value', value)
-                        }
-
-                        for (let key in this.hotelAvailable.roompacks) {
-                            let value = this.hotelAvailable.roompacks[key];
-
-                            console.log('value', value)
-                        }*/
-
                         this.initializeMap();
 
                         this.loading.dismiss();
@@ -215,7 +210,71 @@ export class HotelDetailPage {
     }
 
     // go to checkout page
-    checkout() {
+    checkout(roompack, priceDetail, room_name) {
+        let query = {
+            country_code: 'AR',
+            context_language: this.arraySearch[0].language,
+            availability_token: this.hotelAvailable.availability_token
+        };
+
+        this.loading = this.loadingCtrl.create({
+            content: 'Espere...'
+        });
+        this.loading.present()
+            .then(() => {
+                this.searchHotel.postHotelBooking(query)
+                    .then(data => {
+                        console.log('query', query);
+                        // guardar los datos necesarios en el localstorage
+                        console.log('data', data)
+                        this.bookingId = data.data.id;
+
+                        this.searchHotel.getHotelBooking(this.bookingId)
+                            .then(res => {
+
+                                this.searchHotel.getCards()
+                                    .then(cards => {
+
+                                        this.searchHotel.getBanks()
+                                            .then(banks => {
+
+                                                let saveData = {
+                                                    hotel_id: this.hotelId,
+                                                    hotel_img: this.hotelDetail.main_picture.url,
+                                                    hotel_name: this.hotelDetail.name,
+                                                    hotel_address: this.hotelDetail.location.address,
+                                                    hotel_stars: this.hotelDetail.stars,
+                                                    room_name: room_name,
+                                                    checkin_date: this.arraySearch[0].checkin_date,
+                                                    checkout_date: this.arraySearch[0].checkout_date,
+                                                    str_distribution: this.arraySearch[0].distribution,
+                                                    booking_id: this.bookingId,
+                                                    price_detail: roompack.price_detail,
+                                                    roompack: roompack,
+                                                    room_cancellation: roompack.cancellation_policy.text,
+                                                    availability_token: this.hotelAvailable.availability_token,
+                                                    cards: cards.data,
+                                                    banks: banks.data,
+                                                    form_booking: res.data
+                                                };
+
+                                                this.dataSearch.setHotelBooking(saveData);
+
+                                                this.loading.dismiss();
+                                                this.nav.push(CheckoutHotelPage);
+
+                                            })
+
+                                    })
+
+
+                            })
+
+                    })
+
+            })
+
+        // console.log('this.hotelAvailable.hotel.id', this.hotelAvailable.hotel.id);
         // this.nav.push(CheckoutHotelPage);
     }
 
@@ -233,12 +292,10 @@ export class HotelDetailPage {
         myModal.present();
 
         myModal.onDidDismiss((data) => {
-            console.log("I have dismissed.");
             console.log(data);
         });
 
         myModal.onWillDismiss((data) => {
-            console.log("I'm about to dismiss");
             console.log(data);
         });
 
