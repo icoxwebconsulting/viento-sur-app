@@ -5,7 +5,7 @@ import {ReviewsPage} from "../reviews/reviews";
 import {CheckoutHotelPage} from "../checkout-hotel/checkout-hotel";
 import {DataSearchHotelService} from "../../providers/data-search-hotel.service";
 import {SearchHotelService} from '../../services/search-hotel.service'
-import * as moment from "moment";
+// import * as moment from "moment";
 
 
 declare var google: any;

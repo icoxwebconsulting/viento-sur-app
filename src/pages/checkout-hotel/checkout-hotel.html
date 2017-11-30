@@ -1,9 +1,3 @@
-<!--
-  Generated template for the ProfilePage page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
     <ion-navbar color="primary">
@@ -33,8 +27,8 @@
                 <ion-icon name="person"></ion-icon>
                 <span ion-text color="dark">{{ distribution.adults }} adulto(s)</span>
                 <br>
-                <ion-icon name="person"></ion-icon>
-                <span ion-text color="dark">{{ distribution.children }} menor(es)</span>
+                <ion-icon name="person" *ngIf="distribution.children > 0"></ion-icon>
+                <span ion-text color="dark" *ngIf="distribution.children > 0">{{ distribution.children }} menor(es)</span>
             </div>
 
             <div margin-top>
@@ -62,343 +56,419 @@
         </div>
     </div>
 
-    <!--passenger-->
-    <div class="card round" margin-top>
-        <ion-item-group>
-            <ion-list-header no-margin no-padding margin-left>
-                <h2><b>Titular de habitación:</b></h2>
-            </ion-list-header>
-            <div *ngFor="let passenger of formChoice?.passengers; let i = index">
-                <ion-item-divider color="light">
-                    Habitacion {{i + 1}}
-                </ion-item-divider>
-                <ion-item>
-                    <ion-label>
-                        Nombre(s):
-                    </ion-label>
-                    <ion-input type="text" [(ngModel)]="guestData[i].name" clearInput></ion-input>
-                </ion-item>
-                <ion-item>
-                    <ion-label>
-                        Apellido(s):
-                    </ion-label>
-                    <ion-input type="text" [(ngModel)]="guestData[i].lastname" clearInput></ion-input>
-                </ion-item>
-                <ion-item>
-                    <ion-label>
-                        Doc. de Identidad:
-                    </ion-label>
-                    <ion-input type="tel" maxlength="10" [(ngModel)]="guestData[i].document_number" clearInput></ion-input>
-                </ion-item>
-            </div>
-        </ion-item-group>
-    </div>
+    <form [formGroup]="formPayment">
+        <div class="card round" margin-top>
+            <!-- passenger -->
+            <ion-item-group>
+                <ion-list-header no-margin no-padding margin-left>
+                    <h2><b>Titular de Habitación:</b></h2>
+                </ion-list-header>
+                <div *ngFor="let passenger of formChoice?.passengers; let i = index" id="passenger" margin-bottom>
+                    <ion-item-divider color="light">
+                        Habitación {{i + 1}}
+                    </ion-item-divider>
 
-    <!--more info-->
-    <div class="card round" margin-top>
-        <ion-item-group>
-            <ion-list-header no-margin no-padding margin-left >
-                <h2><b>Formas de pago:</b></h2>
-            </ion-list-header>
+                    <ion-item>
+                        <ion-label>Nombre(s):</ion-label>
+                        <ion-input type="text" formControlName="first_name{{i}}" [(ngModel)]="guestData[i].first_name"
+                                   required clearInput></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Apellido(s):</ion-label>
+                        <ion-input type="text" formControlName="last_name{{i}}" [(ngModel)]="guestData[i].last_name" required clearInput></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Doc. de Identidad:</ion-label>
+                        <ion-input type="tel" formControlName="document_number{{i}}" maxlength="8" [(ngModel)]="guestData[i].document_number"
+                                   pattern="^[0-9]{7,8}$" required clearInput></ion-input>
+                    </ion-item>
+                </div>
+            </ion-item-group>
+        </div>
 
-            <div *ngIf="showPayment">
-                <div *ngFor="let pay of paymentMethods; let i = index">
-                    <div *ngIf="pay.type != 'debit_card'">
-                        <div *ngIf="pay.installment_quantity != ''">
-                            <div *ngIf="pay.installment_quantity == 1">
-                                <ion-item-divider color="light">
-                                    <span ion-text color="dark">1 Pago</span>
-                                </ion-item-divider>
-                                <ion-card *ngIf="pay?.banks.length > 0">
-                                    <ion-item-group >
-                                        <div *ngFor="let card of pay?.card_ids" class="eva-card-container">
-                                            <span [ngClass]=" 'eva-card-body ' + card.codeCard"
-                                                  (click)="selected(pay.installment_quantity, card.cardName, '', '')"></span>
-                                        </div>
-                                    </ion-item-group>
-                                </ion-card>
-                                <ion-card *ngIf="pay?.banks.length == 0">
-                                    <ion-item-group >
-                                        <div *ngFor="let card of pay?.card_ids" class="eva-card-container">
-                                            <span [ngClass]=" 'eva-card-body ' + card.codeCard"
-                                                  (click)="selected(pay.installment_quantity, card.cardName, '', '')"></span>
-                                        </div>
-                                    </ion-item-group>
-                                </ion-card>
-                            </div>
-
-
-                            <div *ngIf="pay.installment_quantity > 1 && pay.type == 'credit_card'">
-                                <ion-item-divider color="light">
-                                    <span ion-text color="dark">{{pay.installment_quantity}} Cuotas de {{pay?.amounts.installment | currency:'USD':true:'1.0-0'}} </span>
-                                    <span ion-text color="dark" *ngIf="pay.amounts.total_interest_amount > 0"> con {{ pay.amounts.total_interest_amount | currency:'USD':true:'1.0-0' }} (interés)</span>
-                                    <span ion-text color="dark" *ngIf="pay.amounts.total_interest_amount == 0"> (interés)</span>
-                                </ion-item-divider>
-                                <ion-card *ngIf="pay?.banks.length > 0">
-                                    <ion-item-group *ngFor="let bank of pay?.banks">
-                                        <ion-list-header color="light" no-margin>
-                                            <span ion-text color="dark"><b>Banco:</b></span>
-                                            <span ion-text color="dark">{{bank.name}}</span>
-                                            <br>
-                                            <div class="eva-card-container">
-                                                <span [ngClass]=" 'eva-card-body ' + bank.key"></span>
-                                            </div>
-
-                                        </ion-list-header>
-                                        <ion-item-group *ngFor="let card of pay?.card_ids" style="display: inline">
-                                            <div class="eva-card-container card-bank" *ngIf="card.codeBank == bank.key">
-                                                <span [ngClass]=" 'eva-card-body ' + card.codeCard"
-                                                      (click)="selected(pay.installment_quantity, card.cardName, bank.name, pay.amounts.total_interest_amount)"
-                                                ></span>
+        <!-- payment method -->
+        <div class="card round" margin-top>
+            <ion-item-group margin-bottom>
+                <ion-list-header no-margin no-padding margin-left >
+                    <h2><b>Formas de pago:</b></h2>
+                </ion-list-header>
+                <div *ngIf="showPayment">
+                    <div *ngFor="let pay of paymentMethods; let i = index">
+                        <div *ngIf="pay.type != 'debit_card'">
+                            <div *ngIf="pay.installment_quantity != ''">
+                                <div *ngIf="pay.installment_quantity == 1">
+                                    <ion-item-divider color="light">
+                                        <span ion-text color="dark">1 Pago</span>
+                                    </ion-item-divider>
+                                    <ion-card *ngIf="pay?.banks.length > 0">
+                                        <ion-item-group >
+                                            <div *ngFor="let card of pay?.card_ids" class="eva-card-container">
+                                                <a href="#payment-method" (click)="selected(pay.installment_quantity, pay.choice, card.card, card.cardName, '', '')">
+                                                    <span [ngClass]=" 'eva-card-body ' + card.codeCard"></span>
+                                                </a>
                                             </div>
                                         </ion-item-group>
-                                    </ion-item-group>
-                                </ion-card>
+                                    </ion-card>
+                                    <ion-card *ngIf="pay?.banks.length == 0">
+                                        <ion-item-group >
+                                            <div *ngFor="let card of pay?.card_ids" class="eva-card-container">
+                                                <a href="#payment-method" (click)="selected(pay.installment_quantity, pay.choice, card.card, card.cardName, '', '')">
+                                                    <span [ngClass]=" 'eva-card-body ' + card.codeCard"></span>
+                                                </a>
+                                            </div>
+                                        </ion-item-group>
+                                    </ion-card>
+                                </div>
+
+
+                                <div *ngIf="pay.installment_quantity > 1 && pay.type == 'credit_card'">
+                                    <ion-item-divider color="light">
+                                        <span ion-text color="dark">{{pay.installment_quantity}} Cuotas de {{pay?.amounts.installment | currency:'USD':true:'1.0-0'}} </span>
+                                        <span ion-text color="dark" *ngIf="pay.amounts.total_interest_amount > 0"> con {{ pay.amounts.total_interest_amount | currency:'USD':true:'1.0-0' }} (interés)</span>
+                                        <span ion-text color="dark" *ngIf="pay.amounts.total_interest_amount == 0"> (interés)</span>
+                                    </ion-item-divider>
+                                    <ion-card *ngIf="pay?.banks.length > 0">
+                                        <ion-item-group *ngFor="let bank of pay?.banks">
+                                            <ion-list-header color="light" no-margin>
+                                                <span ion-text color="dark"><b>Banco:</b></span>
+                                                <span ion-text color="dark">{{bank.name}}</span>
+                                                <br>
+                                                <div class="eva-card-container">
+                                                    <span [ngClass]=" 'eva-card-body ' + bank.key"></span>
+                                                </div>
+
+                                            </ion-list-header>
+                                            <ion-item-group *ngFor="let card of pay?.card_ids" style="display: inline">
+                                                <div class="eva-card-container card-bank" *ngIf="card.codeBank == bank.key">
+                                                    <a href="#payment-method" (click)="selected(pay.installment_quantity, pay.choice, card.card, card.cardName, bank.name, pay.amounts.total_interest_amount)">
+                                                        <span [ngClass]=" 'eva-card-body ' + card.codeCard"></span>
+                                                    </a>
+                                                </div>
+                                            </ion-item-group>
+                                        </ion-item-group>
+                                    </ion-card>
+                                    <ion-card *ngIf="pay?.banks.length == 0">
+                                        <ion-item-group >
+                                            <div *ngFor="let card of pay?.card_ids" class="eva-card-container">
+                                                <a href="#payment-method" (click)="selected(pay.installment_quantity, pay.choice, card.card, card.cardName, '', pay.amounts.total_interest_amount)">
+                                                    <span class=" " [ngClass]=" 'eva-card-body ' + card.codeCard"></span>
+                                                </a>
+                                            </div>
+                                        </ion-item-group>
+                                    </ion-card>
+                                </div>
+                            </div>
+
+                            <div *ngIf="pay.type == 'at_destination'">
+                                <ion-item-divider color="light">
+                                    Pago destino
+                                </ion-item-divider>
                                 <ion-card *ngIf="pay?.banks.length == 0">
                                     <ion-item-group >
                                         <div *ngFor="let card of pay?.card_ids" class="eva-card-container">
-                                            <span class=" " [ngClass]=" 'eva-card-body ' + card.codeCard"
-                                                  (click)="selected(pay.installment_quantity, card.cardName, '', pay.amounts.total_interest_amount)"
-                                            ></span>
+                                            <a href="#payment-method" (click)="selected(pay.installment_quantity, pay.choice, card.card, card.cardName, '', '')">
+                                                <span [ngClass]=" 'eva-card-body ' + card.codeCard"></span>
+                                            </a>
                                         </div>
                                     </ion-item-group>
                                 </ion-card>
                             </div>
                         </div>
 
-                        <div *ngIf="pay.type == 'at_destination'">
-                            <ion-item-divider color="light">
-                                Pago destino
-                            </ion-item-divider>
-                        </div>
                     </div>
 
                 </div>
+            </ion-item-group>
+            <ion-item-group *ngIf="paymentData.card != '' && showBtn == true" padding>
+                <button ion-button small (click)="selected('','','','','','')">Cambiar pago</button>
+            </ion-item-group>
+            <hr>
+            <ion-item-group *ngIf="formChoice?.payment.credit_card" id="payment-method" margin-bottom>
+                <ion-item-divider color="light">
+                    Formas de Pago:
+                </ion-item-divider>
+                <ion-item *ngIf="formChoice?.payment.credit_card.number">
+                    <span class="gray">Tarjeta: </span>
+                    <span margin-left>{{paymentData.bank}} {{paymentData.card}}</span>
+                </ion-item>
 
-            </div>
+                <ion-item *ngIf="formChoice?.payment.credit_card.number">
+                    <ion-label>N° de tarjeta:</ion-label>
+                    <ion-input type="tel" mask="**** **** **** ****"
+                               required
+                               placeholder="0000 0000 0000 0000" maxlength="19"
+                               [(ngModel)]="paymentData.number"
+                               (focusout)="cardValid()" formControlName="number"
+                    ></ion-input>
+                </ion-item>
+                <ion-item *ngIf="error.card_number">
+                    <span ion-text color="danger"><b>{{error.message}}</b></span>
+                </ion-item>
 
-        </ion-item-group>
-        <ion-item-group *ngIf="paymentData.card != '' && showBtn == true">
-            <button ion-button small (click)="selected('','','','')">Cambiar pago</button>
-        </ion-item-group>
+                <ion-item *ngIf="formChoice?.payment.credit_card.expiration">
+                    <ion-label>Vencimiento:</ion-label>
+                    <ion-datetime displayFormat="MMM-YYYY"
+                                  min="{{minDate}}" max="{{maxDate}}"
+                                  [(ngModel)]="paymentData.expiration"
+                                  formControlName="expiration"
+                    ></ion-datetime>
+                </ion-item>
+                <ion-item *ngIf="formChoice?.payment.credit_card.security_code">
+                    <ion-label >
+                        Código:
+                    </ion-label>
+                    <ion-input type="tel" mask="****" maxlength="4"
+                               formControlName="security_code"
+                               [(ngModel)]="paymentData.security_code" clearInput required
+                    ></ion-input>
+                </ion-item>
+                <ion-item *ngIf="formChoice?.payment.credit_card.owner_name">
+                    <ion-label >
+                        Titular:
+                    </ion-label>
+                    <ion-input type="text" placeholder="Como aparece en la tarjeta"
+                               formControlName="owner_name" [(ngModel)]="paymentData.owner_name" clearInput required
+                    ></ion-input>
+                </ion-item>
+                <ion-item *ngIf="formChoice?.payment.credit_card.owner_document">
+                    <ion-label>Tipo de documento:</ion-label>
+                    <ion-select interface="popover" formControlName="owner_documenttype" [(ngModel)]="paymentData.owner_documenttype">
+                        <ion-option value="LOCAL">LOCAL</ion-option>
+                        <ion-option value="PASSPORT">PASSPORT</ion-option>
+                    </ion-select>
+                </ion-item>
 
-        <hr>
-        <ion-item-group *ngIf="formChoice?.payment.credit_card">
-            <ion-item-divider color="light">
-                Formas de Pago
-            </ion-item-divider>
-            <ion-item *ngIf="formChoice?.payment.credit_card.number">
-                <ion-label >
-                    Tarjeta:
-                </ion-label>
-                <ion-input type="text" disabled [(ngModel)]="paymentData.card" clearInput></ion-input>
-            </ion-item>
-            <ion-item *ngIf="formChoice?.payment.credit_card.number">
-                <ion-label>
-                    N° de tarjeta:
-                </ion-label>
-                <ion-input mask="**** **** **** ****" placeholder="0000 0000 0000 0000" maxlength="19"></ion-input>
-            </ion-item>
-            <ion-item *ngIf="formChoice?.payment.credit_card.expiration">
-                <ion-label>Vencimiento</ion-label>
-                <ion-datetime displayFormat="MMM-YYYY"
-                              min="{{minDate}}" max="{{maxDate}}"
-                              [(ngModel)]="paymentData.expiration"
-                ></ion-datetime>
-            </ion-item>
-            <ion-item *ngIf="formChoice?.payment.credit_card.security_code">
-                <ion-label >
-                    Código:
-                </ion-label>
-                <ion-input type="number" maxlength="4"  clearInput></ion-input>
-            </ion-item>
-            <ion-item *ngIf="formChoice?.payment.credit_card.owner_name">
-                <ion-label >
-                    Titular:
-                </ion-label>
-                <ion-input type="text" placeholder="Como aparece en la tarjeta" clearInput></ion-input>
-            </ion-item>
+                <ion-item *ngIf="formChoice?.payment.credit_card.owner_document">
+                    <ion-label>
+                        N° de documento:
+                    </ion-label>
+                    <ion-input type="tel" maxlength="8" formControlName="owner_documentnumber" required
+                               [(ngModel)]="paymentData.owner_documentnumber" clearInput pattern="^[0-9]{7,8}$"
+                    ></ion-input>
+                </ion-item>
 
-            <!--<ion-item *ngIf="formChoice?.payment.credit_card.owner_document">
-                <ion-label >
-                    N° de documento:
-                </ion-label>
-                <ion-input type="tel" maxlength="10"  clearInput></ion-input>
-            </ion-item>-->
+                <ion-item *ngIf="formChoice?.payment.credit_card.owner_gender">
+                    <ion-label>Género:</ion-label>
+                    <ion-select interface="popover" formControlName="owner_gender" [(ngModel)]="paymentData.owner_gender">
+                        <ion-option value="M">Masculino</ion-option>
+                        <ion-option value="F">Femenino</ion-option>
+                    </ion-select>
+                </ion-item>
+            </ion-item-group>
 
-            <ion-item *ngIf="formChoice?.payment.credit_card.owner_documenttype">
-                <ion-label>Tipo de documento:</ion-label>
-                <ion-select interface="popover">
-                    <ion-option value="LOCAL">LOCAL</ion-option>
-                    <ion-option value="PASSPORT">PASSPORT</ion-option>
-                </ion-select>
-            </ion-item>
+            <ion-item-group *ngIf="formChoice?.payment.invoice" margin-bottom>
+                <ion-item-divider color="light">
+                    Facturación:
+                </ion-item-divider>
+                <ion-item *ngIf="formChoice?.payment.invoice.invoice_name">
+                    <ion-label>Nombre:</ion-label>
+                    <ion-input type="text" [(ngModel)]="paymentData.invoice_name" formControlName="invoice_name"
+                               clearInput required></ion-input>
+                </ion-item>
+                <ion-item *ngIf="formChoice?.payment.invoice.fiscal_document">
+                    <ion-label >
+                        Doc. fiscal:
+                    </ion-label>
+                    <ion-input type="tel" mask="**-********-*"
+                               placeholder="00-00000000-0" maxlength="13"
+                               [(ngModel)]="paymentData.fiscal_document" formControlName="fiscal_document"
+                               clearInput required>
+                    </ion-input>
+                </ion-item>
+                <ion-item *ngIf="formChoice?.payment.invoice.tax_status">
+                    <ion-label>Situación Fiscal:</ion-label>
+                    <ion-select interface="popover" [(ngModel)]="paymentData.tax_status" formControlName="tax_status">
+                        <ion-option value="FINAL_CONSUMER">Consumidor Final</ion-option>
+                        <ion-option value="REGISTERED">Responsable Inscripto</ion-option>
+                        <ion-option value="EXEMPT">Exento</ion-option>
+                        <ion-option value="MONOTRIBUTO">Monotributo</ion-option>
+                    </ion-select>
+                </ion-item>
+            </ion-item-group>
 
-            <ion-item *ngIf="formChoice?.payment.credit_card.owner_documentnumber">
-                <ion-label >
-                    N° de documento:
-                </ion-label>
-                <ion-input type="tel" maxlength="10"  clearInput></ion-input>
-            </ion-item>
-
-            <ion-item *ngIf="formChoice?.payment.credit_card.owner_gender">
-                <ion-label>Género:</ion-label>
-                <ion-select interface="popover">
-                    <ion-option value="M">Masculino</ion-option>
-                    <ion-option value="F">Femenino</ion-option>
-                </ion-select>
-            </ion-item>
-
-        </ion-item-group>
-
-        <ion-item-group *ngIf="formChoice?.payment.invoice">
-            <ion-item-divider color="light">
-                Facturación:
-            </ion-item-divider>
-            <!--<ion-item *ngIf="formChoice?.payment.invoice.billing_address">
-                <ion-label >
+            <ion-item-group *ngIf="formChoice?.payment.invoice?.billing_address" margin-bottom>
+                <ion-item-divider color="light">
                     Dirección de facturación:
-                </ion-label>
-                <ion-input type="tel" maxlength="10"  clearInput></ion-input>
-            </ion-item>-->
+                </ion-item-divider>
+                <ion-item *ngIf="formChoice?.payment.invoice.billing_address.country">
+                    <ion-label >
+                        País:
+                    </ion-label>
+                    <ion-input type="text" [(ngModel)]="paymentData.billing_addresscountry" formControlName="billing_addresscountry"
+                               clearInput required></ion-input>
+                </ion-item>
 
-            <ion-item *ngIf="formChoice?.payment.invoice.invoice_name">
-                <ion-label >
-                    Nombre:
-                </ion-label>
-                <ion-input type="text" clearInput></ion-input>
-            </ion-item>
+                <ion-item *ngIf="formChoice?.payment.invoice.billing_address.street">
+                    <ion-label >
+                        Calle:
+                    </ion-label>
+                    <ion-input [(ngModel)]="paymentData.billing_addressstreet" formControlName="billing_addressstreet"
+                               type="text" clearInput required></ion-input>
+                </ion-item>
+                <ion-item *ngIf="formChoice?.payment.invoice.billing_address.number">
+                    <ion-label >
+                        N°:
+                    </ion-label>
+                    <ion-input [(ngModel)]="paymentData.billing_addressnumber" formControlName="billing_addressnumber"
+                               type="text" clearInput required></ion-input>
+                </ion-item>
+                <ion-item *ngIf="formChoice?.payment.invoice.billing_address.number">
+                    <ion-label >
+                        Piso:
+                    </ion-label>
+                    <ion-input [(ngModel)]="paymentData.billing_addressfloor" formControlName="billing_addressfloor"
+                               type="text" required clearInput></ion-input>
+                </ion-item>
+                <ion-item *ngIf="formChoice?.payment.invoice.billing_address.number">
+                    <ion-label >
+                        Departamento:
+                    </ion-label>
+                    <ion-input [(ngModel)]="paymentData.billing_addressdepartment" formControlName="billing_addressdepartment"
+                               type="text" clearInput required></ion-input>
+                </ion-item>
+                <ion-item *ngIf="formChoice?.payment.invoice.billing_address.number">
+                    <ion-label >
+                        Cod. postal:
+                    </ion-label>
+                    <ion-input [(ngModel)]="paymentData.billing_addresspostal_code" formControlName="billing_addresspostal_code"
+                               type="text" clearInput required></ion-input>
+                </ion-item>
+                <ion-item *ngIf="formChoice?.payment.invoice.billing_address.state_id">
+                    <ion-searchbar no-margin no-padding
+                                   formControlName="billing_addressstate_id" [(ngModel)]="queryState"
+                                   (ngModelChange)="autocomplete(queryState, 'state')"
+                                   [showCancelButton]="shouldShowCancel"
+                                   (ionInput)="onSearch('state')"
+                                   (ionCancel)="onCancel($event)"
+                                   placeholder="Buscar Provincia">
+                    </ion-searchbar>
+                    <ion-row *ngIf="searchingState">
+                        <ion-col text-center="">
+                            <ion-spinner></ion-spinner>
+                        </ion-col>
+                    </ion-row>
+                    <div *ngIf="queryState?.length > 0">
+                        <button ion-item *ngFor="let state of states" (click)="itemSelected(state, 'state')">
+                            {{state?.description}}
+                        </button>
+                    </div>
+                </ion-item>
+                <ion-item *ngIf="formChoice?.payment.invoice.billing_address.city_id">
+                    <ion-searchbar no-margin no-padding
+                                   formControlName="billing_addresscity_id" [(ngModel)]="queryCity"
+                                   (ngModelChange)="autocomplete(queryCity, 'city')"
+                                   [showCancelButton]="shouldShowCancel"
+                                   (ionInput)="onSearch('city')"
+                                   (ionCancel)="onCancel($event)"
+                                   placeholder="Buscar Ciudad">
+                    </ion-searchbar>
+                    <ion-row *ngIf="searchingCity">
+                        <ion-col text-center="">
+                            <ion-spinner></ion-spinner>
+                        </ion-col>
+                    </ion-row>
+                    <div *ngIf="queryCity?.length > 0">
+                        <button ion-item *ngFor="let city of cities" (click)="itemSelected(city, 'city')">
+                            {{city?.description}}
+                        </button>
+                    </div>
+                </ion-item>
 
-            <ion-item *ngIf="formChoice?.payment.invoice.fiscal_document">
-                <ion-label >
-                    Doc. fiscal:
-                </ion-label>
-                <ion-input type="tel" mask="**-********-*" placeholder="00-00000000-0" maxlength="13" clearInput></ion-input>
-            </ion-item>
+            </ion-item-group>
 
-            <ion-item *ngIf="formChoice?.payment.invoice.tax_status">
-                <ion-label>Situación Fiscal:</ion-label>
-                <ion-select interface="popover">
-                    <ion-option value="FINAL_CONSUMER">Consumidor Final</ion-option>
-                    <ion-option value="REGISTERED">Responsable Inscripto</ion-option>
-                    <ion-option value="EXEMPT">Exento</ion-option>
-                    <ion-option value="MONOTRIBUTO">Monotributo</ion-option>
-                </ion-select>
-            </ion-item>
+            <ion-item-group *ngIf="formChoice?.contact" margin-bottom>
+                <ion-item-divider color="light">
+                    Datos de contacto:
+                </ion-item-divider>
+                <ion-item>
+                    <ion-label>
+                        País:
+                    </ion-label>
+                    <ion-select interface="alert" [(ngModel)]="paymentData.country_code0" formControlName="country_code0">
+                        <ion-option *ngFor="let country of countries" [value]="country[2]">
+                            <span ion-text color="ligth">+{{country[2]}} <b>{{country[0]}}</b></span>
+                        </ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label>
+                        Tipo:
+                    </ion-label>
+                    <ion-select interface="popover" [(ngModel)]="paymentData.type0" formControlName="type0">
+                        <ion-option value="CELULAR">Celular</ion-option>
+                        <ion-option value="HOME">Casa</ion-option>
+                        <ion-option value="WORK">Trabajo</ion-option>
+                        <ion-option value="FAX">Fax</ion-option>
+                        <ion-option value="OTHER">Otro</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label >
+                        Código:
+                    </ion-label>
+                    <ion-input [(ngModel)]="paymentData.area_code0" formControlName="area_code0" required
+                               type="tel" mask="****" maxlength="4" clearInput></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label >
+                        Número:
+                    </ion-label>
+                    <ion-input [(ngModel)]="paymentData.number0" formControlName="number0" required
+                               type="tel" maxlength="10" clearInput></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label >
+                        Email:
+                    </ion-label>
+                    <ion-input [(ngModel)]="paymentData.email" formControlName="email" required
+                               type="email" (focusout)="emailValid()" clearInput></ion-input>
+                </ion-item>
+                <ion-item *ngIf="error.email">
+                    <span ion-text color="danger"><b>{{error.message}}</b></span>
+                </ion-item>
 
-            <!-- if formNewPay.payment.fiscal_document_type is defined  or formNewPay.payment.fiscal_document_prefix_verification_code is defined or formNewPay.payment.entity_type is defined -->
-            <!-- formNewPay.payment.document_issuing_country_code -->
+                <ion-item>
+                    <ion-label >
+                        Confirmar Email:
+                    </ion-label>
+                    <ion-input [(ngModel)]="paymentData.email_confirm" formControlName="email_confirm" required
+                               type="email" (focusout)="emailValid()" clearInput></ion-input>
+                </ion-item>
+                <ion-item *ngIf="error.email_confirm">
+                    <span ion-text color="danger"><b>{{error.message}}</b></span>
+                </ion-item>
+            </ion-item-group>
 
-        </ion-item-group>
+            <ion-item-group *ngIf="formChoice?.vouchers" margin-bottom>
+                <ion-item-divider color="light">
+                    Cupones:
+                </ion-item-divider>
+                <ion-item>
+                    <ion-label >
+                        Cupones:
+                    </ion-label>
+                    <ion-input  type="text" [(ngModel)]="paymentData.vouchers" formControlName="vouchers"></ion-input>
+                </ion-item>
+            </ion-item-group>
 
-        <ion-item-group *ngIf="formChoice?.payment.invoice.billing_address">
-            <ion-item-divider color="light">
-                Dirección de facturación:
-            </ion-item-divider>
+            <ion-item-group *ngIf="formChoice?.additional_data" margin-bottom>
+                <ion-item-divider color="light">
+                    Datos adicionales:
+                </ion-item-divider>
+                <ion-item>
+                    <ion-label>
+                        Comentarios:
+                    </ion-label>
+                    <ion-textarea [(ngModel)]="paymentData.comment" formControlName="comment" autosize></ion-textarea>
+                </ion-item>
+            </ion-item-group>
+        </div>
+        <!--<button ion-button class="round" [disabled]="!formPayment.valid" color="primary" margin-top full (click)="send()">-->
+        <button ion-button class="round" color="primary" margin-top full (click)="send()" [disabled]="!formPayment.valid">Reservar</button>
+        <!--<button ion-button class="round" color="primary" margin-top full (click)="send()" >Reservar</button>-->
+    </form>
 
-            <ion-item *ngIf="formChoice?.payment.invoice.billing_address.country">
-                <ion-label >
-                    País:
-                </ion-label>
-                <ion-input type="text" clearInput></ion-input>
-            </ion-item>
-
-            <ion-item *ngIf="formChoice?.payment.invoice.billing_address.street">
-                <ion-label >
-                    Calle:
-                </ion-label>
-                <ion-input type="text" clearInput></ion-input>
-            </ion-item>
-
-            <ion-item *ngIf="formChoice?.payment.invoice.billing_address.number">
-                <ion-label >
-                    N°:
-                </ion-label>
-                <ion-input type="text" clearInput></ion-input>
-            </ion-item>
-
-
-            <ion-item *ngIf="formChoice?.payment.invoice.billing_address.floor">
-                <ion-label >
-                    Piso:
-                </ion-label>
-                <ion-input type="text" clearInput></ion-input>
-            </ion-item>
-
-            <ion-item *ngIf="formChoice?.payment.invoice.billing_address.postal_code">
-                <ion-label >
-                    Cod postal:
-                </ion-label>
-                <ion-input type="text" clearInput></ion-input>
-            </ion-item>
-
-            <ion-item *ngIf="formChoice?.payment.invoice.billing_address.department">
-                <ion-label >
-                    Departamento:
-                </ion-label>
-                <ion-input type="text" clearInput></ion-input>
-            </ion-item>
-
-            <ion-item *ngIf="formChoice?.payment.invoice.billing_address.state_id">
-                <ion-searchbar no-margin
-                               no-padding
-                               [(ngModel)]="state"
-                               [showCancelButton]="shouldShowCancel"
-                               (ionInput)="onInput($event)"
-                               (ionCancel)="onCancel($event)"
-                               placeholder="Buscar Provincia">
-                </ion-searchbar>
-                <!--<ion-input type="text" clearInput></ion-input>-->
-                <!--<ion-searchbar
-                        no-margin
-                        no-padding
-                        [(ngModel)]="querySearch"
-                        (ngModelChange)="autocomplete(querySearch)"
-                        [showCancelButton]="shouldShowCancel"
-                        (ionInput)="onSearchInput($event)"
-                        (ionInput)="onSearch()"
-                        placeholder="Buscar Destino">
-                </ion-searchbar>-->
-            </ion-item>
-
-            <ion-item *ngIf="formChoice?.payment.invoice.billing_address.city_id">
-                <!--<ion-label >
-                    Ciudad:
-                </ion-label>
-                <ion-input type="text" clearInput></ion-input>-->
-                <ion-searchbar no-margin
-                               no-padding
-                               [(ngModel)]="city"
-                               [showCancelButton]="shouldShowCancel"
-                               (ionInput)="onInput($event)"
-                               (ionCancel)="onCancel($event)"
-                               placeholder="Buscar Ciudad">
-                </ion-searchbar>
-            </ion-item>
-
-        </ion-item-group>
-        <!--<ion-item class="no-border">
-            <ion-icon name="contact" item-left color="dark"></ion-icon>
-            <div>
-                <span class="bold" ion-text color="dark">Guest Details</span>
-                <br/>
-                <span ion-text color="dark">Enter your information</span>
-            </div>
-        </ion-item>-->
-    </div>
-
-    <!--payment info-->
-    <!--<div class="card round" margin-top>
-        <ion-item class="no-border">
-            <ion-icon name="ios-card" item-left color="dark"></ion-icon>
-            <div>
-                <span class="bold" ion-text color="dark">Payment method</span>
-                <br/>
-                <span ion-text color="dark">Enter credit card</span>
-            </div>
-        </ion-item>
-    </div>-->
 
     <!--submit button-->
-    <button ion-button class="round" color="primary" margin-top full (click)="send()">Reservar</button>
+
 </ion-content>

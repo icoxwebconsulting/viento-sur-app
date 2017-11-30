@@ -51,6 +51,8 @@ import {CardsHotelPage} from "../pages/cards-hotel/cards-hotel";
 import { SplitPipe } from '../pipes/split/split';
 import { KeysPipe } from '../pipes/keys/keys';
 import { InputMaskDirective } from '../directives/input-mask/input-mask';
+import { AutosizeDirective } from '../directives/autosize/autosize';
+import {CheckoutHotelCompletePage} from "../pages/checkout-hotel-complete/checkout-hotel-complete";
 
 
 // import services
@@ -80,7 +82,9 @@ import { InputMaskDirective } from '../directives/input-mask/input-mask';
         CardsHotelPage,
         SplitPipe,
         KeysPipe,
-        InputMaskDirective
+        InputMaskDirective,
+        AutosizeDirective,
+        CheckoutHotelCompletePage
     ],
     imports: [
         BrowserModule,
@@ -106,7 +110,8 @@ import { InputMaskDirective } from '../directives/input-mask/input-mask';
         WelcomePage,
         FilterHotelPage,
         SortingHotel,
-        CardsHotelPage
+        CardsHotelPage,
+        CheckoutHotelCompletePage
     ],
     providers: [
         StatusBar,

@@ -51,6 +51,14 @@ export class SearchHotelService {
             .toPromise();
     }
 
+
+    patchHotelBooking(query: any) {
+        // console.log('getHotelsAvailabilitiesId query = ', query);
+        return this.http.patch(this.url+'hotel/booking/', query)
+            .map(res => res.json())
+            .toPromise();
+    }
+
     getCards() {
         // console.log('getHotelsAvailabilitiesId query = ', query);
         return this.http.get(this.url + 'cards')

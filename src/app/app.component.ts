@@ -2,14 +2,15 @@ import {Component, ViewChild} from "@angular/core";
 import {Platform} from "ionic-angular";
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
+import {WelcomePage} from  '../pages/welcome/welcome';
 // import {LoginPage} from "../pages/login/login";
 // import {HomePage} from "../pages/home/home";
 // import {FilterHotelPage} from '../pages/filter-hotel/filter-hotel'
-import {SearchHotelPage} from  '../pages/search-hotel/search-hotel';
-import {HotelPage} from "../pages/hotel/hotel";
-import {WelcomePage} from  '../pages/welcome/welcome';
-import {HotelDetailPage} from  '../pages/hotel-detail/hotel-detail';
-import {CheckoutHotelPage} from "../pages/checkout-hotel/checkout-hotel";
+// import {SearchHotelPage} from  '../pages/search-hotel/search-hotel';
+// import {HotelPage} from "../pages/hotel/hotel";
+// import {HotelDetailPage} from  '../pages/hotel-detail/hotel-detail';
+// import {CheckoutHotelPage} from "../pages/checkout-hotel/checkout-hotel";
+// import {CheckoutHotelCompletePage} from "../pages/checkout-hotel-complete/checkout-hotel-complete";
 
 // import pages
 // end import pages

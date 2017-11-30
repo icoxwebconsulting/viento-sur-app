@@ -16,6 +16,7 @@ import * as moment from "moment";
 export class SearchHotelPage {
     @ViewChild('myNav') nav: NavController;
     // search condition
+    public searchActive = true;
     public searching: any = false;
     public rooms: any;
     public date = moment();
@@ -57,7 +58,7 @@ export class SearchHotelPage {
     }
 
     autocomplete(querySearch: string) {
-        if (this.querySearch.length > 2) {
+        if (this.querySearch.length > 2 && this.searchActive == true) {
             this.autocompleteService.getItems(querySearch)
                 .then(data => {
                     if (data.code == 200) {
@@ -74,6 +75,7 @@ export class SearchHotelPage {
     }
 
     itemSelected(id: any, description: any, hotel_id, latitude, longitude) {
+        this.searchActive = false;
         let splited = id.split('-');
 
         if (splited[0] == 'CITY') {
@@ -139,7 +141,6 @@ export class SearchHotelPage {
                 } else {
                     this.roomsArray = JSON.parse(val);
                 }
-
                 // this.roomsArray = JSON.parse(val);
             });
 
@@ -151,6 +152,19 @@ export class SearchHotelPage {
                     this.destination = arrDest[0].destination;
                 }
             });
+
+        this.dataSearch.getSearchHotels()
+            .then((val) => {
+                if(val != null){
+                    let response = JSON.parse(val);
+                    let searchHotel = response[0];
+                    console.log('searchHotel', searchHotel.checkin_date);
+                    this.search.from = searchHotel.checkin_date;
+                    this.search.to = searchHotel.checkout_date;
+                }else {
+                    console.log('error getSearchHotels')
+                }
+            });
     }
 
     onSearchInput($event) {
@@ -158,11 +172,13 @@ export class SearchHotelPage {
             this.querySearch = null;
             this.destination = null;
             this.dataSearch.removeDestination();
+            console.log('Mouse event');
         }
 
     }
 
     onSearch() {
+        this.searchActive = true;
         if (this.querySearch != null) {
             if (this.querySearch.length < 3) {
                 this.searching = false;

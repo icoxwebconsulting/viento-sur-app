@@ -40,7 +40,7 @@
             <ion-datetime displayFormat="YYYY-MM-DD"
                           pickerFormat="YYYY-MM-DD"
                           [(ngModel)]="search.from"
-                          min="{{search.from}}" max="{{maxDate}}"
+                          min="{{minDate}}" max="{{maxDate}}"
                           (ngModelChange)="changeFromDate(search.from)"
             ></ion-datetime>
         </ion-item>
