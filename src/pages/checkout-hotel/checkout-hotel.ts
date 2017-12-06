@@ -10,6 +10,7 @@ import {GLOBAL} from '../../providers/config';
 import {Cards} from '../../providers/credit-card'
 import {Countries} from '../../providers/countries'
 import * as moment from "moment";
+import {CheckoutHotelCompletePage} from "../checkout-hotel-complete/checkout-hotel-complete";
 
 @Component({
     selector: 'page-checkout-hotel',
@@ -289,13 +290,12 @@ export class CheckoutHotelPage {
                             this.paymentData.owner_gender = "";
                         }
 
-                        console.log('owner_documenttype', typeof(this.formChoice.payment.credit_card.owner_documenttype))
+
                         if( typeof(this.formChoice.payment.credit_card.owner_documenttype) != "undefined"){
                             this.paymentData.owner_documenttype = "LOCAL";
                         }else{
                             this.paymentData.owner_documenttype = "";
                         }
-                        console.log('this.paymentData.owner_documenttype', this.paymentData.owner_documenttype)
 
                         // console.log('formChoice', this.formChoice);
                         console.log('this.hotelDetail', this.hotelDetail);
@@ -596,7 +596,12 @@ export class CheckoutHotelPage {
             cancellation_status: this.hotelDetail.roompack.cancellation_policy.status,
             name_hotel: this.hotelDetail.hotel_name
         };
-        console.log('query',  query);
+        // console.log('query',  query);
+
+        let last_digits = [];
+        if(this.paymentData.number.length > 0){
+            last_digits = this.paymentData.number.split(' ');
+        }
 
         this.loading = this.loadingCtrl.create({
             content: 'Espere...'
@@ -605,12 +610,59 @@ export class CheckoutHotelPage {
         this.loading.present()
             .then(() => {
                 this.searchHotel.patchHotelBooking(query)
-                    .then(data => {
-                        console.log('patchHotelBooking', data);
-                        this.loading.dismiss();
+                    .then(res => {
+                        console.log('patchHotelBooking', res);
 
-                        // back to home page
-                        // this.nav.setRoot(HomePage);
+                        let data = res.data;
+
+                        if(res.code != 200){
+                            this.loading.dismiss();
+                            this.doAlert(data);
+                        }else{
+                            let travelers = [];
+                            for(let i = 0;i < 3;i++){
+                                if(this.guestData[i].first_name != '' ){
+                                    travelers[i] = {
+                                        full_name: this.guestData[i].first_name +' '+ this.guestData[i].last_name,
+                                        first_name: this.guestData[i].first_name,
+                                        last_name: this.guestData[i].last_name,
+                                        document_number: this.guestData[i].document_number
+                                    };
+                                }
+                            };
+
+                            let booking_all_data = {
+                                payment: {
+                                    last_digits: last_digits[3],
+                                    card_code: this.paymentData.card_code,
+                                    selected: this.paymentData.card
+                                },
+                                travelers: travelers,
+                                contact: '+'+this.paymentData.country_code0 + ' ' + this.paymentData.area_code0 + ' ' + this.paymentData.number0
+                            };
+
+                            let destination = {
+                                text: this.hotelDetail.hotel_name,
+                                id: this.hotelDetail.hotel_id
+                            };
+
+                            let saveData = {
+                                price_detail: this.hotelDetail.price_detail,
+                                booking_all_data: booking_all_data,
+                                destination: destination,
+                                booking: data.booking,
+                                hotelDetails: data.hotelDetails,
+                                reservation: data.reservation,
+                                reservationDetails: data.reservationDetails,
+                            };
+                            this.dataSearch.setBookingComplete(saveData);
+
+                            // console.log('saveData', saveData);
+                            this.loading.dismiss();
+
+                            this.nav.push(CheckoutHotelCompletePage)
+                        }
+
                     })
                     .catch(error => {
                         console.error(error);

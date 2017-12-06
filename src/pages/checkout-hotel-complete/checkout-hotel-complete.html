@@ -1,9 +1,3 @@
-<!--
-  Generated template for the CheckoutHotelCompletePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
     <ion-navbar color="primary">
         <ion-title>Reserva Completa</ion-title>
@@ -11,14 +5,179 @@
 
 </ion-header>
 
-
 <ion-content padding class="checkout-hotel common-bg">
     <div class="card round">
-        <div class="border-bottom" padding>
-            <h4 class="success">Su compra se ha realizado satisfactoriamente.</h4>
-            <h4>Se ha enviado un correo con el detalle de su reserva.</h4>
+        <ion-card padding-bottom>
+            <ion-card-header text-wrap class="border-bottom" padding>
+                <span no-margin class="check-span" text-center color="dark">
+                    <b>¡Gracias, {{ booking_all_data?.travelers[0].full_name }} Tu reservación está confirmada!</b>
+                </span>
+            </ion-card-header>
+            <ion-list>
+                <ion-item>
+                    <span ion-text color="dark" class="check-span"><b>Número Reservación: </b></span>
+                    <span ion-text color="primary" class="check-span">{{reservationDetails?.id}}</span>
+                </ion-item>
+                <ion-item>
+                    <span ion-text color="dark" class="check-span"><b>Código ingreso al hotel: </b></span>
+                    <span ion-text color="primary" class="check-span">{{booking?.pnr}}</span>
+                </ion-item>
+            </ion-list>
+        </ion-card>
+
+        <!-- Main picture -->
+        <ion-card padding-bottom>
+            <img src="{{ hotelDetails?.main_picture.url }}" alt="" height="240" width="383">
+        </ion-card>
+        <!-- Map static -->
+        <ion-card>
+            <img src="http://maps.googleapis.com/maps/api/staticmap?center={{hotelDetails?.location.latitude }},{{ hotelDetails?.location.longitude}}&zoom=19&size=493x240&maptype=roadmap&markers=size:mid%7Ccolor:green%7Clabel:H%7C{{hotelDetails?.location.latitude }},{{ hotelDetails?.location.longitude}}" alt="">
+        </ion-card>
+
+        <ion-card>
+            <ion-card-header text-wrap>
+                <span no-margin class="check-span" text-justify color="dark">
+                    <b>{{ hotelDetails?.name }}</b>
+                </span>
+            </ion-card-header>
+        </ion-card>
+        <ion-card padding>
+            <span ion-text color="dark" class="check-span"><b>Coordenadas GPS: </b></span>
+            <br>
+            <span ion-text class="check-span" text-wrap>
+                {{ hotelDetails?.location.latitude }},  {{ hotelDetails?.location.longitude }}
+            </span>
+        </ion-card>
+        <ion-card padding>
+            <span ion-text color="dark" class="check-span"><b>Dirección: </b></span>
+            <span ion-text class="check-span" text-wrap>
+                {{ hotelDetails?.location.address}},  {{ destination?.text }}
+            </span>
+        </ion-card>
+        <ion-card padding>
+            <span ion-text color="dark" class="check-span"><b>CP: </b></span>
+            <span ion-text class="check-span" text-wrap>{{ hotelDetails?.location.zipcode}}</span>
+        </ion-card>
+
+        <ion-card padding *ngIf="reservationDetails?.rooms.length > 0">
+            <span ion-text color="dark" class="check-span"><b>Habitaciones: </b></span>
+            <ul>
+                <li *ngFor="let room of reservationDetails?.rooms">
+                    <span ion-text class="check-span" text-wrap>{{room.descriptions.es}}</span>
+                </li>
+            </ul>
+        </ion-card>
+        <ion-card padding *ngIf="booking_all_data?.travelers">
+            <div *ngFor="let holder of booking_all_data?.travelers; let i = index">
+                <ion-card-header no-padding no-margin>
+                    <span ion-text color="dark" class="check-span" *ngIf="booking_all_data?.travelers.length > 1"><b>Titular de habitación: </b></span>
+                    <span ion-text color="dark" class="check-span" *ngIf="booking_all_data?.travelers.length == 1"><b>Titular de habitación #{{i + 1}}:</b></span>
+                </ion-card-header>
+                <ion-card-content>
+                    <div>
+                        <span ion-text color="dark" class="check-span"><b>Nombre(s): </b></span>
+                        <span ion-text class="check-span" text-wrap>{{holder.first_name}} {{holder.last_name}}</span>
+                    </div>
+                    <div>
+                        <span ion-text color="dark" class="check-span"><b>Doc. de Identidad: </b></span>
+                        <span ion-text class="check-span" text-wrap>{{holder.document_number}}</span>
+                    </div>
+                </ion-card-content>
+            </div>
+
+        </ion-card>
+        <ion-card padding>
+            <span ion-text color="dark" class="check-span"><b>Fecha entrada: </b></span>
+            <span ion-text class="check-span" text-wrap>{{ checkin_date}}</span>
+        </ion-card>
+        <ion-card padding>
+            <span ion-text color="dark" class="check-span"><b>Fecha salida: </b></span>
+            <span ion-text class="check-span" text-wrap>{{ checkout_date}}</span>
+        </ion-card>
+        <ion-card padding>
+            <span ion-text color="dark" class="check-span"><b>Habitaciones: </b></span>
+            <span ion-text class="check-span" text-wrap>{{ reservationDetails?.rooms.length}}</span>
+            <span ion-text color="dark" class="check-span"><b> Noche(s): </b></span>
+            <span ion-text class="check-span" text-wrap>{{ reservationDetails?.night_count}}</span>
+        </ion-card>
+        <ion-card padding>
+            <ion-card-header no-padding>
+                <span ion-text color="dark" class="check-span"><b>Tu grupo: </b></span>
+            </ion-card-header>
+            <ion-card-content>
+                <div *ngFor="let room of reservationDetails?.rooms;let i = index">
+                    <span ion-text color="dark" class="check-span"><b>Habitación #{{i + 1}}: </b></span>
+                    <span ion-text class="check-span" > {{room.adults}} Adulto(s) </span>
+                    <span ion-text class="check-span" *ngIf="room.children > 0"> {{room.adults}} Menor(es) </span>
+                </div>
+            </ion-card-content>
+        </ion-card>
+        <ion-card padding>
+            <div padding-bottom>
+                <span ion-text color="dark" class="check-span"><b>Reservado por: </b></span>
+                <span ion-text class="check-span"> {{reservation?.holder_name}} </span>
+            </div>
+            <div padding-bottom>
+                <span ion-text color="dark" class="check-span"><b>Email: </b></span>
+                <span ion-text class="check-span"> {{reservation?.email}}</span>
+            </div>
+            <div padding-bottom>
+                <span ion-text color="dark" class="check-span"><b>Número: </b></span>
+                <span ion-text class="check-span"> {{booking_all_data?.contact}}</span>
+            </div>
+        </ion-card>
+        <ion-card padding>
+            <div padding-bottom>
+                <span ion-text color="dark" class="check-span"><b>Forma de pago elegida: </b></span>
+                <span ion-text class="check-span"> {{booking_all_data?.payment.selected}} </span>
+            </div>
+            <div padding-bottom>
+                <span ion-text color="dark" class="check-span" text-wrap><b>Su reserva fue cobrada con la tarjeta terminada: </b></span>
+                <span ion-text class="check-span"> {{booking_all_data?.payment.last_digits}}</span>
+            </div>
+            <div padding-bottom>
+                <span ion-text color="dark" class="check-span"><b>Políticas de cancelación: </b></span>
+                <br>
+                <span ion-text class="check-span" text-wrap> {{room_cancellation}}</span>
+            </div>
+        </ion-card>
+        <ion-card padding>
+            <div text-right>
+                <span ion-text color="dark" class="check-span"><b>Habitación por noche: </b></span>
+                <span ion-text class="check-span" >AR$ {{room_per_night | number:'1.2-2'}}</span>
+            </div>
+            <div text-right>
+                <span ion-text color="dark" class="check-span"><b>Impuestos y tasas: </b></span>
+                <span ion-text class="check-span" >AR$ {{taxes_and_rates | number:'1.2-2'}}</span>
+            </div>
+            <div text-right>
+                <span ion-text color="dark" class="check-span"><b>Precio total: </b></span>
+                <span ion-text class="check-span" >AR$ {{total_price | number:'1.2-2'}}</span>
+            </div>
+        </ion-card>
+        <ion-card padding>
+            <div>
+                <span ion-text color="dark" class="check-span"><b>Descripción: </b></span>
+                <p ion-text class="check-span" text-justify> {{hotelDetails?.information.es}}</p>
+            </div>
+        </ion-card>
+        <!--<ion-card padding>
+            <p ion-text class="check-span" text-justify>
+                Tenga en cuenta que su reserva ya se encuentra activa, pero sus datos personales llegarán al hotel 24hs antes de la fecha de ingreso
+            </p>
+            <p ion-text class="check-span" text-justify>
+                Por inconvenientes en destino, contáctenos al +54 351 4877555/444
+            </p>
+            <p ion-text class="check-span" text-justify>
+                Operador Responsable: Viento Sur Operadores Turísticos leg. 10380 Disp. 1295/98
+            </p>
+        </ion-card>-->
+
+        <ion-card padding>
+            <h4 class="success-msg" text-justify>Se ha enviado un correo con el detalle de su reserva.</h4>
             <button ion-button class="round" color="primary" margin-top full (click)="home()">Ir al buscador</button>
-        </div>
+        </ion-card>
+
     </div>
 
 </ion-content>

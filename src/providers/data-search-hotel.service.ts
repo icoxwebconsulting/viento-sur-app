@@ -94,4 +94,16 @@ export class DataSearchHotelService {
         this.storage.remove("bookingDetail").then(() => {});
     }
 
+    setBookingComplete(query){
+        this.storage.set('bookingComplete', JSON.stringify(query));
+    }
+
+    getBookingComplete() {
+        return this.storage.get('bookingComplete');
+    }
+
+    removeBookingComplete() {
+        this.storage.remove("bookingComplete").then(() => {});
+    }
+
 }

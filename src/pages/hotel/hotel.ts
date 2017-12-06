@@ -102,6 +102,7 @@ export class HotelPage {
                 .catch(error => {
                     console.error(error);
                     this.loading.dismiss();
+                    this.navBack();
                 })
         })
 
@@ -266,11 +267,14 @@ export class HotelPage {
                     })
                     .catch(error => {
                         console.error(error);
+                        this.navBack();
                         // loading.dismiss();
+
                     })
             })
             .catch(error => {
                 console.error(error);
+                this.navBack();
             })
 
     }
