@@ -1,7 +1,6 @@
 import {Component} from "@angular/core";
 import {NavController, Platform, LoadingController, Modal, ModalController, ModalOptions} from "ionic-angular";
 import {HotelService} from "../../services/hotel-service";
-import {ReviewsPage} from "../reviews/reviews";
 import {CheckoutHotelPage} from "../checkout-hotel/checkout-hotel";
 import {DataSearchHotelService} from "../../providers/data-search-hotel.service";
 import {SearchHotelService} from '../../services/search-hotel.service'
@@ -202,11 +201,6 @@ export class HotelDetailPage {
         }
 
         room.active = true;
-    }
-
-    // go to reviews page
-    viewReviews() {
-        this.nav.push(ReviewsPage);
     }
 
     // go to checkout page

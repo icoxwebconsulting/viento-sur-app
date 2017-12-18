@@ -1,5 +1,5 @@
 import {Component, ViewChild} from "@angular/core";
-import {NavController, AlertController, LoadingController} from "ionic-angular";
+import {NavController, AlertController} from "ionic-angular";
 // import {SearchLocationPage} from "../search-location/search-location";
 import {FilterGuestPage} from "../filter-guest/filter-guest";
 import {HotelPage} from "../hotel/hotel";

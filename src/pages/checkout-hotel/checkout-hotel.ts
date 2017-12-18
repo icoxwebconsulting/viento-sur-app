@@ -1,8 +1,7 @@
 import {Component} from "@angular/core";
-import {FormBuilder, FormGroup, Validators} from '@angular/forms'
+import {FormBuilder, FormGroup} from '@angular/forms'
 import {LoadingController, NavController, AlertController} from "ionic-angular";
 import {HotelService} from "../../services/hotel-service";
-import {HomePage} from "../home/home";
 import {DataSearchHotelService} from "../../providers/data-search-hotel.service";
 import {SearchHotelService} from "../../services/search-hotel.service";
 import {AutocompleteService} from '../../services/autocomplete-service';

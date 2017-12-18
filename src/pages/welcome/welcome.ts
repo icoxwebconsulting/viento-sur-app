@@ -1,7 +1,6 @@
 import {Component} from "@angular/core";
 import {NavController} from "ionic-angular";
 import {HomePage} from "../home/home";
-import {RegisterPage} from "../register/register";
 import {SearchHotelPage} from "../search-hotel/search-hotel"
 
 
@@ -24,12 +23,7 @@ export class WelcomePage {
     ionViewDidLoad(){
       console.log('WelcomePage');
     }
-
-  // go to register page
-  register() {
-    this.navCtrl.setRoot(RegisterPage);
-  }
-
+    
   // login and go to home page
   login() {
     this.navCtrl.setRoot(HomePage);
